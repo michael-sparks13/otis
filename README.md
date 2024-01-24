@@ -20,7 +20,7 @@ One pro of dealing with a lot of complicated weather data is that there are coun
 ### Archive
 [Sea Surface Temp & SST Anamoly](https://podaac.jpl.nasa.gov/dataset/MUR-JPL-L4-GLOB-v4.1#)
 - This data is in raster format. Each day's files covers the entire world and, consequently, the files are huge. I'd like to write a script that utilizies the GDAL "clip raster by extent" tool so I can automate this. I could do it manually in QGIS but that isn't as fun. 
-
+- [this](https://mhinfographics.com/2023/01/06/tutorial-visualizing-global-temperature-step-by-step/) might be an interesting way to show it?
 
 15 days worth of [5 day forecasts](https://www.nhc.noaa.gov/gis/archive_forecast_results.php?id=ep18&year=2023&name=Hurricane%20OTIS)
 - This will be great for showing how the forecast changed over time

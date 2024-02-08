@@ -9,11 +9,15 @@ Most tragically, the officially reported death toll stands at over 50, with at l
 
 In today's already-warmed climate, storms are not just becoming more intense. They are becoming more intense, **faster**. By using Hurricane Otis as a case study, we can begin to understand why the storm intensified so quickly, what city leaders can do to better prepare, and even how to recover faster. 
 
-This project [does something]... 
+ 
+
+on oct 24, went from TS to Cat5
+
+
 
 
 ## Data
-== status as of 1/23 ==
+
 
 One pro of dealing with a lot of complicated weather data is that there are countless agencies collecting and cleaning this data. Thankfully, I *think* I have much of what I need. At least, I know how to access it, even if it isn't in the exact format I need right now. 
 
@@ -21,6 +25,19 @@ One pro of dealing with a lot of complicated weather data is that there are coun
 [Sea Surface Temp & SST Anamoly](https://podaac.jpl.nasa.gov/dataset/MUR-JPL-L4-GLOB-v4.1#)
 - This data is in raster format. Each day's files covers the entire world and, consequently, the files are huge. I'd like to write a script that utilizies the GDAL "clip raster by extent" tool so I can automate this. I could do it manually in QGIS but that isn't as fun. 
 - [this](https://mhinfographics.com/2023/01/06/tutorial-visualizing-global-temperature-step-by-step/) might be an interesting way to show it?
+
+>>SST, need to clip raster by extent in QGIS and then color 
+>>need to make sure all images have the same scale... is there a way to do this other than checking each layer manually?
+>>need to convert to farenheit
+>>and then export as rendered image
+
+# Raster Questions
+1. can i combine the multiple days into a single raster, even though it covers the same extent? i.e. can you combine rasters on the temporal dimension?
+^^ figure that out first
+2. create single temp scale:
+- find an existing one
+- any changes to hue or blend mode etc?
+
 
 15 days worth of [5 day forecasts](https://www.nhc.noaa.gov/gis/archive_forecast_results.php?id=ep18&year=2023&name=Hurricane%20OTIS)
 - This will be great for showing how the forecast changed over time
@@ -45,13 +62,16 @@ https://en.wikipedia.org/wiki/Hurricane_Otis
 [Open Street Map](https://www.openstreetmap.org/#map=14/16.8503/-99.8516)
 - OSM has high coverage of Acapulco. I'd like to try using this to, in whatever way, show a before and after of buildings damaged. The Humanitarian Open Street Map completed a project after Otis, marking which buildings were damaged. That info is available with the feature query tool on the website ([example](https://www.openstreetmap.org/way/1223889847)) so hopefully I can grab it in my own queries, just need to figure that part out. 
 
+- Landslides? 
 
+- combined shapefiles into one geojson using geojson.io
+- used QGIS field calculator to create mph
 
 ### Next to do 
 
-- [ ] format best track & wind speed into geoJson
+- [x] format best track & wind speed into geoJson
 - [ ] decide how best to format & store the 15 days worth of 5 day forecasts
-- [ ] write script to clip SST raster data
+- [x] write script to clip SST raster data
 - [ ] query open street map for damaged building information
 - [ ] continue searching for satellite imagery
 
@@ -84,3 +104,25 @@ https://www.usatoday.com/pages/interactives/storm-tracker/
 https://en.wikipedia.org/wiki/Hurricane_Otis	
 
 over 350: https://mexiconewsdaily.com/news/news-outlet-in-acapulco-says-real-hurricane-death-toll-is-over-350/
+
+
+## Scrollytelling examples
+
+
+## Product Documents
+https://docs.google.com/document/d/1WaK-PbLPVAWRV1UYZs48VkjoPQ9TkCIjxpP0T2TBLrY/edit?usp=sharing
+[Original](/product_docs) ideas and sketches
+
+
+### Next to do design wise
+- [ ] list all design changes to make to mapbox style
+- [ ] separate out the css file
+- [ ] find drone footage you can acually use
+- [ ] use illustrator to make higher fidelity wireframes
+- [ ] make sure you can get geojson into template (look at examples)
+- [ ] OSM wiki for hospitals and medical buildings
+- [ ] make sure all questions for Rich are asked / answered
+- [ ] update 
+
+
+satellite: https://map.openaerialmap.org/#/-99.89593505859375,16.875518705107428,14/square/0233102233130130?_k=zarsyp

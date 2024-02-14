@@ -3,9 +3,8 @@
 
 <head>
     <title>Hurricane Otis</title>
-    <meta property="og:description"
-        content="Digital Mapping Master's Degree Capstone: Exploration of Hurricane Otis
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="Digital Mapping Master's Degree Capstone: Exploration of Hurricane Otis
+    <meta name=" viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.css' />
     <script src='https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js'></script>
     <style>
@@ -21,32 +20,31 @@
         }
 
         #slider {
-      width: 80%;
-      margin: 20px auto;
-    }
+            width: 80%;
+            margin: 20px auto;
+        }
 
-     .map-overlay {
-        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-        position: absolute;
-        width: 25%;
-        bottom: 0;
-        right: 0;
-        padding: 10px;
-        background-color: #fff;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        border-radius: 3px;
-        padding: 10px;
-        margin-bottom: 10px;
-    }
-
+        .map-overlay {
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            position: absolute;
+            width: 25%;
+            bottom: 0;
+            right: 0;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 
 <body>
     <div id="map"></div>
-    
+
     <div class="map-overlay">
-        <h2>Five Day Forecast by Day</h2>
+        <h2 id="slider-title">5 Day Forecast on 10:00 AM Sun Oct 22</h2>
         <label id="month"></label>
         <input id="slider" type="range" min="0" max="23" step="1" value="0" />
     </div>
@@ -64,32 +62,61 @@
             zoom: 5
         });
 
-        
 
-        fetch("data/forecasts/forecasts.geojson")
-                .then(function (response) {
-                    return response.json();
-                })
-                .then(function (forecasts) {
-                    createForecastSliderMap(forecasts);
-                })
+
+        fetch("data/forecasts/cones.geojson")
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (cones) {
+                createForecastSliderMap(cones);
+
+                return fetch("data/forecasts/lines.geojson")
+            })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (lines) {
+                createLinesMap(lines);
+            })
                 .catch(function (error) {
                     console.log(error);
                 });
 
-
-                //need to add forecast line to go with cone of uncertainty
-        function createForecastSliderMap(forecasts) {
-
-            map.addSource('forecasts', {
+        function createLinesMap(lines) {
+            map.addSource('lines', {
                 'type': 'geojson',
-                'data': forecasts
+                'data': lines
             });
-        
+
             map.addLayer({
-                'id': 'forecasts',
+                'id': 'lines',
+                'type': 'line',
+                'source': 'lines',
+                'layout': {
+                    'line-join': 'round',
+                    'line-cap': 'round'
+                },
+                'paint': {
+                    'line-color': '#888',
+                    'line-width': 8
+                },
+                'filter': ['==', 'ADVISNUM', "1"]
+            });
+        }
+
+        //need to add forecast line to go with cone of uncertainty
+        function createForecastSliderMap(cones) {
+
+            map.addSource('cones', {
+                'type': 'geojson',
+                'data': cones
+            });
+
+            map.addLayer({
+                'id': 'cones',
                 'type': 'fill',
-                'source': 'forecasts',
+                'source': 'cones',
                 'paint': {
                     'fill-color': '#FF0000',
                     'fill-opacity': 0.7
@@ -100,15 +127,26 @@
             // console.log('advisory number', advisNum)
 
             slider.addEventListener('input', (e) => {
-                let advisCount = e.target.value;
-                let advisNum = forecasts['features'][advisCount]['properties']['ADVISNUM'];
 
-                map.setFilter('forecasts', ['==', 'ADVISNUM', advisNum]);
+                let advisCount = e.target.value;
+                let advisNum = cones['features'][advisCount]['properties']['ADVISNUM'];
+                let advisDate = cones['features'][advisCount]['properties']['ADVDATE'];
+                advisDate = advisDate.replace('2023', '')
+                advisDate = advisDate.replace('CDT', '')
+                let colon = advisDate.indexOf('00')
+                //fix this because it grabs "10" unintentionally
+                advisDate = advisDate.slice(0, colon) + ":" + advisDate.slice(colon);
+
+                map.setFilter('cones', ['==', 'ADVISNUM', advisNum]);
+                map.setFilter('lines', ['==', 'ADVISNUM', advisNum]);
+
+                document.getElementById('slider-title').innerText = `5 Day Forecast on ${advisDate}`;
+
             })
 
         }
 
-        
+
 
         //load besttrack lines
         // map.on('load', () => {
@@ -132,7 +170,7 @@
         // });
 
 
-        
+
     </script>
 </body>
 

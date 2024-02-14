@@ -99,7 +99,7 @@
             // console.log('advisory', advisCount)
             // console.log('advisory number', advisNum)
 
-            slider.addEventListener('change', (e) => {
+            slider.addEventListener('input', (e) => {
                 let advisCount = e.target.value;
                 let advisNum = forecasts['features'][advisCount]['properties']['ADVISNUM'];
 

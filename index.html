@@ -48,10 +48,14 @@
     <div class="map-overlay">
         <h2>Five Day Forecast by Day</h2>
         <label id="month"></label>
-        <input id="slider" type="range" min="0" max="14" step="1" value="0" />
+        <input id="slider" type="range" min="0" max="23" step="1" value="0" />
     </div>
 
     <script>
+
+        const slider = document.getElementById('slider');
+        //let advisNum = "1";
+
         const map = new maplibregl.Map({
             container: 'map',
             style:
@@ -66,18 +70,22 @@
                 .then(function (response) {
                     return response.json();
                 })
-                .then(function (data) {
-                    createForecastSliderMap(data);
+                .then(function (forecasts) {
+                    createForecastSliderMap(forecasts);
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
 
+
+                //need to add forecast line to go with cone of uncertainty
         function createForecastSliderMap(forecasts) {
+
             map.addSource('forecasts', {
                 'type': 'geojson',
-                'data': "data/forecasts/forecasts.geojson"
+                'data': forecasts
             });
+        
             map.addLayer({
                 'id': 'forecasts',
                 'type': 'fill',
@@ -85,8 +93,18 @@
                 'paint': {
                     'fill-color': '#FF0000',
                     'fill-opacity': 0.7
-                }
+                },
+                'filter': ['==', 'ADVISNUM', "1"]
             });
+            // console.log('advisory', advisCount)
+            // console.log('advisory number', advisNum)
+
+            slider.addEventListener('change', (e) => {
+                let advisCount = e.target.value;
+                let advisNum = forecasts['features'][advisCount]['properties']['ADVISNUM'];
+
+                map.setFilter('forecasts', ['==', 'ADVISNUM', advisNum]);
+            })
 
         }
 

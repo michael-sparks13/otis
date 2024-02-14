@@ -1,0 +1,571 @@
+{
+  "type": "FeatureCollection",
+  "name": "points",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "GENESIS029",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 17.0,
+        "HHMM": "1800",
+        "STORMTYPE": "DB",
+        "INTENSITY": 15.0,
+        "SS": 0.0,
+        "LAT": 8.1,
+        "LON": -93.0,
+        "wind_speed_mph": 17.2617
+      },
+      "geometry": { "type": "Point", "coordinates": [-93.0, 8.1] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "GENESIS029",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 18.0,
+        "HHMM": "0000",
+        "STORMTYPE": "DB",
+        "INTENSITY": 15.0,
+        "SS": 0.0,
+        "LAT": 8.1,
+        "LON": -93.2,
+        "wind_speed_mph": 17.2617
+      },
+      "geometry": { "type": "Point", "coordinates": [-93.2, 8.1] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "GENESIS029",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 18.0,
+        "HHMM": "0600",
+        "STORMTYPE": "DB",
+        "INTENSITY": 15.0,
+        "SS": 0.0,
+        "LAT": 8.1,
+        "LON": -93.4,
+        "wind_speed_mph": 17.2617
+      },
+      "geometry": { "type": "Point", "coordinates": [-93.4, 8.1] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "GENESIS029",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 18.0,
+        "HHMM": "1200",
+        "STORMTYPE": "DB",
+        "INTENSITY": 20.0,
+        "SS": 0.0,
+        "LAT": 8.2,
+        "LON": -93.6,
+        "wind_speed_mph": 23.0156
+      },
+      "geometry": { "type": "Point", "coordinates": [-93.6, 8.2] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "INVEST",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 18.0,
+        "HHMM": "1800",
+        "STORMTYPE": "DB",
+        "INTENSITY": 20.0,
+        "SS": 0.0,
+        "LAT": 8.2,
+        "LON": -93.8,
+        "wind_speed_mph": 23.0156
+      },
+      "geometry": { "type": "Point", "coordinates": [-93.8, 8.2] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "INVEST",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 19.0,
+        "HHMM": "0000",
+        "STORMTYPE": "DB",
+        "INTENSITY": 20.0,
+        "SS": 0.0,
+        "LAT": 8.2,
+        "LON": -94.0,
+        "wind_speed_mph": 23.0156
+      },
+      "geometry": { "type": "Point", "coordinates": [-94.0, 8.2] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "INVEST",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 19.0,
+        "HHMM": "0600",
+        "STORMTYPE": "DB",
+        "INTENSITY": 20.0,
+        "SS": 0.0,
+        "LAT": 8.2,
+        "LON": -94.2,
+        "wind_speed_mph": 23.0156
+      },
+      "geometry": { "type": "Point", "coordinates": [-94.2, 8.2] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "INVEST",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 19.0,
+        "HHMM": "1200",
+        "STORMTYPE": "DB",
+        "INTENSITY": 25.0,
+        "SS": 0.0,
+        "LAT": 8.3,
+        "LON": -94.5,
+        "wind_speed_mph": 28.7695
+      },
+      "geometry": { "type": "Point", "coordinates": [-94.5, 8.3] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "INVEST",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 19.0,
+        "HHMM": "1800",
+        "STORMTYPE": "DB",
+        "INTENSITY": 25.0,
+        "SS": 0.0,
+        "LAT": 8.4,
+        "LON": -94.7,
+        "wind_speed_mph": 28.7695
+      },
+      "geometry": { "type": "Point", "coordinates": [-94.7, 8.4] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "INVEST",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 20.0,
+        "HHMM": "0000",
+        "STORMTYPE": "DB",
+        "INTENSITY": 25.0,
+        "SS": 0.0,
+        "LAT": 8.5,
+        "LON": -94.9,
+        "wind_speed_mph": 28.7695
+      },
+      "geometry": { "type": "Point", "coordinates": [-94.9, 8.5] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "INVEST",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 20.0,
+        "HHMM": "0600",
+        "STORMTYPE": "DB",
+        "INTENSITY": 25.0,
+        "SS": 0.0,
+        "LAT": 8.6,
+        "LON": -95.1,
+        "wind_speed_mph": 28.7695
+      },
+      "geometry": { "type": "Point", "coordinates": [-95.1, 8.6] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "INVEST",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 20.0,
+        "HHMM": "1200",
+        "STORMTYPE": "DB",
+        "INTENSITY": 25.0,
+        "SS": 0.0,
+        "LAT": 8.7,
+        "LON": -95.3,
+        "wind_speed_mph": 28.7695
+      },
+      "geometry": { "type": "Point", "coordinates": [-95.3, 8.7] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "INVEST",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 20.0,
+        "HHMM": "1800",
+        "STORMTYPE": "DB",
+        "INTENSITY": 25.0,
+        "SS": 0.0,
+        "LAT": 9.0,
+        "LON": -95.6,
+        "wind_speed_mph": 28.7695
+      },
+      "geometry": { "type": "Point", "coordinates": [-95.6, 9.0] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "INVEST",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 21.0,
+        "HHMM": "0000",
+        "STORMTYPE": "DB",
+        "INTENSITY": 25.0,
+        "SS": 0.0,
+        "LAT": 9.3,
+        "LON": -95.8,
+        "wind_speed_mph": 28.7695
+      },
+      "geometry": { "type": "Point", "coordinates": [-95.8, 9.3] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "INVEST",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 21.0,
+        "HHMM": "0600",
+        "STORMTYPE": "DB",
+        "INTENSITY": 25.0,
+        "SS": 0.0,
+        "LAT": 9.6,
+        "LON": -96.2,
+        "wind_speed_mph": 28.7695
+      },
+      "geometry": { "type": "Point", "coordinates": [-96.2, 9.6] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "INVEST",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 21.0,
+        "HHMM": "1200",
+        "STORMTYPE": "LO",
+        "INTENSITY": 25.0,
+        "SS": 0.0,
+        "LAT": 9.6,
+        "LON": -96.5,
+        "wind_speed_mph": 28.7695
+      },
+      "geometry": { "type": "Point", "coordinates": [-96.5, 9.6] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "INVEST",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 21.0,
+        "HHMM": "1800",
+        "STORMTYPE": "LO",
+        "INTENSITY": 25.0,
+        "SS": 0.0,
+        "LAT": 9.5,
+        "LON": -96.8,
+        "wind_speed_mph": 28.7695
+      },
+      "geometry": { "type": "Point", "coordinates": [-96.8, 9.5] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "INVEST",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 22.0,
+        "HHMM": "0000",
+        "STORMTYPE": "LO",
+        "INTENSITY": 25.0,
+        "SS": 0.0,
+        "LAT": 9.5,
+        "LON": -96.8,
+        "wind_speed_mph": 28.7695
+      },
+      "geometry": { "type": "Point", "coordinates": [-96.8, 9.5] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "INVEST",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 22.0,
+        "HHMM": "0600",
+        "STORMTYPE": "LO",
+        "INTENSITY": 25.0,
+        "SS": 0.0,
+        "LAT": 9.5,
+        "LON": -96.5,
+        "wind_speed_mph": 28.7695
+      },
+      "geometry": { "type": "Point", "coordinates": [-96.5, 9.5] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "EIGHTEEN",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 22.0,
+        "HHMM": "1200",
+        "STORMTYPE": "TD",
+        "INTENSITY": 30.0,
+        "SS": 0.0,
+        "LAT": 9.8,
+        "LON": -96.7,
+        "wind_speed_mph": 34.5234
+      },
+      "geometry": { "type": "Point", "coordinates": [-96.7, 9.8] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "OTIS",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 22.0,
+        "HHMM": "1800",
+        "STORMTYPE": "TS",
+        "INTENSITY": 35.0,
+        "SS": 0.0,
+        "LAT": 10.2,
+        "LON": -96.9,
+        "wind_speed_mph": 40.2773
+      },
+      "geometry": { "type": "Point", "coordinates": [-96.9, 10.2] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "OTIS",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 23.0,
+        "HHMM": "0000",
+        "STORMTYPE": "TS",
+        "INTENSITY": 35.0,
+        "SS": 0.0,
+        "LAT": 10.7,
+        "LON": -97.1,
+        "wind_speed_mph": 40.2773
+      },
+      "geometry": { "type": "Point", "coordinates": [-97.1, 10.7] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "OTIS",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 23.0,
+        "HHMM": "0600",
+        "STORMTYPE": "TS",
+        "INTENSITY": 35.0,
+        "SS": 0.0,
+        "LAT": 11.2,
+        "LON": -97.1,
+        "wind_speed_mph": 40.2773
+      },
+      "geometry": { "type": "Point", "coordinates": [-97.1, 11.2] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "OTIS",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 23.0,
+        "HHMM": "1200",
+        "STORMTYPE": "TS",
+        "INTENSITY": 40.0,
+        "SS": 0.0,
+        "LAT": 11.7,
+        "LON": -97.4,
+        "wind_speed_mph": 46.0312
+      },
+      "geometry": { "type": "Point", "coordinates": [-97.4, 11.7] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "OTIS",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 23.0,
+        "HHMM": "1800",
+        "STORMTYPE": "TS",
+        "INTENSITY": 45.0,
+        "SS": 0.0,
+        "LAT": 12.6,
+        "LON": -97.5,
+        "wind_speed_mph": 51.7851
+      },
+      "geometry": { "type": "Point", "coordinates": [-97.5, 12.6] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "OTIS",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 24.0,
+        "HHMM": "0000",
+        "STORMTYPE": "TS",
+        "INTENSITY": 50.0,
+        "SS": 0.0,
+        "LAT": 13.3,
+        "LON": -98.0,
+        "wind_speed_mph": 57.539
+      },
+      "geometry": { "type": "Point", "coordinates": [-98.0, 13.3] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "OTIS",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 24.0,
+        "HHMM": "0600",
+        "STORMTYPE": "TS",
+        "INTENSITY": 55.0,
+        "SS": 0.0,
+        "LAT": 13.8,
+        "LON": -98.5,
+        "wind_speed_mph": 63.2929
+      },
+      "geometry": { "type": "Point", "coordinates": [-98.5, 13.8] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "OTIS",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 24.0,
+        "HHMM": "1200",
+        "STORMTYPE": "HU",
+        "INTENSITY": 65.0,
+        "SS": 1.0,
+        "LAT": 14.3,
+        "LON": -99.0,
+        "wind_speed_mph": 74.8007
+      },
+      "geometry": { "type": "Point", "coordinates": [-99.0, 14.3] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "OTIS",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 24.0,
+        "HHMM": "1800",
+        "STORMTYPE": "HU",
+        "INTENSITY": 100.0,
+        "SS": 3.0,
+        "LAT": 14.9,
+        "LON": -99.3,
+        "wind_speed_mph": 115.078
+      },
+      "geometry": { "type": "Point", "coordinates": [-99.3, 14.9] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "OTIS",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 25.0,
+        "HHMM": "0000",
+        "STORMTYPE": "HU",
+        "INTENSITY": 125.0,
+        "SS": 4.0,
+        "LAT": 15.7,
+        "LON": -99.6,
+        "wind_speed_mph": 143.8475
+      },
+      "geometry": { "type": "Point", "coordinates": [-99.6, 15.7] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "OTIS",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 25.0,
+        "HHMM": "0600",
+        "STORMTYPE": "HU",
+        "INTENSITY": 145.0,
+        "SS": 5.0,
+        "LAT": 16.7,
+        "LON": -99.9,
+        "wind_speed_mph": 166.8631
+      },
+      "geometry": { "type": "Point", "coordinates": [-99.9, 16.7] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "OTIS",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 25.0,
+        "HHMM": "1200",
+        "STORMTYPE": "HU",
+        "INTENSITY": 95.0,
+        "SS": 2.0,
+        "LAT": 17.8,
+        "LON": -100.4,
+        "wind_speed_mph": 109.3241
+      },
+      "geometry": { "type": "Point", "coordinates": [-100.4, 17.8] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "STORMNAME": "OTIS",
+        "YEAR": 2023.0,
+        "MONTH": "10",
+        "DAY": 25.0,
+        "HHMM": "1800",
+        "STORMTYPE": "TS",
+        "INTENSITY": 45.0,
+        "SS": 0.0,
+        "LAT": 18.7,
+        "LON": -100.7,
+        "wind_speed_mph": 51.7851
+      },
+      "geometry": { "type": "Point", "coordinates": [-100.7, 18.7] }
+    }
+  ]
+}

@@ -1,94 +1,10 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hurricane Otis</title>
-    <script src='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.js'></script>
-    <link href='https://unpkg.com/maplibre-gl@latest/dist/maplibre-gl.css' rel='stylesheet' />
-    <style>
-        #map {
-            height: 100%;
-        }
-    </style>
-</head>
-
-<body>
-
-    <div id="map"></div>
-
-
-    <script>
-
-     var map = new maplibregl.Map({
-            container: 'map',
-            style: 'https://demotiles.maplibre.org/style.json', // stylesheet location
-            center: [-74.5, 40], // starting position [lng, lat]
-            zoom: 9 // starting zoom
-        });
-
-
-        // map.on('load', () => {
-        //     map.addSource('btlines', {
-        //         type: 'geojson',
-        //         data: 'data/best_track/lines.geojson'
-        //     });
-
-        //     map.addLayer({
-        //         id: 'btlines',
-        //         type: 'line',
-        //         source: 'btlines',
-        //         layout: {
-        //             'line-join': 'round',
-        //             'line-cap': 'round'
-        //         },
-        //         paint: {
-        //             'line-color': '#888',
-        //             'line-width': 4
-        //         }
-        //     });
-        // })
-        // // Load GeoJSON from external file
-        // fetch('data/best_track/lines.geojson')
-        //     .then(response => response.json())
-        //     .then(geojson => {
-        //         // Add GeoJSON as a source
-        //         map.addSource('btlines', {
-        //             type: 'geojson',
-        //             data: geojson
-        //         });
-
-        //         // Add a layer to display the GeoJSON line
-        //         map.addLayer({
-        //             id: 'btlines',
-        //             type: 'line',
-        //             source: 'btlines',
-        //             layout: {
-        //                 'line-join': 'round',
-        //                 'line-cap': 'round'
-        //             },
-        //             paint: {
-        //                 'line-color': '#888',
-        //                 'line-width': 4
-        //             }
-        //         });
-        //     })
-        //     .catch(error => console.error('Error loading GeoJSON:', error));
-    </script>
-
-</body>
-
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Add a GeoJSON line</title>
+    <title>Hurricane Otis</title>
     <meta property="og:description"
-        content="Add a GeoJSON line to a map using addSource, then style it using addLayer’s paint properties." />
-    <meta charset='utf-8'>
+        content="Digital Mapping Master's Degree Capstone: Exploration of Hurricane Otis
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.css' />
     <script src='https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js'></script>
@@ -103,39 +19,102 @@
         #map {
             height: 100%;
         }
+
+        #slider {
+      width: 80%;
+      margin: 20px auto;
+    }
+
+     .map-overlay {
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        position: absolute;
+        width: 25%;
+        bottom: 0;
+        right: 0;
+        padding: 10px;
+        background-color: #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
     </style>
 </head>
 
 <body>
     <div id="map"></div>
+    
+    <div class="map-overlay">
+        <h2>Five Day Forecast by Day</h2>
+        <label id="month"></label>
+        <input id="slider" type="range" min="0" max="14" step="1" value="0" />
+    </div>
+
     <script>
         const map = new maplibregl.Map({
             container: 'map',
             style:
                 'https://api.maptiler.com/maps/streets/style.json?key=R5Js2wLegZ6GMYd5iN2E',
-            center: [-99.86562013617491, 16.867242923198695],
-            zoom: 10
+            center: [-99.86562013617491, 13.867242923198695],
+            zoom: 5
         });
 
-        map.on('load', () => {
-            map.addSource('btlines', {
+        
+
+        fetch("data/forecasts/forecasts.geojson")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    createForecastSliderMap(data);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+
+        function createForecastSliderMap(forecasts) {
+            map.addSource('forecasts', {
                 'type': 'geojson',
-                'data': "data/best_track/lines.geojson"
+                'data': "data/forecasts/forecasts.geojson"
             });
             map.addLayer({
-                'id': 'btlines',
-                'type': 'line',
-                'source': 'btlines',
-                'layout': {
-                    'line-join': 'round',
-                    'line-cap': 'round'
-                },
+                'id': 'forecasts',
+                'type': 'fill',
+                'source': 'forecasts',
                 'paint': {
-                    'line-color': '#888',
-                    'line-width': 8
+                    'fill-color': '#FF0000',
+                    'fill-opacity': 0.7
                 }
             });
-        });
+
+        }
+
+        
+
+        //load besttrack lines
+        // map.on('load', () => {
+        //     map.addSource('btlines', {
+        //         'type': 'geojson',
+        //         'data': "data/best_track/lines.geojson"
+        //     });
+        //     map.addLayer({
+        //         'id': 'btlines',
+        //         'type': 'line',
+        //         'source': 'btlines',
+        //         'layout': {
+        //             'line-join': 'round',
+        //             'line-cap': 'round'
+        //         },
+        //         'paint': {
+        //             'line-color': '#888',
+        //             'line-width': 8
+        //         }
+        //     });
+        // });
+
+
+        
     </script>
 </body>
 

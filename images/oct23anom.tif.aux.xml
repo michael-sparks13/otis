@@ -1,0 +1,104 @@
+<PAMDataset>
+  <Metadata>
+    <MDI key="lat#axis">Y</MDI>
+    <MDI key="lat#comment">geolocations inherited from the input data without correction</MDI>
+    <MDI key="lat#long_name">latitude</MDI>
+    <MDI key="lat#standard_name">latitude</MDI>
+    <MDI key="lat#units">degrees_north</MDI>
+    <MDI key="lat#valid_max">90</MDI>
+    <MDI key="lat#valid_min">-90</MDI>
+    <MDI key="lon#axis">X</MDI>
+    <MDI key="lon#comment">geolocations inherited from the input data without correction</MDI>
+    <MDI key="lon#long_name">longitude</MDI>
+    <MDI key="lon#standard_name">longitude</MDI>
+    <MDI key="lon#units">degrees_east</MDI>
+    <MDI key="lon#valid_max">180</MDI>
+    <MDI key="lon#valid_min">-180</MDI>
+    <MDI key="NC_GLOBAL#acknowledgment">Please acknowledge the use of these data with the following statement:  These data were provided by JPL under support by NASA MEaSUREs program.</MDI>
+    <MDI key="NC_GLOBAL#cdm_data_type">grid</MDI>
+    <MDI key="NC_GLOBAL#comment">MUR = "Multi-scale Ultra-high Resolution"</MDI>
+    <MDI key="NC_GLOBAL#Conventions">CF-1.7</MDI>
+    <MDI key="NC_GLOBAL#creator_email">ghrsst@podaac.jpl.nasa.gov</MDI>
+    <MDI key="NC_GLOBAL#creator_name">JPL MUR SST project</MDI>
+    <MDI key="NC_GLOBAL#creator_url">http://mur.jpl.nasa.gov</MDI>
+    <MDI key="NC_GLOBAL#date_created">20231102T071828Z</MDI>
+    <MDI key="NC_GLOBAL#easternmost_longitude">180</MDI>
+    <MDI key="NC_GLOBAL#file_quality_level">3</MDI>
+    <MDI key="NC_GLOBAL#gds_version_id">2.0</MDI>
+    <MDI key="NC_GLOBAL#geospatial_lat_resolution">0.0099999998</MDI>
+    <MDI key="NC_GLOBAL#geospatial_lat_units">degrees north</MDI>
+    <MDI key="NC_GLOBAL#geospatial_lon_resolution">0.0099999998</MDI>
+    <MDI key="NC_GLOBAL#geospatial_lon_units">degrees east</MDI>
+    <MDI key="NC_GLOBAL#history">created at nominal 4-day latency; replaced nrt (1-day latency) version.</MDI>
+    <MDI key="NC_GLOBAL#id">MUR-JPL-L4-GLOB-v04.1</MDI>
+    <MDI key="NC_GLOBAL#institution">Jet Propulsion Laboratory</MDI>
+    <MDI key="NC_GLOBAL#keywords">Oceans &gt; Ocean Temperature &gt; Sea Surface Temperature</MDI>
+    <MDI key="NC_GLOBAL#keywords_vocabulary">NASA Global Change Master Directory (GCMD) Science Keywords</MDI>
+    <MDI key="NC_GLOBAL#license">These data are available free of charge under data policy of JPL PO.DAAC.</MDI>
+    <MDI key="NC_GLOBAL#Metadata_Conventions">Unidata Observation Dataset v1.0</MDI>
+    <MDI key="NC_GLOBAL#metadata_link">http://podaac.jpl.nasa.gov/ws/metadata/dataset/?format=iso&amp;shortName=MUR-JPL-L4-GLOB-v04.1</MDI>
+    <MDI key="NC_GLOBAL#naming_authority">org.ghrsst</MDI>
+    <MDI key="NC_GLOBAL#netcdf_version_id">4.1</MDI>
+    <MDI key="NC_GLOBAL#northernmost_latitude">90</MDI>
+    <MDI key="NC_GLOBAL#platform">Terra, Aqua, GCOM-W, MetOp-B, Buoys/Ships</MDI>
+    <MDI key="NC_GLOBAL#processing_level">L4</MDI>
+    <MDI key="NC_GLOBAL#product_version">04.1</MDI>
+    <MDI key="NC_GLOBAL#project">NASA Making Earth Science Data Records for Use in Research Environments (MEaSUREs) Program</MDI>
+    <MDI key="NC_GLOBAL#publisher_email">ghrsst-po@nceo.ac.uk</MDI>
+    <MDI key="NC_GLOBAL#publisher_name">GHRSST Project Office</MDI>
+    <MDI key="NC_GLOBAL#publisher_url">http://www.ghrsst.org</MDI>
+    <MDI key="NC_GLOBAL#references">http://podaac.jpl.nasa.gov/Multi-scale_Ultra-high_Resolution_MUR-SST</MDI>
+    <MDI key="NC_GLOBAL#sensor">MODIS, AMSR2, AVHRR, in-situ</MDI>
+    <MDI key="NC_GLOBAL#source">MODIS_T-JPL, MODIS_A-JPL, AMSR2-REMSS, AVHRRMTB_G-NAVO, iQUAM-NOAA/NESDIS, Ice_Conc-OSISAF</MDI>
+    <MDI key="NC_GLOBAL#southernmost_latitude">-90</MDI>
+    <MDI key="NC_GLOBAL#spatial_resolution">0.01 degrees</MDI>
+    <MDI key="NC_GLOBAL#standard_name_vocabulary">NetCDF Climate and Forecast (CF) Metadata Convention</MDI>
+    <MDI key="NC_GLOBAL#start_time">20231024T090000Z</MDI>
+    <MDI key="NC_GLOBAL#stop_time">20231024T090000Z</MDI>
+    <MDI key="NC_GLOBAL#summary">A merged, multi-sensor L4 Foundation SST analysis product from JPL.</MDI>
+    <MDI key="NC_GLOBAL#time_coverage_end">20231024T210000Z</MDI>
+    <MDI key="NC_GLOBAL#time_coverage_start">20231023T210000Z</MDI>
+    <MDI key="NC_GLOBAL#title">Daily MUR SST, Final product</MDI>
+    <MDI key="NC_GLOBAL#uuid">27665bc0-d5fc-11e1-9b23-0800200c9a66</MDI>
+    <MDI key="NC_GLOBAL#westernmost_longitude">-180</MDI>
+    <MDI key="NETCDF_DIM_EXTRA">{time}</MDI>
+    <MDI key="NETCDF_DIM_time_DEF">{1,4}</MDI>
+    <MDI key="NETCDF_DIM_time_VALUES">1350982800</MDI>
+    <MDI key="sst_anomaly#add_offset">0</MDI>
+    <MDI key="sst_anomaly#comment">anomaly reference to the day-of-year average between 2003 and 2014</MDI>
+    <MDI key="sst_anomaly#coordinates">lon lat</MDI>
+    <MDI key="sst_anomaly#long_name">SST anomaly from a seasonal SST climatology based on the MUR data over 2003-2014 period</MDI>
+    <MDI key="sst_anomaly#scale_factor">0.001</MDI>
+    <MDI key="sst_anomaly#units">kelvin</MDI>
+    <MDI key="sst_anomaly#valid_max">32767</MDI>
+    <MDI key="sst_anomaly#valid_min">-32767</MDI>
+    <MDI key="sst_anomaly#_FillValue">-32768</MDI>
+    <MDI key="time#axis">T</MDI>
+    <MDI key="time#comment">Nominal time of analyzed fields</MDI>
+    <MDI key="time#long_name">reference time of sst field</MDI>
+    <MDI key="time#standard_name">time</MDI>
+    <MDI key="time#units">seconds since 1981-01-01 00:00:00 UTC</MDI>
+  </Metadata>
+  <PAMRasterBand band="1">
+    <Scale>0.001</Scale>
+    <Metadata>
+      <MDI key="add_offset">0</MDI>
+      <MDI key="comment">anomaly reference to the day-of-year average between 2003 and 2014</MDI>
+      <MDI key="coordinates">lon lat</MDI>
+      <MDI key="long_name">SST anomaly from a seasonal SST climatology based on the MUR data over 2003-2014 period</MDI>
+      <MDI key="NETCDF_DIM_time">1350982800</MDI>
+      <MDI key="NETCDF_VARNAME">sst_anomaly</MDI>
+      <MDI key="scale_factor">0.001</MDI>
+      <MDI key="STATISTICS_APPROXIMATE">YES</MDI>
+      <MDI key="STATISTICS_MAXIMUM">2746</MDI>
+      <MDI key="STATISTICS_MEAN">543.45890662939</MDI>
+      <MDI key="STATISTICS_MINIMUM">-1666</MDI>
+      <MDI key="STATISTICS_STDDEV">674.3153539598</MDI>
+      <MDI key="STATISTICS_VALID_PERCENT">81.25</MDI>
+      <MDI key="units">kelvin</MDI>
+      <MDI key="valid_max">32767</MDI>
+      <MDI key="valid_min">-32767</MDI>
+      <MDI key="_FillValue">-32768</MDI>
+    </Metadata>
+  </PAMRasterBand>
+</PAMDataset>

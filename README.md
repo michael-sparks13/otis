@@ -127,5 +127,11 @@ https://docs.google.com/document/d/1WaK-PbLPVAWRV1UYZs48VkjoPQ9TkCIjxpP0T2TBLrY/
 - [ ] make sure all questions for Rich are asked / answered
 - [ ] update 
 
+SST 
+- raster from nasa
+- clip with qgis
+- touch up with photoshop
+- insert with maplibre
+
 
 satellite: https://map.openaerialmap.org/#/-99.89593505859375,16.875518705107428,14/square/0233102233130130?_k=zarsyp

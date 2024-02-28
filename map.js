@@ -7,67 +7,51 @@ const map = new maplibregl.Map({
   zoom: 5,
 });
 
-//CREATE VARIABLES FOR MAPLIBRE LAYERS
-const lines = "data/forecasts/lines.geojson";
-const cones = "data/forecasts/cones.geojson";
-const landslides = "data/landslides.geojson";
+const overlay = document.createElement("div");
+overlay.id = "map-overlay";
+overlay.innerHTML =
+  '<h2 id="slider-title">5 Day Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
+document.getElementById("map").appendChild(overlay);
 
-//CREATE SLIDER ELEMENT
-function createSliderElement() {
-  overlay = document.createElement("div");
-  overlay.id = "map-overlay";
-  overlay.innerHTML =
-    '<h2 id="slider-title">5 Day Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
-  document.getElementById("map").appendChild(overlay);
-}
+//CREATE VARIABLES FOR MAPLIBRE LAYERS
+const linesPath = "data/forecasts/lines.geojson";
+const conesPath = "data/forecasts/cones.geojson";
+const landslidesPath = "data/landslides.geojson";
+
+Promise.all([
+  fetch(linesPath),
+  fetch(conesPath),
+  fetch(landslidesPath)
+]).then(responses => {
+  return Promise.all(responses.map(response => {
+    return response.json();
+  }));
+}).then(data => {
+  console.log(data); // An array of results.
+  createFcMap(data);
+}).catch(error => {
+  console.error("Something went wrong:", error);
+});
+
+
 
 
 //INVOKE FUNCTIONS
-createFcMap("1");
+// createFcMap("1");
 // createFcMap("2");
 // createFcMap("5");
 // createFcMap("9A");
 //createLandslides();
-createSliderElement();
-//updateFcMap();
 
-
-
-//FETCH DATA
-function fetchFcData(data) {
-  fetch(data)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log("data", data);
-      return data;
-    });
-}
-
-// fetchFcData(cones); //this works
-//fetchFcData(lines); //this works
-
-fetchTwoFiles();
-
-function fetchTwoFiles() {
-  Promise.all([fetchFcData(cones), fetchFcData(lines)]).then(
-    ([cones, lines]) => {
-      console.log("abc2"); //this works
-      console.log("cones", cones); //this returns undefined.
-      // it also returns before line 31....why?
-    }
-  );
-}
-
-function updateFcMap() {
+//UPDATE FORECAST MAP BASED ON SLIDER INPUT
+function updateFcMap(conesGeoJson, linesGeoJson) {
   document.getElementById("slider").addEventListener("input", (e) => {
     let advisCount = e.target.value;
-    console.log(cones);
+    console.log(conesGeoJson);
 
-    let advisNum = cones["features"][advisCount]["properties"]["ADVISNUM"];
-
-    let advisDate = cones["features"][advisCount]["properties"]["ADVDATE"];
+    let advisNum = conesGeoJson["features"][advisCount]["properties"]["ADVISNUM"];
+    console.log(advisNum)
+    let advisDate = conesGeoJson["features"][advisCount]["properties"]["ADVDATE"];
 
     console.log("advisDate", advisDate);
 
@@ -88,11 +72,11 @@ function updateFcMap() {
 }
 
 // CREATE CONES OF UNCERTAINTY
-function createCones(advisNum) {
+function createCones(conesGeoJson) {
   map.on("load", function () {
     map.addSource("cones", {
       type: "geojson",
-      data: cones,
+      data: conesGeoJson,
     });
 
     map.addLayer({
@@ -103,17 +87,17 @@ function createCones(advisNum) {
         "fill-color": "#FF0000",
         "fill-opacity": 0.7,
       },
-      filter: ["==", "ADVISNUM", advisNum],
+      filter: ["==", "ADVISNUM", "1"],
     });
   });
 }
 
 // CREATE FORECAST TRACK LINES
-function createLines(advisNum) {
+function createLines(linesGeoJson) {
   map.on("load", function () {
     map.addSource("lines", {
       type: "geojson",
-      data: lines,
+      data: linesGeoJson,
     });
 
     map.addLayer({
@@ -128,15 +112,16 @@ function createLines(advisNum) {
         "line-color": "#888",
         "line-width": 8,
       },
-      filter: ["==", "ADVISNUM", advisNum],
+      filter: ["==", "ADVISNUM", "1"],
     });
   });
 }
 
 //ADD CONES AND LINES TO MAP
-function createFcMap(advisNum) {
-  createCones(advisNum);
-  createLines(advisNum);
+function createFcMap(data) {
+  createLines(data[0]); // cones GeoJSON
+  createCones(data[1]); // lines GeoJSON
+  updateFcMap(data[0], data[1]);
 }
 
 

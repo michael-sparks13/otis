@@ -28,12 +28,12 @@ createFcMap("1");
 // createFcMap("5");
 // createFcMap("9A");
 //createLandslides();
-
-
 createSliderElement();
 //updateFcMap();
 
-//
+
+
+//FETCH DATA
 function fetchFcData(data) {
   fetch(data)
     .then(function (response) {

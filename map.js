@@ -19,11 +19,13 @@ function createSliderElement() {
   overlay.innerHTML =
     '<h2 id="slider-title">5 Day Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
   document.getElementById("map").appendChild(overlay);
+
+  updateFcMap();
 }
 
 
 //INVOKE FUNCTIONS
-createFcMap("1");
+//createFcMap("1");
 // createFcMap("2");
 // createFcMap("5");
 // createFcMap("9A");
@@ -33,58 +35,35 @@ createSliderElement();
 
 
 
-//FETCH DATA
-function fetchFcData(data) {
-  fetch(data)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log("data", data);
-      return data;
-    });
-}
 
-// fetchFcData(cones); //this works
-//fetchFcData(lines); //this works
 
-fetchTwoFiles();
 
-function fetchTwoFiles() {
-  Promise.all([fetchFcData(cones), fetchFcData(lines)]).then(
-    ([cones, lines]) => {
-      console.log("abc2"); //this works
-      console.log("cones", cones); //this returns undefined.
-      // it also returns before line 31....why?
-    }
-  );
-}
-
+//UPDATE FC MAP BASED ON SLIDER INPUT
 function updateFcMap() {
   document.getElementById("slider").addEventListener("input", (e) => {
     let advisCount = e.target.value;
-    console.log(cones);
+    console.log('n');
 
-    let advisNum = cones["features"][advisCount]["properties"]["ADVISNUM"];
+  //   let advisNum = cones["features"][advisCount]["properties"]["ADVISNUM"];
 
-    let advisDate = cones["features"][advisCount]["properties"]["ADVDATE"];
+  //   let advisDate = cones["features"][advisCount]["properties"]["ADVDATE"];
 
-    console.log("advisDate", advisDate);
+  //   console.log("advisDate", advisDate);
 
-    advisDate = advisDate.replace("2023", "");
-    advisDate = advisDate.replace("CDT", "");
+  //   advisDate = advisDate.replace("2023", "");
+  //   advisDate = advisDate.replace("CDT", "");
 
-    let colon = advisDate.indexOf("00");
-    //fix this because it grabs "10" unintentionally
-    advisDate = advisDate.slice(0, colon) + ":" + advisDate.slice(colon);
+  //   let colon = advisDate.indexOf("00");
+  //   //fix this because it grabs "10" unintentionally
+  //   advisDate = advisDate.slice(0, colon) + ":" + advisDate.slice(colon);
 
-    map.setFilter("cones", ["==", "ADVISNUM", advisNum]);
-    map.setFilter("lines", ["==", "ADVISNUM", advisNum]);
+  //   map.setFilter("cones", ["==", "ADVISNUM", advisNum]);
+  //   map.setFilter("lines", ["==", "ADVISNUM", advisNum]);
 
-    document.getElementById(
-      "slider-title"
-    ).innerText = `5 Day Forecast on ${advisDate}`;
-  });
+  //   document.getElementById(
+  //     "slider-title"
+  //   ).innerText = `5 Day Forecast on ${advisDate}`;
+   });
 }
 
 // CREATE CONES OF UNCERTAINTY

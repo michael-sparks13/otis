@@ -26,11 +26,11 @@ function createSliderElement(data) {
 
 //INVOKE FUNCTIONS
 // createFcMap("1");
-//createFcMap("2");
+// createFcMap("2");
 // createFcMap("5");
 // createFcMap("9A");
-//createLandslides();
-//createSliderMap();
+// createLandslides();
+createSliderMap();
 
 function createSliderMap() {
   Promise.all([fetch(lines), fetch(cones)])
@@ -55,21 +55,18 @@ function createSliderMap() {
 function updateFcMap(lines, cones) {
   document.getElementById("slider").addEventListener("input", (e) => {
     let advisCount = e.target.value;
-    console.log("n");
 
+      //grab advisory number and corresponding date
       let advisNum = cones["features"][advisCount]["properties"]["ADVISNUM"];
-
       let advisDate = cones["features"][advisCount]["properties"]["ADVDATE"];
 
-      console.log("advisDate", advisDate);
-
+      //format date
       advisDate = advisDate.replace("2023", "");
       advisDate = advisDate.replace("CDT", "");
+      let doubleZero = advisDate.lastIndexOf("00");
+      advisDate = advisDate.slice(0, doubleZero) + ":" + advisDate.slice(doubleZero);
 
-      let colon = advisDate.indexOf("00");
-      //fix this because it grabs "10" unintentionally
-      advisDate = advisDate.slice(0, colon) + ":" + advisDate.slice(colon);
-
+      //filter by advisory number
       map.setFilter("cones", ["==", "ADVISNUM", advisNum]);
       map.setFilter("lines", ["==", "ADVISNUM", advisNum]);
 
@@ -131,8 +128,6 @@ function createFcMap(advisNum) {
   createLines(advisNum);
 }
 
-//update FC map based on slider input
-function updateMap() {}
 
 //CREATE LANDSLIDES LAYER
 function createLandslides() {

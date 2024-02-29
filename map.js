@@ -1,3 +1,5 @@
+// const { add } = require("nodemon/lib/rules");
+
 //INITIALIZE MAP
 const map = new maplibregl.Map({
   container: "map",
@@ -12,78 +14,77 @@ const lines = "data/forecasts/lines.geojson";
 const cones = "data/forecasts/cones.geojson";
 const landslides = "data/landslides.geojson";
 
+//CREATE VARIABLES FOR SEA SURFACE TEMP ANOMALY IMG LAYER
+const sstcoords = [
+  //TL -103.073486991, 17.517583078
+  //BR -93.428170510, 11.626819321
+  [-103.073486991, 17.517583078],
+  [-93.42817051, 17.517583078],
+  [-93.42817051, 11.626819321],
+  [-103.073486991, 11.626819321],
+];
+
 //CREATE SLIDER ELEMENT
-function createSliderElement() {
+function createSliderElement(data) {
   overlay = document.createElement("div");
   overlay.id = "map-overlay";
   overlay.innerHTML =
     '<h2 id="slider-title">5 Day Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
   document.getElementById("map").appendChild(overlay);
+
+  createFcMap("1");
+  updateFcMap(data[0], data[1]);
 }
 
-
 //INVOKE FUNCTIONS
-createFcMap("1");
+// createFcMap("1");
 // createFcMap("2");
 // createFcMap("5");
 // createFcMap("9A");
-//createLandslides();
-createSliderElement();
-//updateFcMap();
+// createLandslides();
+createSliderMap();
 
-
-
-//FETCH DATA
-function fetchFcData(data) {
-  fetch(data)
-    .then(function (response) {
-      return response.json();
+function createSliderMap() {
+  Promise.all([fetch(lines), fetch(cones)])
+    .then((responses) => {
+      return Promise.all(
+        responses.map((response) => {
+          return response.json();
+        })
+      );
     })
-    .then(function (data) {
-      console.log("data", data);
-      return data;
+    .then((data) => {
+      console.log(data); // An array of results.
+      createSliderElement(data);
+      
+    })
+    .catch((error) => {
+      console.error("Something went wrong:", error);
     });
 }
 
-// fetchFcData(cones); //this works
-//fetchFcData(lines); //this works
-
-fetchTwoFiles();
-
-function fetchTwoFiles() {
-  Promise.all([fetchFcData(cones), fetchFcData(lines)]).then(
-    ([cones, lines]) => {
-      console.log("abc2"); //this works
-      console.log("cones", cones); //this returns undefined.
-      // it also returns before line 31....why?
-    }
-  );
-}
-
-function updateFcMap() {
+//UPDATE FC MAP BASED ON SLIDER INPUT
+function updateFcMap(lines, cones) {
   document.getElementById("slider").addEventListener("input", (e) => {
     let advisCount = e.target.value;
-    console.log(cones);
 
-    let advisNum = cones["features"][advisCount]["properties"]["ADVISNUM"];
+      //grab advisory number and corresponding date
+      let advisNum = cones["features"][advisCount]["properties"]["ADVISNUM"];
+      let advisDate = cones["features"][advisCount]["properties"]["ADVDATE"];
 
-    let advisDate = cones["features"][advisCount]["properties"]["ADVDATE"];
+      //format date
+      advisDate = advisDate.replace("2023", "");
+      advisDate = advisDate.replace("CDT", "");
+      let doubleZero = advisDate.lastIndexOf("00");
+      advisDate = advisDate.slice(0, doubleZero) + ":" + advisDate.slice(doubleZero);
 
-    console.log("advisDate", advisDate);
+      //filter by advisory number
+      map.setFilter("cones", ["==", "ADVISNUM", advisNum]);
+      map.setFilter("lines", ["==", "ADVISNUM", advisNum]);
 
-    advisDate = advisDate.replace("2023", "");
-    advisDate = advisDate.replace("CDT", "");
-
-    let colon = advisDate.indexOf("00");
-    //fix this because it grabs "10" unintentionally
-    advisDate = advisDate.slice(0, colon) + ":" + advisDate.slice(colon);
-
-    map.setFilter("cones", ["==", "ADVISNUM", advisNum]);
-    map.setFilter("lines", ["==", "ADVISNUM", advisNum]);
-
-    document.getElementById(
-      "slider-title"
-    ).innerText = `5 Day Forecast on ${advisDate}`;
+      document.getElementById(
+        "slider-title"
+      ).innerText = `5 Day Forecast on ${advisDate}`;
   });
 }
 
@@ -140,10 +141,6 @@ function createFcMap(advisNum) {
 }
 
 
-//update FC map based on slider input
-function updateMap() {}
-
-
 //CREATE LANDSLIDES LAYER
 function createLandslides() {
   map.on("load", function () {
@@ -163,36 +160,49 @@ function createLandslides() {
   });
 }
 
-
-
 //   <!-- //first is 18-e; 2nd is 6hrs later, TS Otis; advis 5 = 24 hrs after first, straight for AC
 //   //9A = first as hurricane. 1pm CDT on Tuesday
 //   //there were 13 advis btwn first overall and first as hurricane, 10am Sun to 1pm Tues (51 hours)
 //   //is this an unusual number? compare to others from that season. maybe hilary in CA -->
 //   //when did Otis become a numbered storm?
 
-
 //ADD SEA SURFACE TEMP ANOMALY LAYER
-// map.on("load", function () {
-//   map.addSource("image", {
-//     type: "image",
-//     url: "images/oct23anom.png",
-//     coordinates: [
-//       //TL -103.073486991, 17.517583078
-//       //BR -93.428170510, 11.626819321
-//       [-103.073486991, 17.517583078],
-//       [-93.42817051, 17.517583078],
-//       [-93.42817051, 11.626819321],
-//       [-103.073486991, 11.626819321],
-//     ],
-//   });
 
-//   map.addLayer({
-//     id: "sst1",
-//     source: "image",
-//     type: "raster",
-//     paint: {
-//       "raster-opacity": 1,
-//     },
-//   });
-// });
+//addSSTimg();
+//updateSST(2);
+
+const SSTimages = [
+  "oct21anom.png",
+  "oct22anom.png",
+  "oct23anom.png",
+];
+
+let mySource = map.getSource("landslides");
+console.log("mySource", mySource);
+
+function addSSTimg() {
+  map.on("load", function () {
+    map.addSource("image", {
+      type: "image",
+      url: `images/${SSTimages[0]}`,
+      coordinates: sstcoords,
+    });
+    map.addLayer({
+      id: "sstimage",
+      source: "image",
+      type: "raster",
+      paint: {
+        "raster-opacity": 1,
+        "raster-fade-duration": 0,
+
+      },
+    });
+  });
+}
+
+function updateSST(idx) {
+  let mySource = map.getSource("image");
+  console.log("mySource", mySource);
+
+  mySource.updateImage({ url: `images/${SSTimages[idx]}` });
+}

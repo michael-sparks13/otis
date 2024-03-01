@@ -15,21 +15,54 @@
       rel="stylesheet"
       href="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.css"
     />
-    <script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
 
-    
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css" /> -->
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+      }
+      #map-container {
+        position: sticky;
+        top: 0;
+        height: 100vh; /* Adjust height as needed */
+        z-index: -1;
+      }
+      #map {
+        height: 100%;
+      }
+      .scroll-text {
+        position: relative;
+        z-index: 100;
+      }
+      .scroll-text section {
+        padding: 200px 0;
+        margin: 20px 0 20px 20px;
+        width: 30%;
+        background-color: antiquewhite;
+        border-bottom: 1px solid #000;
+      }
+    </style>
   </head>
 
-
   <body>
-    <!-- <video width="320" height="240" autoplay muted loop>
-      <source src="images/otis_devastation.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video> -->
-    <div id="map"></div>
-
-    <script src="map.js"></script>
+    <div id="map-container">
+      <div id="map"></div>
+    </div>
+    <div class="scroll-text">
+      <section data-step="1">Section 1 Content</section>
+      <section data-step="2">Section 2 Content</section>
+      <section data-step="3">Section 3 Content</section>
+      <section data-step="4">Section 4 Content</section>
+      <section data-step="5">Section 5 Content</section>
+      <section data-step="6">Section 6 Content</section>
+      <section data-step="7">Section 5 Content</section>
+      <section data-step="8">Section 6 Content</section>
+    </div>
+    <script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <script src="test.js"></script>
   </body>
 </html>

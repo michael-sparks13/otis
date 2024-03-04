@@ -1,4 +1,4 @@
-// const { add } = require("nodemon/lib/rules");
+
 
 //INITIALIZE MAP
 const map = new maplibregl.Map({

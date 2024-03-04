@@ -34,6 +34,10 @@
       width: 100%;
     }
 
+    .scroll-text section {
+       margin: auto;
+    }
+
     #article-title {
       text-align: center;
     }
@@ -52,8 +56,9 @@
     }
     .scroll-text section {
       padding: 200px 0;
-      margin: 20px 0 20px 20px;
+      margin: auto;
       width: 30%;
+      opacity: .3;
       background-color: antiquewhite;
       border-bottom: 1px solid #000;
     }
@@ -90,10 +95,10 @@
         </div>
       </section>
 
-      <!-- <div id="map-container">
+       <div id="map-container">
       <div id="map"></div>
     </div>
-    <div class="scroll-text">
+   <div class="scroll-text">
       <section data-step="1">Section 1 Content</section>
       <section data-step="2">Section 2 Content</section>
       <section data-step="3">Section 3 Content</section>
@@ -102,7 +107,7 @@
       <section data-step="6">Section 6 Content</section>
       <section data-step="7">Section 7 Content</section>
       <section data-step="8">Section 8 Content</section>
-    </div> -->
+    </div>
 
       <!-- outro section to trigger final step -->
       <section id="outro"></section>
@@ -110,6 +115,6 @@
 
     <script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
     <script src="https://unpkg.com/scrollama"></script>
-    <!-- <script src="scroll.js"></script> -->
+    <script src="scroll.js"></script>
   </body>
 </html>

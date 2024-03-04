@@ -47,6 +47,7 @@ createSliderMap();
 function createSliderMap() {
   Promise.all([fetch(lines), fetch(cones)])
     .then((responses) => {
+      console.log('responses', responses)
       return Promise.all(
         responses.map((response) => {
           return response.json();

@@ -62,14 +62,9 @@ const updateMapData = (step) => {
   }
 };
 
-
 function createSliderMap() {
-  Promise.all([
-    fetch("data/forecasts/lines.geojson"),
-    fetch("data/forecasts/cones.geojson"),
-  ])
+  Promise.all([fetch(lines), fetch(cones)])
     .then((responses) => {
-      console.log("responses", responses);
       return Promise.all(
         responses.map((response) => {
           return response.json();
@@ -85,23 +80,20 @@ function createSliderMap() {
     });
 }
 
-
 function createSliderElement(data) {
-  let t = document.getElementById("map-overlay")
-
-  if (t) {
-    t.remove();
+  let i = document.getElementById("map-overlay");
+  if (i) {
+    i.remove();
   } else {
     overlay = document.createElement("div");
     overlay.id = "map-overlay";
     overlay.innerHTML =
-      '<h2 id="slider-title">Forecast as of 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
+      '<h2 id="slider-title">5 Day Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
     document.getElementById("map").appendChild(overlay);
 
-    filterForecast("1");
+    createFcMap("1");
     updateFcMap(data[0], data[1]);
   }
- 
 }
 
 function filterForecast(advisNum) {
@@ -112,26 +104,26 @@ function filterForecast(advisNum) {
 //UPDATE FC MAP BASED ON SLIDER INPUT
 function updateFcMap(lines, cones) {
   document.getElementById("slider").addEventListener("input", (e) => {
-    console.log('click')
     let advisCount = e.target.value;
 
-      //grab advisory number and corresponding date
-      let advisNum = cones["features"][advisCount]["properties"]["ADVISNUM"];
-      let advisDate = cones["features"][advisCount]["properties"]["ADVDATE"];
+    //grab advisory number and corresponding date
+    let advisNum = cones["features"][advisCount]["properties"]["ADVISNUM"];
+    let advisDate = cones["features"][advisCount]["properties"]["ADVDATE"];
 
-      //format date
-      advisDate = advisDate.replace("2023", "");
-      advisDate = advisDate.replace("CDT", "");
-      let doubleZero = advisDate.lastIndexOf("00");
-      advisDate = advisDate.slice(0, doubleZero) + ":" + advisDate.slice(doubleZero);
+    //format date
+    advisDate = advisDate.replace("2023", "");
+    advisDate = advisDate.replace("CDT", "");
+    let doubleZero = advisDate.lastIndexOf("00");
+    advisDate =
+      advisDate.slice(0, doubleZero) + ":" + advisDate.slice(doubleZero);
 
-      //filter by advisory number
-      map.setFilter("cones", ["==", "ADVISNUM", advisNum]);
-      map.setFilter("lines", ["==", "ADVISNUM", advisNum]);
+    //filter by advisory number
+    map.setFilter("cones", ["==", "ADVISNUM", advisNum]);
+    map.setFilter("lines", ["==", "ADVISNUM", advisNum]);
 
-      document.getElementById(
-        "slider-title"
-      ).innerText = `Forecast as of ${advisDate}`;
+    document.getElementById(
+      "slider-title"
+    ).innerText = `5 Day Forecast on ${advisDate}`;
   });
 }
 
@@ -145,7 +137,7 @@ scroller
     debug: false, // Set to true to see debug lines
   })
   .onStepEnter((response) => {
-    //console.log(response);
+    console.log(response);
     // response = { element, index, direction }
     updateMapData(response.index + 1); // Update the map data
   });

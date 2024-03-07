@@ -35,7 +35,7 @@
     }
 
     .scroll-text section {
-       margin: auto;
+      margin: auto;
     }
 
     #article-title {
@@ -58,29 +58,29 @@
       padding: 200px 0;
       margin: auto;
       width: 30%;
-      opacity: 0;
+      opacity: 0.3;
       background-color: antiquewhite;
       border-bottom: 1px solid #000;
     }
 
     #slider {
-        width: 80%;
-        margin: 20px auto;
-      }
+      width: 80%;
+      margin: 20px auto;
+    }
 
-      #map-overlay {
-        font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
-        position: absolute;
-        width: 25%;
-        bottom: 0;
-        right: 0;
-        padding: 10px;
-        background-color: #fff;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        border-radius: 3px;
-        padding: 10px;
-        margin-bottom: 40px;
-      }
+    #map-overlay {
+      font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
+      position: absolute;
+      width: 25%;
+      bottom: 0;
+      right: 0;
+      padding: 10px;
+      background-color: #fff;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+      padding: 10px;
+      margin-bottom: 40px;
+    }
 
     /* CSS for Desktop */
     @media screen and (min-device-width: 435px) {
@@ -88,19 +88,19 @@
         background-color: lightgreen;
       }
 
-#hero-vid {
-   display: flex;
-   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+      #hero-vid {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
 
       video {
         height: 100vh;
-        width: calc((9/16)*100vh);
-      object-fit: fill;
-      overflow: hidden;
-    }
+        width: calc((9 / 16) * 100vh);
+        object-fit: fill;
+        overflow: hidden;
+      }
     }
   </style>
 
@@ -121,19 +121,19 @@
         </div>
       </section>
 
-       <div id="map-container">
-      <div id="map"></div>
-    </div>
-   <div class="scroll-text">
-      <section data-step="1">Section 1 Content</section>
-      <section data-step="2">Section 2 Content</section>
-      <section data-step="3">Section 3 Content</section>
-      <section data-step="4">Section 4 Content</section>
-      <section data-step="5">Section 5 Content</section>
-      <section data-step="6">Section 6 Content</section>
-      <section data-step="7">Section 7 Content</section>
-      <section data-step="8">Section 8 Content</section>
-    </div>
+      <div id="map-container">
+        <div id="map"></div>
+      </div>
+      <div class="scroll-text">
+        <section data-step="1">Section 1 Content</section>
+        <section data-step="2">Section 2 Content</section>
+        <section data-step="3">Section 3 Content</section>
+        <section data-step="4">Section 4 Content</section>
+        <section data-step="5">Section 5 Content</section>
+        <section data-step="6">Section 6 Content</section>
+        <section data-step="7">Section 7 Content</section>
+        <section data-step="8">Section 8 Content</section>
+      </div>
 
       <!-- outro section to trigger final step -->
       <section id="outro"></section>

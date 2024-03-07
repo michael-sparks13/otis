@@ -17,19 +17,112 @@
     />
     <script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
 
-    
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css" /> -->
   </head>
 
+  <style>
+    /* CSS FOR MOBILE  */
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+    }
+
+    video {
+      height: 100%;
+      width: 100%;
+    }
+
+    .scroll-text section {
+       margin: auto;
+    }
+
+    #article-title {
+      text-align: center;
+    }
+    #map-container {
+      position: sticky;
+      top: 0;
+      height: 100vh; /* Adjust height as needed */
+      z-index: -1;
+    }
+    #map {
+      height: 100%;
+    }
+    .scroll-text {
+      position: relative;
+      z-index: 100;
+    }
+    .scroll-text section {
+      padding: 200px 0;
+      margin: auto;
+      width: 30%;
+      opacity: 0;
+      background-color: antiquewhite;
+      border-bottom: 1px solid #000;
+    }
+
+    /* CSS for Desktop */
+    @media screen and (min-device-width: 435px) {
+      body {
+        background-color: lightgreen;
+      }
+
+#hero-vid {
+   display: flex;
+   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+      video {
+     height: 100vh;
+        width: calc((9/16)*100vh);
+      object-fit: fill;
+      overflow: hidden;
+    }
+    }
+  </style>
 
   <body>
-    <!-- <video width="320" height="240" autoplay muted loop>
-      <source src="images/otis_devastation.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video> -->
-    <div id="map"></div>
+    <main>
+      <section id="hero-section">
+        <div id="hero-vid">
+          <video autoplay muted loop>
+            <source src="images/otis_devastation.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <figcaption>video via whoever</figcaption>
+        </div>
+        <div id="article-title">
+          <h1>Hurricane Otis</h1>
+          <h2>even more about Otis</h2>
+          <h3>written by Michael Sparks</h3>
+        </div>
+      </section>
 
+       <div id="map-container">
+      <div id="map"></div>
+    </div>
+   <div class="scroll-text">
+      <section data-step="1">Section 1 Content</section>
+      <section data-step="2">Section 2 Content</section>
+      <section data-step="3">Section 3 Content</section>
+      <section data-step="4">Section 4 Content</section>
+      <section data-step="5">Section 5 Content</section>
+      <section data-step="6">Section 6 Content</section>
+      <section data-step="7">Section 7 Content</section>
+      <section data-step="8">Section 8 Content</section>
+    </div>
+
+      <!-- outro section to trigger final step -->
+      <section id="outro"></section>
+    </main>
+
+    <script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
     <script src="map.js"></script>
+    <script src="scroll.js"></script>
   </body>
 </html>

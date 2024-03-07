@@ -112,6 +112,7 @@ function filterForecast(advisNum) {
 //UPDATE FC MAP BASED ON SLIDER INPUT
 function updateFcMap(lines, cones) {
   document.getElementById("slider").addEventListener("input", (e) => {
+    console.log('click')
     let advisCount = e.target.value;
 
       //grab advisory number and corresponding date

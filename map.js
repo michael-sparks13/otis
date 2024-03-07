@@ -37,7 +37,7 @@ function createSliderElement(data) {
 }
 
 //INVOKE FUNCTIONS
-// createFcMap("1");
+createFcMap("1");
 // createFcMap("2");
 // createFcMap("5");
 // createFcMap("9A");

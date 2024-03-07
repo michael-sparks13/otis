@@ -25,7 +25,7 @@ const sstcoords = [
 ];
 
 //CREATE SLIDER ELEMENT
-function createSliderElement() {
+function createSliderElement(data) {
   overlay = document.createElement("div");
   overlay.id = "map-overlay";
   overlay.innerHTML =
@@ -45,9 +45,12 @@ function createSliderElement() {
 //createSliderMap();
 
 function createSliderMap() {
-  Promise.all([fetch(lines), fetch(cones)])
+  Promise.all([
+    fetch("data/forecasts/lines.geojson"),
+    fetch("data/forecasts/cones.geojson"),
+  ])
     .then((responses) => {
-      console.log('responses', responses)
+      console.log("responses", responses);
       return Promise.all(
         responses.map((response) => {
           return response.json();
@@ -57,7 +60,6 @@ function createSliderMap() {
     .then((data) => {
       console.log(data); // An array of results.
       createSliderElement(data);
-      
     })
     .catch((error) => {
       console.error("Something went wrong:", error);

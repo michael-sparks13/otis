@@ -57,13 +57,36 @@ const updateMapData = (step) => {
     filterForecast("9A");
     return;
   } else if (step === 5) {
-    createSliderElement();
+    createSliderMap();
     return;
   }
 };
 
 
-function createSliderElement() {
+function createSliderMap() {
+  Promise.all([
+    fetch("data/forecasts/lines.geojson"),
+    fetch("data/forecasts/cones.geojson"),
+  ])
+    .then((responses) => {
+      console.log("responses", responses);
+      return Promise.all(
+        responses.map((response) => {
+          return response.json();
+        })
+      );
+    })
+    .then((data) => {
+      console.log(data); // An array of results.
+      createSliderElement(data);
+    })
+    .catch((error) => {
+      console.error("Something went wrong:", error);
+    });
+}
+
+
+function createSliderElement(data) {
   let t = document.getElementById("map-overlay")
 
   if (t) {
@@ -72,10 +95,11 @@ function createSliderElement() {
     overlay = document.createElement("div");
     overlay.id = "map-overlay";
     overlay.innerHTML =
-      '<h2 id="slider-title">5 Day Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
+      '<h2 id="slider-title">Forecast as of 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
     document.getElementById("map").appendChild(overlay);
 
-    updateFcMap();
+    filterForecast("1");
+    updateFcMap(data[0], data[1]);
   }
  
 }
@@ -106,7 +130,7 @@ function updateFcMap(lines, cones) {
 
       document.getElementById(
         "slider-title"
-      ).innerText = `5 Day Forecast on ${advisDate}`;
+      ).innerText = `Forecast as of ${advisDate}`;
   });
 }
 

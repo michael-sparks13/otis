@@ -42,7 +42,7 @@ function createSliderElement(data) {
 // createFcMap("5");
 // createFcMap("9A");
 // createLandslides();
-createSliderMap();
+//createSliderMap();
 
 function createSliderMap() {
   Promise.all([fetch(lines), fetch(cones)])
@@ -91,6 +91,7 @@ function updateFcMap(lines, cones) {
 
 // CREATE CONES OF UNCERTAINTY
 function createCones(advisNum) {
+  console.log('cones created')
   map.on("load", function () {
     map.addSource("cones", {
       type: "geojson",
@@ -137,6 +138,7 @@ function createLines(advisNum) {
 
 //ADD CONES AND LINES TO MAP
 function createFcMap(advisNum) {
+  console.log('fc map created')
   createCones(advisNum);
   createLines(advisNum);
 }
@@ -179,7 +181,6 @@ const SSTimages = [
 ];
 
 let mySource = map.getSource("landslides");
-console.log("mySource", mySource);
 
 function addSSTimg() {
   map.on("load", function () {

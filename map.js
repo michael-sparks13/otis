@@ -6,7 +6,7 @@ const map = new maplibregl.Map({
   style:
     "https://api.maptiler.com/maps/streets/style.json?key=R5Js2wLegZ6GMYd5iN2E",
   center: [-99.86562013617491, 13.867242923198695],
-  zoom: 5,
+  zoom: 7,
 });
 
 //CREATE VARIABLES FOR MAPLIBRE LAYERS
@@ -25,19 +25,19 @@ const sstcoords = [
 ];
 
 //CREATE SLIDER ELEMENT
-function createSliderElement(data) {
+function createSliderElement() {
   overlay = document.createElement("div");
   overlay.id = "map-overlay";
   overlay.innerHTML =
     '<h2 id="slider-title">5 Day Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
   document.getElementById("map").appendChild(overlay);
 
-  createFcMap("1");
-  updateFcMap(data[0], data[1]);
+  //createFcMap("1");
+  //updateFcMap(data[0], data[1]);
 }
 
 //INVOKE FUNCTIONS
-createFcMap("1");
+//createFcMap("1");
 // createFcMap("2");
 // createFcMap("5");
 // createFcMap("9A");

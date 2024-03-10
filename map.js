@@ -1,13 +1,35 @@
 
 
+const windowWidth =
+  window.innerWidth ||
+  document.documentElement.clientWidth ||
+  document.body.clientWidth;
+
+
+
+
 //INITIALIZE MAP
 const map = new maplibregl.Map({
   container: "map",
   style:
-    "https://api.maptiler.com/maps/streets/style.json?key=R5Js2wLegZ6GMYd5iN2E",
+    "https://api.maptiler.com/maps/landscape/style.json?key=R5Js2wLegZ6GMYd5iN2E",
   center: [-99.86562013617491, 13.867242923198695],
-  zoom: 5,
+  zoom: setInitialMapZoom(windowWidth),
 });
+
+function setInitialMapZoom(windowWidth) {
+  console.log('windowWidth', windowWidth)
+  // create variable for map zoom level
+  let mapZoom;
+  // test for various browser widths
+  if (windowWidth < 500) {
+    mapZoom = 5;
+  } else {
+    mapZoom = 6;
+  }
+  return mapZoom;
+} //end setInitialMapZoom
+
 
 //CREATE VARIABLES FOR MAPLIBRE LAYERS
 const lines = "data/forecasts/lines.geojson";
@@ -26,7 +48,7 @@ const sstcoords = [
 
 //CREATE SLIDER ELEMENT
 function createSliderElement(data) {
-  overlay = document.createElement("div");
+  let overlay = document.createElement("div");
   overlay.id = "map-overlay";
   overlay.innerHTML =
     '<h2 id="slider-title">5 Day Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';

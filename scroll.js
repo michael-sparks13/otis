@@ -57,7 +57,8 @@ const updateMapData = (step) => {
     filterForecast("9A");
     return;
   } else if (step === 5) {
-    createSliderMap();
+    //changeMapPosition();
+    //createSliderMap();
     return;
   }
 };
@@ -80,6 +81,12 @@ function createSliderMap() {
     });
 }
 
+function changeMapPosition() {
+  let m = document.getElementById("map-container");
+  console.log(m);
+  m.style.position = "static";
+}
+
 function createSliderElement(data) {
   let i = document.getElementById("map-overlay");
   if (i) {
@@ -89,7 +96,7 @@ function createSliderElement(data) {
     overlay.id = "map-overlay";
     overlay.innerHTML =
       '<h2 id="slider-title">5 Day Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
-    document.getElementById("map").appendChild(overlay);
+    document.querySelector("#slider-section").appendChild(overlay);
 
     createFcMap("1");
     updateFcMap(data[0], data[1]);
@@ -128,11 +135,11 @@ function updateFcMap(lines, cones) {
 }
 
 // Initialize Scrollama
-const scroller = scrollama();
+const advisScroller = scrollama();
 
-scroller
+advisScroller
   .setup({
-    step: ".scroll-text section", // Select your steps
+    step: ".advisory-section section", // Select your steps
     offset: 0.5, // Trigger at halfway point of the viewport
     debug: false, // Set to true to see debug lines
   })
@@ -143,4 +150,4 @@ scroller
   });
 
 // Handle resize
-window.addEventListener("resize", scroller.resize);
+window.addEventListener("resize", advisScroller.resize);

@@ -1,29 +1,125 @@
- body {
-        margin: 0;
-        padding: 0;
-      }
+/* CSS FOR MOBILE  */
 
-      html,
-      body,
-      #map {
-        height: 100%;
-      }
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+  }
 
-      #slider {
-        width: 80%;
-        margin: 20px auto;
-      }
+  main {
+    display: flex;
+    flex-direction: column;
+  }
 
-      #map-overlay {
-        font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
-        position: absolute;
-        width: 25%;
-        bottom: 0;
-        right: 0;
-        padding: 10px;
-        background-color: #fff;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        border-radius: 3px;
-        padding: 10px;
-        margin-bottom: 30px;
-      }
+  video {
+    height: 100%;
+    width: 100%;
+  }
+
+  #hero-img {
+    display: none;
+  }
+
+  figcaption {
+    font-size: xx-small;
+  }
+
+  .scroll-text section {
+    margin: auto;
+  }
+
+  #article-title {
+    text-align: center;
+  }
+
+  #before-graf img, #after-graf img {
+    width: 100vw;
+  }
+
+  #map-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    /* Adjust height as needed */
+    z-index: -1;
+  }
+
+  #map {
+    height: 100%;
+  }
+
+  .advisory-section {
+    position: sticky;
+    z-index: 100;
+  }
+
+  .advisory-section section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2% auto 10% auto;
+    opacity: 0.8;
+  }
+
+  .advisory-section img {
+    height: 140px;
+    width: 92vw;
+  }
+
+  .advisory-section p {
+    text-align: left;
+    margin: auto;
+  }
+
+  #slider {
+    width: 80%;
+    margin: 20px auto;
+  }
+
+  #map-overlay {
+    font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
+    position: absolute;
+    width: 25%;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    padding: 10px;
+    margin-top: 200%;
+    z-index: 1001;
+  }
+
+  #outro {
+    height: 100vh;
+    background-color: lightblue;
+  }
+
+  /* CSS for Desktop */
+  @media screen and (min-device-width: 435px) {
+    body {
+      background-color: lightgreen;
+    }
+
+    #hero-img {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+
+    #hero-img img {
+      width: 100%;
+      height: auto;
+    }
+
+    #hero-vid {
+      display: none;
+    }
+
+    .advisory-section img {
+    height: 30vh;
+    width: 30vw;
+  }
+
+  }

@@ -1,147 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Hurricane Otis</title>
-    <meta
-      property="og:description"
-      content="Digital Mapping Master's Degree
-    Capstone: Exploration of Hurricane Otis"
-      name="viewport"
-      content="width=device-width, initial-scale=1"
-    />
 
-    <!-- MAPLIBRE SCRIPTS AND STYLES -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.css"
-    />
-    <script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
+<head>
+  <title>Hurricane Otis</title>
+  <meta property="og:description" content="Digital Mapping Master's Degree
+    Capstone: Exploration of Hurricane Otis" name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- CSS -->
-    <!-- <link rel="stylesheet" type="text/css" href="styles.css" /> -->
-  </head>
+  <!-- MAPLIBRE SCRIPTS AND STYLES -->
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.css" />
+  <script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
 
-  <style>
-    /* CSS FOR MOBILE  */
-    body,
-    html {
-      margin: 0;
-      padding: 0;
-    }
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
 
-    video {
-      height: 100%;
-      width: 100%;
-    }
 
-    .scroll-text section {
-      margin: auto;
-    }
+<body>
+  <main>
+    <section id="hero-section">
+      <div id="hero-vid">
+        <video autoplay muted loop>
+          <source src="images/otis_devastation.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>video via <a href="https://www.tiktok.com/@yoonnasss" target="_blank">@yoonnasss</a></figcaption>
+      </div>
 
-    #article-title {
-      text-align: center;
-    }
-    #map-container {
-      position: sticky;
-      top: 0;
-      height: 100vh; /* Adjust height as needed */
-      z-index: -1;
-    }
-    #map {
-      height: 100%;
-    }
-    .scroll-text {
-      position: relative;
-      z-index: 100;
-    }
-    .scroll-text section {
-      padding: 200px 0;
-      margin: auto;
-      width: 30%;
-      opacity: 0.3;
-      background-color: antiquewhite;
-      border-bottom: 1px solid #000;
-    }
+      <div id="hero-img">
+        <img src="images/desktop_hero.avif" alt="devastation" />
+        <figcaption>Rodrigo Oropeza / AFP / Getty</figcaption>
+      </div>
 
-    #slider {
-      width: 80%;
-      margin: 20px auto;
-    }
+      <div id="article-title">
+        <h1>Hurricane Otis</h1>
+        <h2>even more about Otis</h2>
+        <h3>written by Michael Sparks</h3>
+      </div>
+    </section> <!-- end hero-section -->
 
-    #map-overlay {
-      font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
-      position: absolute;
-      width: 25%;
-      bottom: 0;
-      right: 0;
-      padding: 10px;
-      background-color: #fff;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-      border-radius: 3px;
-      padding: 10px;
-      margin-bottom: 40px;
-    }
+    <section id="before-graf">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+        in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+      <img src="images/acmx_before.jpeg" alt="a modern city with many trees on a sunny day">
+    </section> <!-- end before-graf -->
 
-    /* CSS for Desktop */
-    @media screen and (min-device-width: 435px) {
-      body {
-        background-color: lightgreen;
-      }
 
-      #hero-vid {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
 
-      video {
-        height: 100vh;
-        width: calc((9 / 16) * 100vh);
-        object-fit: fill;
-        overflow: hidden;
-      }
-    }
-  </style>
 
-  <body>
-    <main>
-      <section id="hero-section">
-        <div id="hero-vid">
-          <video autoplay muted loop>
-            <source src="images/otis_devastation.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          <figcaption>video via whoever</figcaption>
+    <div id="map-container">
+      <div id="map"></div>
+    </div>
+
+    <div class="advisory-section">
+      <section data-step="1">
+        <div id="advis1">
+          <h2>First Public Advisory</h2>
+          <img src="wireframes/advis1.png" alt="">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
+          </p>
         </div>
-        <div id="article-title">
-          <h1>Hurricane Otis</h1>
-          <h2>even more about Otis</h2>
-          <h3>written by Michael Sparks</h3>
+
+      </section>
+      <section data-step="2">
+        <div id="advis2">
+          <h2>First Public Advisory</h2>
+          <img src="wireframes/advis2.png" alt="">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
+          </p>
         </div>
       </section>
+      <section data-step="3">
+        <div id="advis5">
+          <h2>First Public Advisory</h2>
+          <img src="wireframes/advis5.png" alt="">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
+          </p>
+        </div>
+      </section>
+      <section data-step="4">
+        <div id="advis9A">
+          <div id="advis9A">
+            <h2>First Public Advisory</h2>
+            <img src="wireframes/advis9A.png" alt="">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
+            </p>
+          </div>
+      </section>
+      <section id="slider-section" data-step="5">
 
-      <div id="map-container">
-        <div id="map"></div>
-      </div>
-      <div class="scroll-text">
-        <section data-step="1">Section 1 Content</section>
-        <section data-step="2">Section 2 Content</section>
-        <section data-step="3">Section 3 Content</section>
-        <section data-step="4">Section 4 Content</section>
-        <section data-step="5">Section 5 Content</section>
-        <section data-step="6">Section 6 Content</section>
-        <section data-step="7">Section 7 Content</section>
-        <section data-step="8">Section 8 Content</section>
-      </div>
+      </section>
 
-      <!-- outro section to trigger final step -->
-      <section id="outro"></section>
-    </main>
+    </div>
 
-    <script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
-    <script src="https://unpkg.com/scrollama"></script>
-    <script src="map.js"></script>
-    <script src="scroll.js"></script>
-  </body>
+
+
+    <section id="after-graf">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+        in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+      <img src="images/acmx_after.avif" alt="scenes of destruction in acapulco">
+    </section> <!-- end after-graf -->
+
+    <!-- outro section to trigger final step -->
+    <section id="outro"></section>
+  </main>
+
+  <script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/scrollama"></script>
+  <script src="map.js"></script>
+  <script src="scroll.js"></script>
+</body>
+
 </html>

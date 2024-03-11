@@ -58,7 +58,7 @@ const updateMapData = (step) => {
     return;
   } else if (step === 5) {
     //changeMapPosition();
-    //createSliderMap();
+    createSliderMap();
     return;
   }
 };
@@ -96,7 +96,7 @@ function createSliderElement(data) {
     overlay.id = "map-overlay";
     overlay.innerHTML =
       '<h2 id="slider-title">5 Day Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
-    document.querySelector("#slider-section").appendChild(overlay);
+    document.querySelector("#placeholder").appendChild(overlay);
 
     createFcMap("1");
     updateFcMap(data[0], data[1]);

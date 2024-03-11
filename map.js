@@ -13,9 +13,22 @@ const map = new maplibregl.Map({
   container: "map",
   style:
     "https://api.maptiler.com/maps/landscape/style.json?key=R5Js2wLegZ6GMYd5iN2E",
-  center: [-99.86562013617491, 14.867242923198695],
+  center: setMapCenter(windowWidth),
   zoom: setInitialMapZoom(windowWidth),
 });
+
+function setMapCenter(windowWidth) {
+  console.log('windowWidth', windowWidth)
+  // create variable for map center
+  let mapCenter;
+  // test for various browser widths
+  if (windowWidth < 500) {
+    mapCenter = [-99.86562013617491, 14.867242923198695];
+  } else {
+    mapCenter = [-103.86562013617491, 14.867242923198695];
+  }
+  return mapCenter;
+} //end setMapCenter
 
 function setInitialMapZoom(windowWidth) {
   console.log('windowWidth', windowWidth)
@@ -25,7 +38,7 @@ function setInitialMapZoom(windowWidth) {
   if (windowWidth < 500) {
     mapZoom = 5;
   } else {
-    mapZoom = 6;
+    mapZoom = 5.5;
   }
   return mapZoom;
 } //end setInitialMapZoom

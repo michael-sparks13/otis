@@ -63,7 +63,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10% auto 110% 2%;
+    margin: 10% auto 120% 2%;
     opacity: 0.8;
   }
 
@@ -128,9 +128,26 @@
       display: none;
     }
 
+    .advisory-section section {
+    display: flex;
+    flex-direction: row;
+    margin: 1% auto 80% 0%;
+    opacity: 0.8;
+  }
+
+  .advisory-section section div:first-child {
+    padding: 0% 2%;
+  }
+
     .advisory-section img {
-    height: 30vh;
-    width: 30vw;
+    height: 35vh;
+    width: 50vw;
+  }
+
+  .advisory-section p {
+    text-align: left;
+    margin: 0;
+    width: 50%;
   }
 
   }

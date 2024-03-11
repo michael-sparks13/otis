@@ -35,7 +35,7 @@ map.on("load", function () {
     },
     paint: {
       "line-color": "#888",
-      "line-width": 8,
+      "line-width": 4,
     },
     filter: ["==", "ADVISNUM", "1"],
   });
@@ -140,7 +140,7 @@ const advisScroller = scrollama();
 advisScroller
   .setup({
     step: ".advisory-section section", // Select your steps
-    offset: 0.5, // Trigger at halfway point of the viewport
+    offset: 0.7, 
     debug: false, // Set to true to see debug lines
   })
   .onStepEnter((response) => {

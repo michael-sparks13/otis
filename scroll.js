@@ -134,13 +134,80 @@ function updateFcMap(lines, cones) {
   });
 }
 
+const lsmap = new maplibregl.Map({
+  container: "ls-map",
+  style:
+    "https://api.maptiler.com/maps/satellite/style.json?key=R5Js2wLegZ6GMYd5iN2E",
+  center: setMapCenter(windowWidth),
+  zoom: setInitialMapZoom(windowWidth),
+});
+lsmap.scrollZoom.disable();
+
+//CREATE LANDSLIDES LAYER
+function createLandslides() {
+  lsmap.on("load", function () {
+    lsmap.addSource("landslides", {
+      type: "geojson",
+      data: "data/landslides.geojson",
+    });
+
+    lsmap.addLayer({
+      id: "landslides",
+      type: "fill",
+      source: "landslides",
+      paint: {
+        "fill-color": "#fff",
+      },
+    });
+  });
+}
+
+createLandslides();
+
+let btn = document.querySelector("button");
+
+function lsz() {
+  lsmap.flyTo({
+    center: [-99.91285749868301, 16.907181458697703],
+    zoom: 12,
+    speed: 0.8,
+    curve: 1,
+    pitch: 40,
+    easing(t) {
+      return t;
+    },
+  });
+}
+
+const lsScroller = scrollama();
+
+lsScroller
+  .setup({
+    step: ".landslide-section section", // Select your steps
+    offset: 0.7,
+    debug: false, // Set to true to see debug lines
+  })
+  .onStepEnter((response) => {
+    console.log(response);
+    // response = { element, index, direction }
+    z(response.index + 1); // Update the map data
+  });
+
+const z = (step) => {
+  // Logic to update map based on the step
+  if (step === 1) {
+    lsz();
+    return;
+  }
+};
+
 // Initialize Scrollama
 const advisScroller = scrollama();
 
 advisScroller
   .setup({
     step: ".advisory-section section", // Select your steps
-    offset: 0.7, 
+    offset: 0.7,
     debug: false, // Set to true to see debug lines
   })
   .onStepEnter((response) => {

@@ -71,60 +71,6 @@ function createSliderElement(data) {
   //updateFcMap(data[0], data[1]);
 }
 
-//INVOKE FUNCTIONS
-//createFcMap("1");
-// createFcMap("2");
-// createFcMap("5");
-// createFcMap("9A");
-// createLandslides();
-//createSliderMap();
-
-// function createSliderMap() {
-//   Promise.all([
-//     fetch("data/forecasts/lines.geojson"),
-//     fetch("data/forecasts/cones.geojson"),
-//   ])
-//     .then((responses) => {
-//       console.log("responses", responses);
-//       return Promise.all(
-//         responses.map((response) => {
-//           return response.json();
-//         })
-//       );
-//     })
-//     .then((data) => {
-//       console.log(data); // An array of results.
-//       createSliderElement(data);
-//     })
-//     .catch((error) => {
-//       console.error("Something went wrong:", error);
-//     });
-// }
-
-// //UPDATE FC MAP BASED ON SLIDER INPUT
-// function updateFcMap(lines, cones) {
-//   document.getElementById("slider").addEventListener("input", (e) => {
-//     let advisCount = e.target.value;
-
-//       //grab advisory number and corresponding date
-//       let advisNum = cones["features"][advisCount]["properties"]["ADVISNUM"];
-//       let advisDate = cones["features"][advisCount]["properties"]["ADVDATE"];
-
-//       //format date
-//       advisDate = advisDate.replace("2023", "");
-//       advisDate = advisDate.replace("CDT", "");
-//       let doubleZero = advisDate.lastIndexOf("00");
-//       advisDate = advisDate.slice(0, doubleZero) + ":" + advisDate.slice(doubleZero);
-
-//       //filter by advisory number
-//       map.setFilter("cones", ["==", "ADVISNUM", advisNum]);
-//       map.setFilter("lines", ["==", "ADVISNUM", advisNum]);
-
-//       document.getElementById(
-//         "slider-title"
-//       ).innerText = `5 Day Forecast on ${advisDate}`;
-//   });
-// }
 
 // CREATE CONES OF UNCERTAINTY
 function createCones(advisNum) {
@@ -181,24 +127,6 @@ function createFcMap(advisNum) {
 }
 
 
-//CREATE LANDSLIDES LAYER
-function createLandslides() {
-  map.on("load", function () {
-    map.addSource("landslides", {
-      type: "geojson",
-      data: landslides,
-    });
-
-    map.addLayer({
-      id: "landslides",
-      type: "fill",
-      source: "landslides",
-      paint: {
-        "fill-color": "#B22222",
-      },
-    });
-  });
-}
 
 //   <!-- //first is 18-e; 2nd is 6hrs later, TS Otis; advis 5 = 24 hrs after first, straight for AC
 //   //9A = first as hurricane. 1pm CDT on Tuesday

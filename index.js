@@ -3,12 +3,31 @@ const lines = "data/forecasts/lines.geojson";
 const cones = "data/forecasts/cones.geojson";
 const landslides = "data/landslides.geojson";
 
+//CREATE VARIABLES FOR SEA SURFACE TEMP ANOMALY IMG LAYER
+const sstcoords = [
+	//TL -103.073486991, 17.517583078
+	//BR -93.428170510, 11.626819321
+	[-103.073486991, 17.517583078],
+	[-93.42817051, 17.517583078],
+	[-93.42817051, 11.626819321],
+	[-103.073486991, 11.626819321],
+];
+
+const sstimages = ["oct21anom.png", "oct22anom.png", "oct23anom.png"];
+
+// search for available width property and set as windowWidth
 const windowWidth =
 	window.innerWidth ||
 	document.documentElement.clientWidth ||
 	document.body.clientWidth;
 
-//INITIALIZE MAP
+// Initialize Scrollama for landslide map
+const lsScroller = scrollama();
+// Initialize Scrollama for advisory map
+const advisScroller = scrollama();
+
+
+//INITIALIZE ADVISORY MAP
 const map = new maplibregl.Map({
 	container: "map",
 	style:
@@ -17,8 +36,78 @@ const map = new maplibregl.Map({
 	zoom: setInitialMapZoom(windowWidth),
 });
 
+// Wait until the map is loaded to add the data
+map.on("load", function () {
+  // add the cones data source
+  map.addSource("cones", {
+    type: "geojson",
+    data: "data/forecasts/cones.geojson",
+  });
+
+  // add the cones layer to map
+  map.addLayer({
+		id: "cones",
+		type: "fill",
+		source: "cones",
+		paint: {
+			"fill-color": "#FF0000",
+			"fill-opacity": 0.7,
+		},
+		filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
+	});
+
+  // add the lines data source
+  map.addSource("lines", {
+    type: "geojson",
+    data: "data/forecasts/lines.geojson",
+  });
+
+  // add the lines layer to map
+  map.addLayer({
+    id: "lines",
+    type: "line",
+    source: "lines",
+    layout: {
+      "line-join": "round",
+      "line-cap": "round",
+    },
+    paint: {
+      "line-color": "#888",
+      "line-width": 4,
+    },
+    filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
+  });
+});
+
+//INITIALIZE LANDSLIDES MAP
+const lsmap = new maplibregl.Map({
+	container: "ls-map",
+	style:
+		"https://api.maptiler.com/maps/satellite/style.json?key=R5Js2wLegZ6GMYd5iN2E",
+	center: setMapCenter(windowWidth),
+	zoom: setInitialMapZoom(windowWidth),
+});
+lsmap.scrollZoom.disable();
+
+//CREATE LANDSLIDES LAYER
+lsmap.on("load", function () {
+		lsmap.addSource("landslides", {
+			type: "geojson",
+			data: "data/landslides.geojson",
+		});
+
+		lsmap.addLayer({
+			id: "landslides",
+			type: "fill",
+			source: "landslides",
+			paint: {
+				"fill-color": "#fff",
+			},
+		});
+	});
+
+//BEGIN FUNCTIONS SECTION
 function setMapCenter(windowWidth) {
-	console.log("windowWidth", windowWidth);
 	// create variable for map center
 	let mapCenter;
 	// test for various browser widths
@@ -31,7 +120,6 @@ function setMapCenter(windowWidth) {
 } //end setMapCenter
 
 function setInitialMapZoom(windowWidth) {
-	console.log("windowWidth", windowWidth);
 	// create variable for map zoom level
 	let mapZoom;
 	// test for various browser widths
@@ -43,52 +131,23 @@ function setInitialMapZoom(windowWidth) {
 	return mapZoom;
 } //end setInitialMapZoom
 
-// Wait until the map is loaded to add the data
-map.on("load", function () {
-	// add the cones data source
-	map.addSource("cones", {
-		type: "geojson",
-		data: "data/forecasts/cones.geojson",
+//advis functions
+advisScroller
+	.setup({
+		step: ".advisory-section section", // Select triggers steps
+		offset: 0.7,
+		debug: false
+	})
+	.onStepEnter((response) => {
+		// response = { element, index, direction }
+		updateMapData(response.index + 1); // Update the map data
 	});
 
-	// add the cones layer to map
-	map.addLayer({
-		id: "cones",
-		type: "fill",
-		source: "cones",
-		paint: {
-			"fill-color": "#FF0000",
-			"fill-opacity": 0.7,
-		},
-		filter: ["==", "ADVISNUM", "1"],
-	});
+// Handle resize
+window.addEventListener("resize", advisScroller.resize);
 
-	// add the lines data source
-	map.addSource("lines", {
-		type: "geojson",
-		data: "data/forecasts/lines.geojson",
-	});
-
-	// add the lines layer to map
-	map.addLayer({
-		id: "lines",
-		type: "line",
-		source: "lines",
-		layout: {
-			"line-join": "round",
-			"line-cap": "round",
-		},
-		paint: {
-			"line-color": "#888",
-			"line-width": 4,
-		},
-		filter: ["==", "ADVISNUM", "1"],
-	});
-});
-
-// Function to update map data
+// Function to update advisory map data on scroll
 const updateMapData = (step) => {
-	// Logic to update map based on the step
 	if (step === 1) {
 		filterForecast("1");
 		return;
@@ -108,6 +167,12 @@ const updateMapData = (step) => {
 	}
 };
 
+function filterForecast(advisNum) {
+	map.setFilter("cones", ["==", "ADVISNUM", advisNum]);
+	map.setFilter("lines", ["==", "ADVISNUM", advisNum]);
+}
+
+//slider map functions
 function createSliderMap() {
 	Promise.all([fetch(lines), fetch(cones)])
 		.then((responses) => {
@@ -148,11 +213,6 @@ function createSliderElement(data) {
 	}
 }
 
-function filterForecast(advisNum) {
-	map.setFilter("cones", ["==", "ADVISNUM", advisNum]);
-	map.setFilter("lines", ["==", "ADVISNUM", advisNum]);
-}
-
 //UPDATE FC MAP BASED ON SLIDER INPUT
 function updateFcMap(lines, cones) {
 	document.getElementById("slider").addEventListener("input", (e) => {
@@ -179,109 +239,6 @@ function updateFcMap(lines, cones) {
 	});
 }
 
-const lsmap = new maplibregl.Map({
-	container: "ls-map",
-	style:
-		"https://api.maptiler.com/maps/satellite/style.json?key=R5Js2wLegZ6GMYd5iN2E",
-	center: setMapCenter(windowWidth),
-	zoom: setInitialMapZoom(windowWidth),
-});
-lsmap.scrollZoom.disable();
-
-//CREATE LANDSLIDES LAYER
-function createLandslides() {
-	lsmap.on("load", function () {
-		lsmap.addSource("landslides", {
-			type: "geojson",
-			data: "data/landslides.geojson",
-		});
-
-		lsmap.addLayer({
-			id: "landslides",
-			type: "fill",
-			source: "landslides",
-			paint: {
-				"fill-color": "#fff",
-			},
-		});
-	});
-}
-
-createLandslides();
-
-let btn = document.querySelector("button");
-
-function lsz() {
-	lsmap.flyTo({
-		center: [-99.91285749868301, 16.907181458697703],
-		zoom: 12,
-		speed: 0.8,
-		curve: 1,
-		pitch: 40,
-		easing(t) {
-			return t;
-		},
-	});
-}
-
-const lsScroller = scrollama();
-
-lsScroller
-	.setup({
-		step: ".landslide-section section", // Select your steps
-		offset: 0.7,
-		debug: false, // Set to true to see debug lines
-	})
-	.onStepEnter((response) => {
-		console.log(response);
-		// response = { element, index, direction }
-		z(response.index + 1); // Update the map data
-	});
-
-const z = (step) => {
-	// Logic to update map based on the step
-	if (step === 1) {
-		lsz();
-		return;
-	}
-};
-
-// Initialize Scrollama
-const advisScroller = scrollama();
-
-advisScroller
-	.setup({
-		step: ".advisory-section section", // Select your steps
-		offset: 0.7,
-		debug: false, // Set to true to see debug lines
-	})
-	.onStepEnter((response) => {
-		console.log(response);
-		// response = { element, index, direction }
-		updateMapData(response.index + 1); // Update the map data
-	});
-
-// Handle resize
-window.addEventListener("resize", advisScroller.resize);
-
-
-//CREATE VARIABLES FOR SEA SURFACE TEMP ANOMALY IMG LAYER
-const sstcoords = [
-  //TL -103.073486991, 17.517583078
-  //BR -93.428170510, 11.626819321
-  [-103.073486991, 17.517583078],
-  [-93.42817051, 17.517583078],
-  [-93.42817051, 11.626819321],
-  [-103.073486991, 11.626819321],
-];
-
-const SSTimages = ["oct21anom.png", "oct22anom.png", "oct23anom.png"];
-
-
-
-
-// let mySource = map.getSource("landslides");
-
 // function addSSTimg() {
 // 	map.on("load", function () {
 // 		map.addSource("image", {
@@ -307,3 +264,37 @@ const SSTimages = ["oct21anom.png", "oct22anom.png", "oct23anom.png"];
 
 // 	mySource.updateImage({ url: `images/${SSTimages[idx]}` });
 // }
+
+
+
+function landslideZoom() {
+	lsmap.flyTo({
+		center: [-99.91285749868301, 16.907181458697703],
+		zoom: 12,
+		speed: 1,
+		curve: 1,
+		pitch: 40,
+		easing(t) {
+			return t;
+		},
+	});
+}
+
+lsScroller
+	.setup({
+		step: ".landslide-section section", // Select your steps
+		offset: 0.7,
+		debug: false, // Set to true to see debug lines
+	})
+	.onStepEnter((response) => {
+		// response = { element, index, direction }
+		landslideScroll(response.index + 1); // Update the map data
+	});
+
+const landslideScroll = (step) => {
+	// Logic to update map based on the step
+	if (step === 1) {
+		landslideZoom();
+		return;
+	}
+};

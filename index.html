@@ -6,6 +6,9 @@
   <meta property="og:description" content="Digital Mapping Master's Degree
     Capstone: Exploration of Hurricane Otis" name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="images/x-icon.jpeg">
+
   <!-- MAPLIBRE SCRIPTS AND STYLES -->
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.css" />
   <script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
@@ -17,6 +20,7 @@
 
 <body>
   <main>
+    <!-- hero section images & article title -->
     <section id="hero-section">
       <div id="hero-vid">
         <video autoplay muted loop>
@@ -38,6 +42,9 @@
       </div>
     </section> <!-- end hero-section -->
 
+
+    <!-- BEGIN EXPANDED LEDE -->
+    <!-- intro paragraph before advisories -->
     <section id="before-graf">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
@@ -54,11 +61,12 @@
 
 
 
-
+    <!-- 5 day forecast map -->
     <div id="map-container">
       <div id="map"></div>
     </div>
 
+    <!-- forecast advisory scrollama section -->
     <div class="advisory-section">
       <section data-step="1">
         <div id="advis1">
@@ -69,7 +77,6 @@
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
           </p>
         </div>
-
       </section>
       <section data-step="2">
         <div id="advis2">
@@ -92,7 +99,6 @@
         </div>
       </section>
       <section data-step="4">
-        <div id="advis9A">
           <div id="advis9A">
             <h2>1pm Tuesday, first hurricane advisory</h2>
             <img src="wireframes/advis9A.png" alt="">
@@ -105,8 +111,9 @@
       <section id="slider-section" data-step="5">
         <div id="placeholder">PLACEHOLDER DIV FOR SLIDER MAP</div>
       </section>
-    </div>
+    </div> <!-- end forecast advisory scrollama -->
 
+    <!-- paragraph after advisories -->
     <section id="after-graf">
       <p>
         JUST 12 HOURS AFTER THAT FIRST HURRICANE ADVISORY, OTIS SLAMMED INTO ACAPULCO.
@@ -115,23 +122,30 @@
       <figcaption>TBD</figcaption>
     </section> <!-- end after-graf -->
 
+    <!-- END EXPANDED LEDE -->
 
+    <!-- begin wind section -->
     <div class="wind-section">
+
+      <!-- wind text -->
       <h2>Wind Speeds</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.</p>
+
+      <!-- wind chart -->
       <div id="wind-chart">
         <img id='wind-graph' src="images/hurricane_winds.svg" alt="chart of wind speeds">
-      </div>
+      </div> 
+      </div> <!-- end wind section -->
 
-
+      <!-- begin landslides section -->
+      <!-- landslides map -->
       <div id="ls-map-container">
         <div id="ls-map"></div>
       </div>
 
+      <!-- begin landslides scrollama -->
       <div class="landslide-section">
-        
-
         <section data-step="1">
           <div id="ls1">
             <h2>landslides happened</h2>
@@ -140,7 +154,6 @@
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
             </p>
           </div>
-
         </section>
         <section data-step="2">
           <div id="ls2">
@@ -150,8 +163,7 @@
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
             </p>
           </div>
-
-        </section>
+     </section>
         <section data-step="3">
           <div id="ls3">
             <h2>landslides happened</h2>
@@ -160,26 +172,25 @@
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
             </p>
           </div>
+       </section> <!-- end landslides scrollama -->
 
-        </section>
-
+        <!-- mountains dissipate text -->
         <div class="ls-mountains">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt dolorem temporibus culpa consequatur perspiciatis
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt dolorem temporibus culpa consequatur
+            perspiciatis
             nam in nesciunt unde dolores aspernatur inventore laboriosam, animi, eligendi ea, alias facere deleniti amet
             repellat!</p>
           <img src="images/Zumpango_del_Río_-_Panoramica.jpeg" alt="Sierra Madre del Sur ">
-          <figcaption>By Mitrush - «Self-made»., CC BY-SA 3.0, <a>https://commons.wikimedia.org/w/index.php?curid=2555344</a></figcaption>
-        </div>
+          <figcaption>By Mitrush - «Self-made»., CC BY-SA 3.0,
+            <a>https://commons.wikimedia.org/w/index.php?curid=2555344</a></figcaption>
+        </div> <!-- end landslides section -->
 
-      </div>
-
-      <div class="outro">
+     <div class="outro">
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores, autem deserunt enim minima nobis vitae
           quibusdam officiis excepturi natus dolores sit eum, corrupti a accusantium perspiciatis adipisci! Beatae,
           earum maiores?</p>
       </div>
-
-
+     <!-- END ARTICLE -->
   </main>
 
   <script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
@@ -187,5 +198,4 @@
   <script src="map.js"></script>
   <script src="scroll.js"></script>
 </body>
-
 </html>

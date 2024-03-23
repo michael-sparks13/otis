@@ -65,6 +65,11 @@ Universial
     padding-left: 3%;
   }
 
+  .section-img figcaption {
+    margin-top: -5%;
+    margin-bottom: 3%;
+  }
+
   .scroll-text section {
     margin: auto;
   }

@@ -26,7 +26,6 @@ const lsScroller = scrollama();
 // Initialize Scrollama for advisory map
 const advisScroller = scrollama();
 
-
 //INITIALIZE ADVISORY MAP
 const map = new maplibregl.Map({
 	container: "map",
@@ -36,48 +35,15 @@ const map = new maplibregl.Map({
 	zoom: setInitialMapZoom(windowWidth),
 });
 
-// Wait until the map is loaded to add the data
-map.on("load", function () {
-  // add the cones data source
-  map.addSource("cones", {
-    type: "geojson",
-    data: "data/forecasts/cones.geojson",
-  });
-
-  // add the cones layer to map
-  map.addLayer({
-		id: "cones",
-		type: "fill",
-		source: "cones",
-		paint: {
-			"fill-color": "#FF0000",
-			"fill-opacity": 0.7,
-		},
-		filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
-	});
-
-  // add the lines data source
-  map.addSource("lines", {
-    type: "geojson",
-    data: "data/forecasts/lines.geojson",
-  });
-
-  // add the lines layer to map
-  map.addLayer({
-    id: "lines",
-    type: "line",
-    source: "lines",
-    layout: {
-      "line-join": "round",
-      "line-cap": "round",
-    },
-    paint: {
-      "line-color": "#888",
-      "line-width": 4,
-    },
-    filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
-  });
+//INITIALIZE SST MAP
+const sstmap = new maplibregl.Map({
+	container: "sst-map",
+	style:
+		"https://api.maptiler.com/maps/ocean/style.json?key=R5Js2wLegZ6GMYd5iN2E",
+	center: sstCenter(windowWidth),
+	zoom: sstZoom(windowWidth),
 });
+sstmap.scrollZoom.disable();
 
 //INITIALIZE LANDSLIDES MAP
 const lsmap = new maplibregl.Map({
@@ -89,22 +55,84 @@ const lsmap = new maplibregl.Map({
 });
 lsmap.scrollZoom.disable();
 
+// Wait until the map is loaded to add the data
+map.on("load", function () {
+	// add the cones data source
+	map.addSource("cones", {
+		type: "geojson",
+		data: "data/forecasts/cones.geojson",
+	});
+
+	// add the cones layer to map
+	map.addLayer({
+		id: "cones",
+		type: "fill",
+		source: "cones",
+		paint: {
+			"fill-color": "#FF0000",
+			"fill-opacity": 0.7,
+		},
+		filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
+	});
+
+	// add the lines data source
+	map.addSource("lines", {
+		type: "geojson",
+		data: "data/forecasts/lines.geojson",
+	});
+
+	// add the lines layer to map
+	map.addLayer({
+		id: "lines",
+		type: "line",
+		source: "lines",
+		layout: {
+			"line-join": "round",
+			"line-cap": "round",
+		},
+		paint: {
+			"line-color": "#888",
+			"line-width": 4,
+		},
+		filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
+	});
+});
+
 //CREATE LANDSLIDES LAYER
 lsmap.on("load", function () {
-		lsmap.addSource("landslides", {
-			type: "geojson",
-			data: "data/landslides.geojson",
-		});
-
-		lsmap.addLayer({
-			id: "landslides",
-			type: "fill",
-			source: "landslides",
-			paint: {
-				"fill-color": "#fff",
-			},
-		});
+	lsmap.addSource("landslides", {
+		type: "geojson",
+		data: "data/landslides.geojson",
 	});
+
+	lsmap.addLayer({
+		id: "landslides",
+		type: "fill",
+		source: "landslides",
+		paint: {
+			"fill-color": "#fff",
+		},
+	});
+});
+
+//CREATE SEA SURFACE TEMP LAYER
+sstmap.on("load", function () {
+	console.log("sst");
+	sstmap.addSource("image", {
+		type: "image",
+		url: `images/${sstimages[0]}`,
+		coordinates: sstcoords,
+	});
+	sstmap.addLayer({
+		id: "sstimage",
+		source: "image",
+		type: "raster",
+		paint: {
+			"raster-opacity": 1,
+			// "raster-fade-duration": 0,
+		},
+	});
+});
 
 //BEGIN FUNCTIONS SECTION
 function setMapCenter(windowWidth) {
@@ -131,12 +159,36 @@ function setInitialMapZoom(windowWidth) {
 	return mapZoom;
 } //end setInitialMapZoom
 
+function sstCenter(windowWidth) {
+	// create variable for map center
+	let mapCenter;
+	// test for various browser widths
+	if (windowWidth < 500) {
+		mapCenter = [-99.86562013617491, 9.867242923198695];
+	} else {
+		mapCenter = [-103.86562013617491, 9.867242923198695];
+	}
+	return mapCenter;
+} //end sstCenter
+
+function sstZoom(windowWidth) {
+	// create variable for map zoom level
+	let mapZoom;
+	// test for various browser widths
+	if (windowWidth < 500) {
+		mapZoom = 5;
+	} else {
+		mapZoom = 5.5;
+	}
+	return mapZoom;
+} //end sstZoom
+
 //advis functions
 advisScroller
 	.setup({
 		step: ".advisory-section section", // Select triggers steps
 		offset: 0.7,
-		debug: false
+		debug: false,
 	})
 	.onStepEnter((response) => {
 		// response = { element, index, direction }
@@ -240,7 +292,7 @@ function updateFcMap(lines, cones) {
 }
 
 // function addSSTimg() {
-// 	map.on("load", function () {
+// 	sstmap.on("load", function () {
 // 		map.addSource("image", {
 // 			type: "image",
 // 			url: `images/${SSTimages[0]}`,
@@ -264,8 +316,6 @@ function updateFcMap(lines, cones) {
 
 // 	mySource.updateImage({ url: `images/${SSTimages[idx]}` });
 // }
-
-
 
 function landslideZoom() {
 	lsmap.flyTo({

@@ -13,6 +13,11 @@
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.css" />
   <script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
 
+<!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
@@ -36,9 +41,9 @@
       </div>
 
       <div id="article-title">
-        <h1>Hurricane Otis</h1>
-        <h2>even more about Otis</h2>
-        <h3>written by Michael Sparks</h3>
+        <h1>A "Nightmare Scenario" in the Pacific</h1>
+        <h2>Hurricane Otis went from relatively mild storm to the strongest hurricane to ever hit southwestern Mexico in under 24 hours</h2>
+        <h3>written and created by Michael Sparks</h3>
       </div>
     </section> <!-- end hero-section -->
 
@@ -46,6 +51,7 @@
     <!-- BEGIN EXPANDED LEDE -->
     <!-- intro paragraph before advisories -->
     <section id="before-graf">
+      <hr>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -55,7 +61,7 @@
         sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
       </p>
-      <img src="images/acmx_before.jpeg" alt="a modern city with many trees on a sunny day">
+      <img class="section-img" src="images/acmx_before.jpeg" alt="a modern city with many trees on a sunny day">
       <figcaption>TBD</figcaption>
     </section> <!-- end before-graf -->
 
@@ -118,7 +124,7 @@
       <p>
         JUST 12 HOURS AFTER THAT FIRST HURRICANE ADVISORY, OTIS SLAMMED INTO ACAPULCO.
       </p>
-      <img src="images/acmx_after.avif" alt="scenes of destruction in acapulco">
+      <img  class="section-img" src="images/acmx_after.avif" alt="scenes of destruction in acapulco">
       <figcaption>TBD</figcaption>
     </section> <!-- end after-graf -->
 
@@ -134,9 +140,45 @@
 
       <!-- wind chart -->
       <div id="wind-chart">
-        <img id='wind-graph' src="images/hurricane_winds.svg" alt="chart of wind speeds">
+        <img  class="section-img" id='wind-graph' src="images/hurricane_winds.svg" alt="chart of wind speeds">
       </div> 
       </div> <!-- end wind section -->
+
+      <!-- begin sst section -->
+      <!-- sst map -->
+      <div id="sst-map-container">
+        <div id="sst-map"></div>
+      </div>
+
+      <!-- begin sst scrollama -->
+      <div class="sst-section">
+        <section data-step="1">
+          <div id="sst1">
+            <h2>sea surface temp</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
+            </p>
+          </div>
+        </section>
+        <section data-step="2">
+          <div id="sst2">
+            <h2>sst</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
+            </p>
+          </div>
+     </section>
+        <section data-step="3">
+          <div id="sst3">
+            <h2>sst</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
+            </p>
+          </div>
+       </section> <!-- end sst scrollama -->
 
       <!-- begin landslides section -->
       <!-- landslides map -->
@@ -180,7 +222,7 @@
             perspiciatis
             nam in nesciunt unde dolores aspernatur inventore laboriosam, animi, eligendi ea, alias facere deleniti amet
             repellat!</p>
-          <img src="images/Zumpango_del_Río_-_Panoramica.jpeg" alt="Sierra Madre del Sur ">
+          <img  class="section-img" src="images/Zumpango_del_Río_-_Panoramica.jpeg" alt="Sierra Madre del Sur ">
           <figcaption>By Mitrush - «Self-made»., CC BY-SA 3.0,
             <a>https://commons.wikimedia.org/w/index.php?curid=2555344</a></figcaption>
         </div> <!-- end landslides section -->

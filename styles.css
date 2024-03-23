@@ -1,3 +1,17 @@
+/*
+============================================
+Universial
+============================================
+*/
+
+*,
+*::after,
+*::before {
+    font-family: "Georgia" , Arial, sans-serif;
+}
+
+
+
 /* CSS FOR MOBILE  */
 
   body,
@@ -16,12 +30,39 @@
     width: 100%;
   }
 
+  #article-title h1 {
+    font-size: 3rem;
+    font-weight: bolder;
+  }
+
+  #article-title h2 {
+    font-size: larger;
+    font-style: italic;
+    font-weight: normal;
+    margin-top: -7%;
+    margin-bottom: 5%;
+  }
+
+  #article-title h3 {
+    font-size: medium;
+    font-weight: 200;
+  }
+  
+
+  hr {
+    color: lightgrey;
+    width: 30%;
+  }
+
   #hero-img {
     display: none;
   }
 
   figcaption {
     font-size: xx-small;
+    background-color: white;
+    text-align: left;
+    padding-left: 3%;
   }
 
   .scroll-text section {
@@ -29,17 +70,26 @@
   }
 
   #article-title {
-    text-align: center;
+    text-align: left;
+    padding-left: 3%;
+    margin-top: 5%;
   }
+
 
   #before-graf p, #after-graf p {
     text-align: left;
-    margin: 5%;
+    padding-left: 3%;
   }
 
-  #before-graf img, #after-graf img {
-    width: 100vw;
-    padding: 2% 0;
+  #before-graf, #after-graf {
+    background-color: white;
+  }
+
+
+
+  .section-img {
+    width: 90vw;
+    padding: 2%;
   }
 
   #map-container {
@@ -106,6 +156,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: white;
   }
 
   .landslide-section {
@@ -137,11 +188,32 @@
     width: 100%;
   }
 
+  #sst-map-container {
+    height: 100vh;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: -1;
+    /* Adjust height as needed */
+  }
+
+  #sst-map {
+    height: 100%;
+    width: 100%;
+  }
+
   /* CSS for Desktop */
   @media screen and (min-device-width: 435px) {
-    body {
-      background-color: lightgreen;
+
+    #article-title h2 {
+      margin-top: -2%;
     }
+
+    #article-title h3 {
+      margin-top: -3%;
+    }
+
+   
 
     #hero-img {
       display: block;

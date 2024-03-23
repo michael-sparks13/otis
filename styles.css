@@ -59,13 +59,12 @@ Universial
   }
 
   figcaption {
-    font-size: xx-small;
+    font-size: x-small;
     background-color: white;
-    text-align: left;
-    padding-left: 3%;
+    padding-left: 5%;
   }
 
-  .section-img figcaption {
+  .section-img-caption {
     margin-top: -5%;
     margin-bottom: 3%;
   }
@@ -89,9 +88,6 @@ Universial
   #before-graf, #after-graf {
     background-color: white;
   }
-
-
-
   .section-img {
     width: 90vw;
     padding: 5%;
@@ -170,7 +166,7 @@ Universial
 
   #wind-graph {
     height: auto;
-    width: 100vw;
+    width: 90vw;
     background-color: #fff;
   }
 

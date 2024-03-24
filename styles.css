@@ -82,7 +82,7 @@ Universial
 
   #before-graf p, #after-graf p {
     text-align: left;
-    padding-left: 3%;
+    padding-left: 0% 3%;
   }
 
   #before-graf, #after-graf {
@@ -249,15 +249,13 @@ Universial
     padding: 0% 2%;
   }
 
-    .advisory-section img {
-    height: 35vh;
-    width: 50vw;
-  }
-
-  .advisory-section p {
-    text-align: left;
-    margin: 0;
-    width: 50%;
+  .advisory-section div {
+    background-color: black;
+    opacity: 80%;
+    color: white;
+    padding: 2%;
+    margin-left: 10%;
+    width: 30%
   }
 
   }

@@ -1,241 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<title>Hurricane Otis</title>
+		<meta
+			property="og:description"
+			content="Digital Mapping Master's Degree
+    Capstone: Exploration of Hurricane Otis"
+			name="viewport"
+			content="width=device-width, initial-scale=1"
+		/>
 
-<head>
-  <title>Hurricane Otis</title>
-  <meta property="og:description" content="Digital Mapping Master's Degree
-    Capstone: Exploration of Hurricane Otis" name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- favicon -->
+		<link rel="shortcut icon" type="image/x-icon" href="images/x-icon.jpeg" />
 
-  <!-- favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="images/x-icon.jpeg">
+		<!-- MAPLIBRE SCRIPTS AND STYLES -->
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.css"
+		/>
+		<script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
 
-  <!-- MAPLIBRE SCRIPTS AND STYLES -->
-  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.css" />
-  <script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
+		<!-- GOOGLE FONTS -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap"
+			rel="stylesheet"
+		/>
 
-<!-- GOOGLE FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap" rel="stylesheet">
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+	</head>
 
-  <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="styles.css" />
-</head>
+	<body>
+		<main>
+			<!-- hero section images & article title -->
+			<section id="hero-section">
+				<div id="hero-vid">
+					<video autoplay muted loop>
+						<source src="images/otis_devastation.mp4" type="video/mp4" />
+						Your browser does not support the video tag.
+					</video>
+					<figcaption>
+						Destruction along the coast | video via
+						<a href="https://www.tiktok.com/@yoonnasss" target="_blank"
+							>@yoonnasss</a
+						>
+					</figcaption>
+				</div>
 
+				<div id="hero-img">
+					<img src="images/desktop_hero.avif" alt="devastation" />
+					<figcaption>Rodrigo Oropeza / AFP / Getty</figcaption>
+				</div>
 
-<body>
-  <main>
-    <!-- hero section images & article title -->
-    <section id="hero-section">
-      <div id="hero-vid">
-        <video autoplay muted loop>
-          <source src="images/otis_devastation.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <figcaption>Destruction along the coast | video via <a href="https://www.tiktok.com/@yoonnasss" target="_blank">@yoonnasss</a></figcaption>
-      </div>
+				<div id="article-title">
+					<h1>A "Nightmare Scenario" in the Pacific</h1>
+					<h2>
+						Hurricane Otis went from relatively mild storm to the strongest
+						hurricane to ever hit southwestern Mexico in under 24 hours
+					</h2>
+					<h3>written and created by Michael Sparks</h3>
+				</div>
+			</section>
+			<!-- end hero-section -->
 
-      <div id="hero-img">
-        <img src="images/desktop_hero.avif" alt="devastation" />
-        <figcaption>Rodrigo Oropeza / AFP / Getty</figcaption>
-      </div>
+			<!-- BEGIN EXPANDED LEDE -->
+			<!-- intro paragraph before advisories -->
+			<section id="before-graf">
+				<hr />
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+					aliquip ex ea commodo consequat. Duis aute irure dolor in
+					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+					culpa qui officia deserunt mollit anim id est laborum.
+				</p>
+				<img
+					class="section-img"
+					src="images/acmx_before.jpeg"
+					alt="a modern city with many trees on a sunny day"
+				/>
+				<figcaption class="section-img-caption">
+					Acapulco on a sunny day | image via
+					<a
+						href="https://commons.wikimedia.org/wiki/File:Acapulco_zona_hotelera_02.jpg"
+						target="_blank"
+						>Microstar</a
+					>
+				</figcaption>
+			</section>
+			<!-- end before-graf -->
 
-      <div id="article-title">
-        <h1>A "Nightmare Scenario" in the Pacific</h1>
-        <h2>Hurricane Otis went from relatively mild storm to the strongest hurricane to ever hit southwestern Mexico in under 24 hours</h2>
-        <h3>written and created by Michael Sparks</h3>
-      </div>
-    </section> <!-- end hero-section -->
+			<!-- 5 day forecast map -->
+			<div id="map-container">
+				<div id="map"></div>
+			</div>
 
-
-    <!-- BEGIN EXPANDED LEDE -->
-    <!-- intro paragraph before advisories -->
-    <section id="before-graf">
-      <hr>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-        in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </p>
-      <img class="section-img" src="images/acmx_before.jpeg" alt="a modern city with many trees on a sunny day">
-      <figcaption class="section-img-caption">Acapulco on a sunny day | image via <a href="https://commons.wikimedia.org/wiki/File:Acapulco_zona_hotelera_02.jpg" target="_blank">Microstar</a></figcaption>
-    </section> <!-- end before-graf -->
-
-
-    <!-- 5 day forecast map -->
-    <div id="map-container">
-      <div id="map"></div>
-    </div>
-
-    <!-- forecast advisory scrollama section -->
-    <div class="advisory-section">
-      <section data-step="1">
-        <div id="advis1">
-          <h2>1st public advisory: 10am Sun, Oct 22</h2>
-          <img src="wireframes/advis1.png" alt="">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
-          </p>
-        </div>
-      </section>
-      <section data-step="2">
-        <div id="advis2">
-          <h2>2nd advisory: 4pm, same day</h2>
-          <img src="wireframes/advis2.png" alt="">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
-          </p>
-        </div>
-      </section>
-      <section data-step="3">
-        <div id="advis5">
-          <h2>5th advisory: 24 hours after 1st</h2>
-          <img src="wireframes/advis5.png" alt="">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
-          </p>
-        </div>
-      </section>
-      <section data-step="4">
-          <div id="advis9A">
+			<!-- forecast advisory scrollama section -->
+			<div class="advisory-section">
+				<section data-step="1">
+					<div id="advis1">
+						<h2>1st public advisory: 10am Sun, Oct 22</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+							enim.
+						</p>
+					</div>
+				</section>
+				<section data-step="2">
+					<div id="advis2">
+						<h2>2nd advisory: 4pm, same day</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+							enim.
+						</p>
+					</div>
+				</section>
+				<section data-step="3">
+					<div id="advis5">
+						<h2>5th advisory: 24 hours after 1st</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+							enim.
+						</p>
+					</div>
+				</section>
+				<section data-step="4">
+					<div id="advis9A">
             <h2>1pm Tuesday, first hurricane advisory</h2>
-            <img src="wireframes/advis9A.png" alt="">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
-            </p>
-          </div>
-      </section>
-      <section id="slider-section" data-step="5">
-        <div id="placeholder">PLACEHOLDER DIV FOR SLIDER MAP</div>
-      </section>
-    </div> <!-- end forecast advisory scrollama -->
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+							enim.
+						</p>
+					</div>
+				</section>
+			</div>
+			<!-- end forecast advisory scrollama -->
 
-    <!-- paragraph after advisories -->
-    <section id="after-graf">
-      <p>
-        JUST 12 HOURS AFTER THAT FIRST HURRICANE ADVISORY, OTIS SLAMMED INTO ACAPULCO.
-      </p>
-      <img  class="section-img" src="images/acmx_after.avif" alt="scenes of destruction in acapulco">
-      <figcaption class="section-img-caption">People walk through rubble on Oct 27 | Quetzalli Nicte-Ha / Reuters</figcaption>
-    </section> <!-- end after-graf -->
+			<!-- paragraph after advisories -->
+			<section id="after-graf">
+				<p>
+					JUST 12 HOURS AFTER THAT FIRST HURRICANE ADVISORY, OTIS SLAMMED INTO
+					ACAPULCO.
+				</p>
+				<img
+					class="section-img"
+					src="images/acmx_after.avif"
+					alt="scenes of destruction in acapulco"
+				/>
+				<figcaption class="section-img-caption">
+					People walk through rubble on Oct 27 | Quetzalli Nicte-Ha / Reuters
+				</figcaption>
+			</section>
+			<!-- end after-graf -->
 
-    <!-- END EXPANDED LEDE -->
+			<!-- END EXPANDED LEDE -->
 
-    <!-- begin wind section -->
-    <div class="wind-section">
+			<!-- begin wind section -->
+			<div class="wind-section">
+				<!-- wind text -->
+				<h2>Wind Speeds</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+					aliquip ex ea commodo consequat. Duis aute irure dolor in
+					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+					culpa qui officia deserunt mollit anim id est laborum.
+				</p>
+				<!-- wind chart -->
+				<div id="wind-chart">
+					<img
+						id="wind-graph"
+						src="images/Screenshot 2024-03-23 at 5.00.15 PM.png"
+						alt="chart of wind speeds"
+					/>
+				</div>
 
-      <!-- wind text -->
-      <h2>Wind Speeds</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.</p>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+					aliquip ex ea commodo consequat. Duis aute irure dolor in
+					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+					culpa qui officia deserunt mollit anim id est laborum.
+				</p>
+			</div>
+			<!-- end wind section -->
 
-      <!-- wind chart -->
-      <div id="wind-chart">
-        <img id='wind-graph' src="images/Screenshot 2024-03-23 at 5.00.15 PM.png" alt="chart of wind speeds">
-      </div> 
-      </div> <!-- end wind section -->
+			<!-- begin sst section -->
+			<!-- sst map -->
+			<div id="sst-map-container">
+				<div id="sst-map"></div>
+			</div>
 
-      <!-- begin sst section -->
-      <!-- sst map -->
-      <div id="sst-map-container">
-        <div id="sst-map"></div>
-      </div>
+			<!-- begin sst scrollama -->
+			<div class="sst-section">
+				<section data-step="1">
+					<div id="sst1">
+						<h2>sea surface temp</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+							enim.
+						</p>
+					</div>
+				</section>
+				<section data-step="2">
+					<div id="sst2">
+						<h2>sst</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+							enim.
+						</p>
+					</div>
+				</section>
+				<section data-step="3">
+					<div id="sst3">
+						<h2>sst</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+							enim.
+						</p>
+					</div>
+				</section>
+				<!-- end sst scrollama -->
+			</div>
 
-      <!-- begin sst scrollama -->
-      <div class="sst-section">
-        <section data-step="1">
-          <div id="sst1">
-            <h2>sea surface temp</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
-            </p>
-          </div>
-        </section>
-        <section data-step="2">
-          <div id="sst2">
-            <h2>sst</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
-            </p>
-          </div>
-     </section>
-        <section data-step="3">
-          <div id="sst3">
-            <h2>sst</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
-            </p>
-          </div>
-       </section> <!-- end sst scrollama -->
-       </div>
+			<!-- begin landslides section -->
+			<!-- landslides map -->
+			<div id="ls-map-container">
+				<div id="ls-map"></div>
+			</div>
 
-      <!-- begin landslides section -->
-      <!-- landslides map -->
-      <div id="ls-map-container">
-        <div id="ls-map"></div>
-      </div>
+			<!-- begin landslides scrollama -->
+			<div class="landslide-section">
+				<section data-step="1">
+					<div id="ls1">
+						<h2>landslides happened</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+							enim.
+						</p>
+					</div>
+				</section>
+				<section data-step="2">
+					<div id="ls2">
+						<h2>landslides happened</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+							enim.
+						</p>
+					</div>
+				</section>
+				<section data-step="3">
+					<div id="ls3">
+						<h2>landslides happened</h2>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+							enim.
+						</p>
+					</div>
+				</section>
+				<!-- end landslides scrollama -->
+			</div>
 
-      <!-- begin landslides scrollama -->
-      <div class="landslide-section">
-        <section data-step="1">
-          <div id="ls1">
-            <h2>landslides happened</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
-            </p>
-          </div>
-        </section>
-        <section data-step="2">
-          <div id="ls2">
-            <h2>landslides happened</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
-            </p>
-          </div>
-     </section>
-        <section data-step="3">
-          <div id="ls3">
-            <h2>landslides happened</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim.
-            </p>
-          </div>
-       </section> <!-- end landslides scrollama -->
+			<!-- mountains dissipate text -->
+			<div class="ls-mountains">
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+					dolorem temporibus culpa consequatur perspiciatis nam in nesciunt unde
+					dolores aspernatur inventore laboriosam, animi, eligendi ea, alias
+					facere deleniti amet repellat!
+				</p>
+				<img
+					class="section-img"
+					src="images/Zumpango_del_Río_-_Panoramica.jpeg"
+					alt="Sierra Madre del Sur "
+				/>
+				<figcaption class="section-img-caption">
+					The Sierra Madre del Sur Range | image via
+					<a
+						src="https://commons.wikimedia.org/w/index.php?curid=2555344"
+						target="_blank"
+						>Mitrush</a
+					>
+				</figcaption>
+			</div>
+			<!-- end landslides section -->
 
-        <!-- mountains dissipate text -->
-        <div class="ls-mountains">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt dolorem temporibus culpa consequatur
-            perspiciatis
-            nam in nesciunt unde dolores aspernatur inventore laboriosam, animi, eligendi ea, alias facere deleniti amet
-            repellat!</p>
-          <img  class="section-img" src="images/Zumpango_del_Río_-_Panoramica.jpeg" alt="Sierra Madre del Sur ">
-          <figcaption class="section-img-caption">The Sierra Madre del Sur Range | image via <a src="https://commons.wikimedia.org/w/index.php?curid=2555344" target="_blank">Mitrush</a></figcaption>
-        </div> <!-- end landslides section -->
+			<div class="outro">
+				<p>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores,
+					autem deserunt enim minima nobis vitae quibusdam officiis excepturi
+					natus dolores sit eum, corrupti a accusantium perspiciatis adipisci!
+					Beatae, earum maiores?
+				</p>
+			</div>
+			<!-- END ARTICLE -->
+		</main>
 
-     <div class="outro">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores, autem deserunt enim minima nobis vitae
-          quibusdam officiis excepturi natus dolores sit eum, corrupti a accusantium perspiciatis adipisci! Beatae,
-          earum maiores?</p>
-      </div>
-     <!-- END ARTICLE -->
-  </main>
-
-  <script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
-  <script src="https://unpkg.com/scrollama"></script>
-  <script src="index.js"></script>
-</body>
+		<script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
+		<script src="https://unpkg.com/scrollama"></script>
+		<script src="index.js"></script>
+	</body>
 </html>

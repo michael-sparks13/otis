@@ -39,7 +39,7 @@ Universial
     font-size: larger;
     font-style: italic;
     font-weight: normal;
-    margin-top: -7%;
+    margin-top: -2%;
     margin-bottom: 5%;
   }
 
@@ -110,11 +110,19 @@ Universial
     z-index: 100;
   }
 
+  .advisory-section div {
+    background-color: black;
+    opacity: 80%;
+    color: white;
+    padding: 2%;
+    width: 80%
+  }
+
   .advisory-section section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10% auto 120% 2%;
+    margin: 0% auto 120% 2%;
     opacity: 0.8;
   }
 
@@ -130,7 +138,6 @@ Universial
 
   .advisory-section p, .wind-section p {
     text-align: left;
-    margin: auto 2%;
   }
 
   #slider {

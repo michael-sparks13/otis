@@ -340,19 +340,15 @@ function changeMapPosition() {
 }
 
 function createSliderElement(data) {
-	let i = document.getElementById("map-overlay");
-	if (i) {
-		//i.remove();
-	} else {
-		overlay = document.createElement("div");
-		overlay.id = "map-overlay";
+
+		overlay = document.getElementById("bt2");
 		overlay.innerHTML =
 			'<h2 id="slider-title">5 Day Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
 			console.log(overlay)
-		document.querySelector("#fc-slider").appendChild(overlay);
+		// document.querySelector("#fc-slider").appendChild(overlay);
 
 		updateFcMap(data[0], data[1]);
-	}
+	
 }
 
 //UPDATE FC MAP BASED ON SLIDER INPUT

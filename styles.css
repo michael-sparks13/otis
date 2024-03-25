@@ -156,6 +156,10 @@ Universial
     opacity: 0.8;
   }
 
+  #bt2 {
+    margin-top: 5%;
+  }
+
   #slider {
     width: 80%;
     margin: 20px auto;
@@ -273,9 +277,10 @@ Universial
 
   .bt-section section {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin: 1% auto 60% 0%;
     opacity: 0.8;
+    align-items: flex-start;
   }
 
   .bt-section section div:first-child {

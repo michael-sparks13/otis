@@ -101,7 +101,7 @@ Universial
     z-index: -1;
   }
 
-  #map {
+  #map, #bt-map {
     height: 100%;
   }
 
@@ -115,7 +115,7 @@ Universial
     opacity: 80%;
     color: white;
     padding: 2%;
-    width: 80%
+    width: 60%
   }
 
   .advisory-section section {
@@ -140,6 +140,22 @@ Universial
     text-align: left;
   }
 
+  .bt-section div {
+    background-color: black;
+    opacity: 80%;
+    color: white;
+    padding: 2%;
+    width: 60%
+  }
+
+  .bt-section section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0% auto 120% 2%;
+    opacity: 0.8;
+  }
+
   #slider {
     width: 80%;
     margin: 20px auto;
@@ -147,10 +163,7 @@ Universial
 
   #map-overlay {
     font: 12px/20px "Helvetica Neue", Arial, Helvetica, sans-serif;
-    position: absolute;
     width: 25%;
-    bottom: 0;
-    right: 0;
     padding: 10px;
     background-color: #fff;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -196,7 +209,7 @@ Universial
     width: 100%;
   }
 
-  #sst-map-container {
+  #sst-map-container, #bt-map-container {
     height: 100vh;
     width: 100%;
     position: sticky;
@@ -241,7 +254,7 @@ Universial
     .advisory-section section {
     display: flex;
     flex-direction: row;
-    margin: 1% auto 80% 0%;
+    margin: 1% auto 60% 0%;
     opacity: 0.8;
   }
 
@@ -251,7 +264,27 @@ Universial
 
   .advisory-section div {
     background-color: black;
-    opacity: 80%;
+    opacity: 60%;
+    color: white;
+    padding: 2%;
+    margin-left: 10%;
+    width: 30%
+  }
+
+  .bt-section section {
+    display: flex;
+    flex-direction: row;
+    margin: 1% auto 60% 0%;
+    opacity: 0.8;
+  }
+
+  .bt-section section div:first-child {
+    padding: 0% 2%;
+  }
+
+  .bt-section div {
+    background-color: black;
+    opacity: 60%;
     color: white;
     padding: 2%;
     margin-left: 10%;

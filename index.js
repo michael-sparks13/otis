@@ -25,10 +25,21 @@ const windowWidth =
 const lsScroller = scrollama();
 // Initialize Scrollama for advisory map
 const advisScroller = scrollama();
+// Initialize Scrollama for slider / best track map
+const btScroller = scrollama();
 
 //INITIALIZE ADVISORY MAP
 const map = new maplibregl.Map({
 	container: "map",
+	style:
+		"https://api.maptiler.com/maps/landscape/style.json?key=R5Js2wLegZ6GMYd5iN2E",
+	center: setMapCenter(windowWidth),
+	zoom: setInitialMapZoom(windowWidth),
+});
+
+//INITIALIZE ADVISORY MAP
+const btmap = new maplibregl.Map({
+	container: "bt-map",
 	style:
 		"https://api.maptiler.com/maps/landscape/style.json?key=R5Js2wLegZ6GMYd5iN2E",
 	center: setMapCenter(windowWidth),
@@ -55,7 +66,7 @@ const lsmap = new maplibregl.Map({
 });
 lsmap.scrollZoom.disable();
 
-// Wait until the map is loaded to add the data
+// add forecast data to advis map on load
 map.on("load", function () {
 	// add the cones data source
 	map.addSource("cones", {
@@ -95,6 +106,82 @@ map.on("load", function () {
 			"line-width": 4,
 		},
 		filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
+	});
+});
+
+
+// Wait until the map is loaded to add the data
+btmap.on("load", function () {
+	// add the cones data source
+	btmap.addSource("cones", {
+		type: "geojson",
+		data: "data/forecasts/cones.geojson",
+	});
+
+	// add the cones layer to map
+	btmap.addLayer({
+		id: "cones",
+		type: "fill",
+		source: "cones",
+		paint: {
+			"fill-color": "#FF0000",
+			"fill-opacity": 0.7,
+		},
+		filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
+	});
+
+	// add the lines data source
+	btmap.addSource("lines", {
+		type: "geojson",
+		data: "data/forecasts/lines.geojson",
+	});
+
+	// add the lines layer to map
+	btmap.addLayer({
+		id: "lines",
+		type: "line",
+		source: "lines",
+		layout: {
+			"line-join": "round",
+			"line-cap": "round",
+		},
+		paint: {
+			"line-color": "#888",
+			"line-width": 4,
+		},
+		filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
+	});
+
+	btmap.addSource("best_track", {
+		type: "geojson",
+		data: "data/best_track/lines.geojson",
+	});
+
+	// add the best_track layer to map
+	btmap.addLayer({
+		id: "best_track",
+		type: "line",
+		source: "best_track",
+		paint: {
+			"line-color": [
+				"match", //match the color scale: https://en.wikipedia.org/wiki/Template:Storm_colour
+				["get", "SS"],
+				0,
+				"#4DFFFF", // coral blue
+				1,
+				"#FFFFD9", //sand
+				2,
+				"#FFD98C", //light orange
+				3,
+				"#FF9E59", //orange
+				4,
+				"#FF738A", //salmon
+				5,
+				"#A188FC", //purple
+				"rgb(255,255,255)", // Default color
+			],
+			"line-width": 6, 
+		},
 	});
 });
 
@@ -226,7 +313,10 @@ function filterForecast(advisNum) {
 
 //slider map functions
 function createSliderMap() {
-	Promise.all([fetch(lines), fetch(cones)])
+	Promise.all([
+		fetch("data/forecasts/lines.geojson"),
+		fetch("data/forecasts/cones.geojson"),
+	])
 		.then((responses) => {
 			return Promise.all(
 				responses.map((response) => {
@@ -252,15 +342,15 @@ function changeMapPosition() {
 function createSliderElement(data) {
 	let i = document.getElementById("map-overlay");
 	if (i) {
-		i.remove();
+		//i.remove();
 	} else {
 		overlay = document.createElement("div");
 		overlay.id = "map-overlay";
 		overlay.innerHTML =
 			'<h2 id="slider-title">5 Day Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
-		document.querySelector("#placeholder").appendChild(overlay);
+			console.log(overlay)
+		document.querySelector("#fc-slider").appendChild(overlay);
 
-		createFcMap("1");
 		updateFcMap(data[0], data[1]);
 	}
 }
@@ -282,8 +372,8 @@ function updateFcMap(lines, cones) {
 			advisDate.slice(0, doubleZero) + ":" + advisDate.slice(doubleZero);
 
 		//filter by advisory number
-		map.setFilter("cones", ["==", "ADVISNUM", advisNum]);
-		map.setFilter("lines", ["==", "ADVISNUM", advisNum]);
+		btmap.setFilter("cones", ["==", "ADVISNUM", advisNum]);
+		btmap.setFilter("lines", ["==", "ADVISNUM", advisNum]);
 
 		document.getElementById(
 			"slider-title"
@@ -348,3 +438,26 @@ const landslideScroll = (step) => {
 		return;
 	}
 };
+
+
+btScroller
+	.setup({
+		step: ".bt-section section", // Select your steps
+		offset: 0.7,
+		debug: false, // Set to true to see debug lines
+	})
+	.onStepEnter((response) => {
+		// response = { element, index, direction }
+		btScroll(response.index + 1); // Update the map data
+	});
+
+const btScroll = (step) => {
+	// Logic to update map based on the step
+	if (step === 1) {
+		console.log('about to create slider')
+		createSliderMap();
+		console.log("slider created");
+		return;
+	}
+};
+

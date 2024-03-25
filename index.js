@@ -180,7 +180,22 @@ btmap.on("load", function () {
 				"#A188FC", //purple
 				"rgb(255,255,255)", // Default color
 			],
-			"line-width": 6, 
+			"line-width": 8, 
+		},
+	});
+
+	btmap.addLayer({
+		id: "strength-labels",
+		type: "symbol",
+		source: "best_track",
+		layout: {
+			"text-field": ["get", "SS"],
+			"text-size": 16,
+			"text-offset": [0, -2],
+			"text-anchor": "top",
+		},
+		paint: {
+			"text-color": "black", // Change label color as desired
 		},
 	});
 });

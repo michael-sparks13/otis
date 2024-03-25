@@ -81,7 +81,7 @@ map.on("load", function () {
 		source: "cones",
 		paint: {
 			"fill-color": "#FF0000",
-			"fill-opacity": 0.7,
+			"fill-opacity": 0.8,
 		},
 		filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
 	});
@@ -103,7 +103,7 @@ map.on("load", function () {
 		},
 		paint: {
 			"line-color": "#888",
-			"line-width": 4,
+			"line-width": 2,
 		},
 		filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
 	});
@@ -124,8 +124,8 @@ btmap.on("load", function () {
 		type: "fill",
 		source: "cones",
 		paint: {
-			"fill-color": "#FF0000",
-			"fill-opacity": 0.7,
+			"fill-color": "#f75e5e",
+			"fill-opacity": 0.5,
 		},
 		filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
 	});

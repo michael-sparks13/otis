@@ -360,7 +360,7 @@ function createSliderElement(data) {
 
 		overlay = document.getElementById("bt2");
 		overlay.innerHTML =
-			'<h2 id="slider-title">5 Day Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
+			'<h2 id="slider-title">Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
 			console.log(overlay)
 		updateFcMap(data[0], data[1]);
 	
@@ -388,7 +388,7 @@ function updateFcMap(lines, cones) {
 
 		document.getElementById(
 			"slider-title"
-		).innerText = `5 Day Forecast on ${advisDate}`;
+		).innerText = `Forecast on ${advisDate}`;
 	});
 }
 
@@ -408,7 +408,7 @@ function landslideZoom() {
 	lsmap.flyTo({
 		center: [-99.91285749868301, 16.907181458697703],
 		zoom: 12,
-		speed: 1,
+		speed: 2,
 		curve: 1,
 		pitch: 40,
 		easing(t) {

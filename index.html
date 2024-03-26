@@ -28,7 +28,10 @@
 			rel="stylesheet"
 		/>
 
-      <link rel="stylesheet" href="https://unpkg.com/beerslider/dist/BeerSlider.css">
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/beerslider/dist/BeerSlider.css"
+		/>
 
 		<!-- CSS -->
 		<link rel="stylesheet" type="text/css" href="styles.css" />
@@ -216,7 +219,7 @@
 					<div id="bt2"></div>
 				</section>
 
-				<p>
+				<p class="spacer">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
 					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
 					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -276,7 +279,10 @@
 					facere deleniti amet repellat!
 				</p>
 				<div id="beer-slider" class="beer-slider" data-beer-label="after">
-					<img src="images/nbh_after.png" alt="acapulco neighborhood before Otis" />
+					<img
+						src="images/nbh_after.png"
+						alt="acapulco neighborhood before Otis"
+					/>
 					<div class="beer-reveal" data-beer-label="before">
 						<img
 							src="images/nbh_before.png"
@@ -292,15 +298,9 @@
 				</p>
 
 				<div id="beer-slider2" class="beer-slider" data-beer-label="after">
-					<img
-						src="images/marina_after.png"
-						alt="acapulco bay before Otis"
-					/>
+					<img src="images/marina_after.png" alt="acapulco bay before Otis" />
 					<div class="beer-reveal" data-beer-label="before">
-						<img
-							src="images/marina_before.png"
-							alt="acapulco bay after Otis"
-						/>
+						<img src="images/marina_before.png" alt="acapulco bay after Otis" />
 					</div>
 				</div>
 
@@ -331,51 +331,53 @@
 					</div>
 				</section>
 				<!-- end landslides scrollama -->
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-					dolorem temporibus culpa consequatur perspiciatis nam in nesciunt unde
-					dolores aspernatur inventore laboriosam, animi, eligendi ea, alias
-					facere deleniti amet repellat!
-				</p>
+				<div class="landslide-section-main">
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+						dolorem temporibus culpa consequatur perspiciatis nam in nesciunt
+						unde dolores aspernatur inventore laboriosam, animi, eligendi ea,
+						alias facere deleniti amet repellat!
+					</p>
+
+					<!-- mountains dissipate text -->
+					<div class="ls-mountains">
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+							dolorem temporibus culpa consequatur perspiciatis nam in nesciunt
+							unde dolores aspernatur inventore laboriosam, animi, eligendi ea,
+							alias facere deleniti amet repellat!
+						</p>
+						<img
+							class="section-img"
+							src="images/Zumpango_del_Río_-_Panoramica.jpeg"
+							alt="Sierra Madre del Sur "
+						/>
+						<figcaption class="section-img-caption">
+							The Sierra Madre del Sur Range | image via
+							<a
+								src="https://commons.wikimedia.org/w/index.php?curid=2555344"
+								target="_blank"
+								>Mitrush</a
+							>
+						</figcaption>
+					</div>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+						dolorem temporibus culpa consequatur perspiciatis nam in nesciunt
+						unde dolores aspernatur inventore laboriosam, animi, eligendi ea,
+						alias facere deleniti amet repellat!
+					</p>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+						dolorem temporibus culpa consequatur perspiciatis nam in nesciunt
+						unde dolores aspernatur inventore laboriosam, animi, eligendi ea,
+						alias facere deleniti amet repellat!
+					</p>
+				</div>
+				<!-- end landslides section -->
 			</div>
 
-			<!-- mountains dissipate text -->
-			<div class="ls-mountains">
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-					dolorem temporibus culpa consequatur perspiciatis nam in nesciunt unde
-					dolores aspernatur inventore laboriosam, animi, eligendi ea, alias
-					facere deleniti amet repellat!
-				</p>
-				<img
-					class="section-img"
-					src="images/Zumpango_del_Río_-_Panoramica.jpeg"
-					alt="Sierra Madre del Sur "
-				/>
-				<figcaption class="section-img-caption">
-					The Sierra Madre del Sur Range | image via
-					<a
-						src="https://commons.wikimedia.org/w/index.php?curid=2555344"
-						target="_blank"
-						>Mitrush</a
-					>
-				</figcaption>
-			</div>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-				dolorem temporibus culpa consequatur perspiciatis nam in nesciunt unde
-				dolores aspernatur inventore laboriosam, animi, eligendi ea, alias
-				facere deleniti amet repellat!
-			</p>
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-				dolorem temporibus culpa consequatur perspiciatis nam in nesciunt unde
-				dolores aspernatur inventore laboriosam, animi, eligendi ea, alias
-				facere deleniti amet repellat!
-			</p>
-			<!-- end landslides section -->
-
-			<div class="outro">
+			<div class="outro-section">
 				<p>
 					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores,
 					autem deserunt enim minima nobis vitae quibusdam officiis excepturi
@@ -386,11 +388,11 @@
 			<!-- END ARTICLE -->
 		</main>
 
-		 <script src="https://unpkg.com/beerslider/dist/BeerSlider.js"></script>
-  <script>
-    new BeerSlider(document.getElementById('beer-slider'));
-     new BeerSlider(document.getElementById('beer-slider2'));
-  </script>
+		<script src="https://unpkg.com/beerslider/dist/BeerSlider.js"></script>
+		<script>
+			new BeerSlider(document.getElementById("beer-slider"));
+			new BeerSlider(document.getElementById("beer-slider2"));
+		</script>
 		<script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
 		<script src="https://unpkg.com/scrollama"></script>
 		<script src="index.js"></script>

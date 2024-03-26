@@ -28,6 +28,8 @@
 			rel="stylesheet"
 		/>
 
+      <link rel="stylesheet" href="https://unpkg.com/beerslider/dist/BeerSlider.css">
+
 		<!-- CSS -->
 		<link rel="stylesheet" type="text/css" href="styles.css" />
 	</head>
@@ -211,10 +213,9 @@
 							enim.
 						</p>
 					</div>
-          <div id="bt2">
-					</div>
+					<div id="bt2"></div>
 				</section>
-	
+
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
 					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -267,6 +268,50 @@
 				<!-- end sst scrollama -->
 			</div>
 
+			<div class="before-after-section">
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+					dolorem temporibus culpa consequatur perspiciatis nam in nesciunt unde
+					dolores aspernatur inventore laboriosam, animi, eligendi ea, alias
+					facere deleniti amet repellat!
+				</p>
+				<div id="beer-slider" class="beer-slider" data-beer-label="before">
+					<img src="images/nbh_before.png" alt="Original - Man holding beer" />
+					<div class="beer-reveal" data-beer-label="after">
+						<img
+							src="images/nbh_after.png"
+							alt="Processed - Man holding beer"
+						/>
+					</div>
+				</div>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+					dolorem temporibus culpa consequatur perspiciatis nam in nesciunt unde
+					dolores aspernatur inventore laboriosam, animi, eligendi ea, alias
+					facere deleniti amet repellat!
+				</p>
+
+				<div id="beer-slider2" class="beer-slider" data-beer-label="before">
+					<img
+						src="images/marina_before.png"
+						alt="Original - Man holding beer"
+					/>
+					<div class="beer-reveal" data-beer-label="after">
+						<img
+							src="images/marina_after.png"
+							alt="Processed - Man holding beer"
+						/>
+					</div>
+				</div>
+
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+					dolorem temporibus culpa consequatur perspiciatis nam in nesciunt unde
+					dolores aspernatur inventore laboriosam, animi, eligendi ea, alias
+					facere deleniti amet repellat!
+				</p>
+			</div>
+
 			<!-- begin landslides section -->
 			<!-- landslides map -->
 			<div id="ls-map-container">
@@ -286,7 +331,7 @@
 					</div>
 				</section>
 				<!-- end landslides scrollama -->
-        <p>
+				<p>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
 					dolorem temporibus culpa consequatur perspiciatis nam in nesciunt unde
 					dolores aspernatur inventore laboriosam, animi, eligendi ea, alias
@@ -316,18 +361,18 @@
 					>
 				</figcaption>
 			</div>
-      <p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-					dolorem temporibus culpa consequatur perspiciatis nam in nesciunt unde
-					dolores aspernatur inventore laboriosam, animi, eligendi ea, alias
-					facere deleniti amet repellat!
-				</p>
-        <p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-					dolorem temporibus culpa consequatur perspiciatis nam in nesciunt unde
-					dolores aspernatur inventore laboriosam, animi, eligendi ea, alias
-					facere deleniti amet repellat!
-				</p>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+				dolorem temporibus culpa consequatur perspiciatis nam in nesciunt unde
+				dolores aspernatur inventore laboriosam, animi, eligendi ea, alias
+				facere deleniti amet repellat!
+			</p>
+			<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+				dolorem temporibus culpa consequatur perspiciatis nam in nesciunt unde
+				dolores aspernatur inventore laboriosam, animi, eligendi ea, alias
+				facere deleniti amet repellat!
+			</p>
 			<!-- end landslides section -->
 
 			<div class="outro">
@@ -341,6 +386,11 @@
 			<!-- END ARTICLE -->
 		</main>
 
+		 <script src="https://unpkg.com/beerslider/dist/BeerSlider.js"></script>
+  <script>
+    new BeerSlider(document.getElementById('beer-slider'));
+     new BeerSlider(document.getElementById('beer-slider2'));
+  </script>
 		<script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
 		<script src="https://unpkg.com/scrollama"></script>
 		<script src="index.js"></script>

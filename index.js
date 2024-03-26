@@ -27,6 +27,8 @@ const lsScroller = scrollama();
 const advisScroller = scrollama();
 // Initialize Scrollama for slider / best track map
 const btScroller = scrollama();
+// Initialize Scrollama for sea surface temp map
+const sstScroller = scrollama();
 
 //INITIALIZE ADVISORY MAP
 const map = new maplibregl.Map({
@@ -360,8 +362,6 @@ function createSliderElement(data) {
 		overlay.innerHTML =
 			'<h2 id="slider-title">5 Day Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
 			console.log(overlay)
-		// document.querySelector("#fc-slider").appendChild(overlay);
-
 		updateFcMap(data[0], data[1]);
 	
 }
@@ -392,31 +392,17 @@ function updateFcMap(lines, cones) {
 	});
 }
 
-// function addSSTimg() {
-// 	sstmap.on("load", function () {
-// 		map.addSource("image", {
-// 			type: "image",
-// 			url: `images/${SSTimages[0]}`,
-// 			coordinates: sstcoords,
-// 		});
-// 		map.addLayer({
-// 			id: "sstimage",
-// 			source: "image",
-// 			type: "raster",
-// 			paint: {
-// 				"raster-opacity": 1,
-// 				"raster-fade-duration": 0,
-// 			},
-// 		});
-// 	});
-// }
 
-// function updateSST(idx) {
-// 	let mySource = map.getSource("image");
-// 	console.log("mySource", mySource);
 
-// 	mySource.updateImage({ url: `images/${SSTimages[idx]}` });
-// }
+function updateSST(idx) {
+	let img = sstmap.getSource("image");
+	console.log("mySource", img.url);
+
+	img.updateImage({
+		url: `images/${sstimages[idx]}`,
+	});
+	sstmap.triggerRepaint();
+}
 
 function landslideZoom() {
 	lsmap.flyTo({
@@ -450,7 +436,6 @@ const landslideScroll = (step) => {
 	}
 };
 
-
 btScroller
 	.setup({
 		step: ".bt-section section", // Select your steps
@@ -465,9 +450,30 @@ btScroller
 const btScroll = (step) => {
 	// Logic to update map based on the step
 	if (step === 1) {
-		console.log('about to create slider')
 		createSliderMap();
-		console.log("slider created");
+		return;
+	}
+};
+
+sstScroller
+	.setup({
+		step: ".sst-section section", // Select your steps
+		offset: 0.7,
+		debug: false, // Set to true to see debug lines
+	})
+	.onStepEnter((response) => {
+		// response = { element, index, direction }
+		sstScroll(response.index + 1); // Update the map data
+	});
+
+const sstScroll = (step) => {
+	// Logic to update map based on the step
+	if (step === 2) {
+		updateSST(1);
+		return;
+	} else if (step === 3) {
+		console.log('step3')
+		updateSST(2);
 		return;
 	}
 };

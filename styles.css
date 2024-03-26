@@ -156,6 +156,14 @@ Universial
     opacity: 0.8;
   }
 
+  .sst-section section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0% auto 120% 2%;
+    opacity: 0.8;
+  }
+
   #bt2 {
     margin-top: 5%;
   }

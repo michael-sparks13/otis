@@ -187,20 +187,20 @@ figcaption {
 }
 
 .wind-section,
-.landslide-section {
+.landslide-section,
+.before-after-section {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	background-color: white;
 }
 
-.landslide-section {
-	width: 100%;
+.before-after-section {
+	padding: 5%;
 }
 
-.before-after-section img {
-  width: 50%;
-  height: auto;
+.landslide-section {
+	width: 100%;
 }
 
 #wind-graph {
@@ -308,4 +308,8 @@ figcaption {
 		margin-left: 10%;
 		width: 30%;
 	}
+
+	.before-after-section {
+	padding: 15%;
+}
 }

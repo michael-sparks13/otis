@@ -56,18 +56,27 @@ video {
     margin-top: -5%;
 }
 
-#article-title h3 {
-	font-size: medium;
-	font-weight: 200;
-}
-
 hr {
 	color: lightgrey;
 	width: 30%;
+border-top: 5px solid lightgrey
 }
+
 
 #hero-img {
 	display: none;
+}
+
+#byline {
+	font-weight: 100;
+	font-size: 1rem;
+	margin: 8% 8% 3% 8%;
+}
+
+.article-graf {
+	margin-left: 8%;
+	margin-right: 8%;
+	font-size: 1.5rem;
 }
 
 figcaption {

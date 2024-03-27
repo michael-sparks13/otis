@@ -28,17 +28,32 @@ video {
 	width: 100%;
 }
 
+#hero-section {
+	position: relative;
+	display: inline-block;
+}
+
+#hero-vid {
+	position: relative;
+}
+
+#article-title {
+	position: absolute;
+    top: 55%;
+    z-index: 1;
+    color: white;
+	margin: 3%;
+}
+
 #article-title h1 {
-	font-size: 3rem;
-	font-weight: bolder;
+	font-size: 7rem;
 }
 
 #article-title h2 {
-	font-size: larger;
-	font-style: italic;
-	font-weight: normal;
-	margin-top: -2%;
-	margin-bottom: 5%;
+	font-size: 3rem;
+    font-style: italic;
+    font-weight: normal;
+    margin-top: -5%;
 }
 
 #article-title h3 {
@@ -58,7 +73,7 @@ hr {
 figcaption {
 	font-size: x-small;
 	background-color: white;
-	padding-left: 5%;
+	padding-left: 1%;
 }
 
 .section-img-caption {
@@ -70,11 +85,6 @@ figcaption {
 	margin: auto;
 }
 
-#article-title {
-	text-align: left;
-	padding-left: 3%;
-	margin-top: 5%;
-}
 
 #before-graf p,
 #after-graf p {

@@ -287,7 +287,14 @@ figcaption {
 	width: 100%;
 }
 
-/* CSS for Desktop */
+
+
+/* 
+=========================
+=========================
+CSS for Desktop 
+=========================
+=========================*/
 @media screen and (min-device-width: 435px) {
 	#article-title h2 {
 		margin-top: -2%;
@@ -356,4 +363,30 @@ figcaption {
 	.before-after-section {
 		padding: 15%;
 	}
+}
+
+
+/* 
+=========================
+=========================
+CSS for Monitors
+=========================
+=========================*/
+
+@media screen and (min-device-width: 435px) {
+
+	#article-title h1 {
+    font-size: 4rem;
+}
+
+#article-title {
+	top: 60%;
+}
+
+	#article-title h2 {
+    font-size: 2rem;
+	margin-top: -3%;
+}
+    
+
 }

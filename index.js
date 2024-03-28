@@ -21,6 +21,7 @@ const windowWidth =
 	document.documentElement.clientWidth ||
 	document.body.clientWidth;
 
+	console.log('ww', windowWidth)
 // Initialize Scrollama for landslide map
 const lsScroller = scrollama();
 // Initialize Scrollama for advisory map

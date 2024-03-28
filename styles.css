@@ -39,29 +39,22 @@ video {
 
 #article-title {
 	position: absolute;
-    top: 55%;
-    z-index: 1;
-    color: white;
+	top: 55%;
+	z-index: 1;
+	color: white;
 	margin: 3%;
 }
 
 #article-title h1 {
-	font-size: 7rem;
+	font-size: 3rem;
 }
 
 #article-title h2 {
-	font-size: 3rem;
-    font-style: italic;
-    font-weight: normal;
-    margin-top: -5%;
+	font-size: 1.2rem;
+	font-style: italic;
+	font-weight: normal;
+	margin-top: -7%;
 }
-
-hr {
-	color: lightgrey;
-	width: 30%;
-border-top: 5px solid lightgrey
-}
-
 
 #hero-img {
 	display: none;
@@ -70,13 +63,20 @@ border-top: 5px solid lightgrey
 #byline {
 	font-weight: 100;
 	font-size: 1rem;
-	margin: 8% 8% 3% 8%;
+	margin: 8%;
+	text-align: center;
+}
+
+hr {
+	color: lightgrey;
+	width: 30%;
+	border-top: 5px solid lightgrey;
 }
 
 .article-graf {
 	margin-left: 8%;
 	margin-right: 8%;
-	font-size: 1.5rem;
+	font-size: 1rem;
 }
 
 figcaption {
@@ -86,19 +86,26 @@ figcaption {
 }
 
 .section-img-caption {
-	margin-top: -5%;
-	margin-bottom: 3%;
+	margin-left: 2%;
+	margin-top: -2%;
+	margin-bottom: 2%;
 }
 
 .scroll-text section {
 	margin: auto;
 }
 
+.text-container {
+	color: white;
+	opacity: 1 !important;
+}
 
-#before-graf p,
-#after-graf p {
-	text-align: left;
-	padding-left: 0% 3%;
+.scroll-text-block {
+	background-color: black;
+	opacity: 60%;
+	color: white;
+	padding: 2%;
+	width: 50%;
 }
 
 #before-graf,
@@ -107,7 +114,7 @@ figcaption {
 }
 .section-img {
 	width: 90vw;
-	padding: 5%;
+	padding: 2%;
 }
 
 #map-container {
@@ -126,14 +133,6 @@ figcaption {
 .advisory-section {
 	position: sticky;
 	z-index: 100;
-}
-
-.advisory-section div {
-	background-color: black;
-	opacity: 80%;
-	color: white;
-	padding: 2%;
-	width: 60%;
 }
 
 .advisory-section section {
@@ -287,8 +286,6 @@ figcaption {
 	width: 100%;
 }
 
-
-
 /* 
 =========================
 =========================
@@ -365,7 +362,6 @@ CSS for Desktop
 	}
 }
 
-
 /* 
 =========================
 =========================
@@ -374,19 +370,16 @@ CSS for Monitors
 =========================*/
 
 @media screen and (min-device-width: 435px) {
-
 	#article-title h1 {
-    font-size: 4rem;
-}
+		font-size: 4rem;
+	}
 
-#article-title {
-	top: 60%;
-}
+	#article-title {
+		top: 60%;
+	}
 
 	#article-title h2 {
-    font-size: 2rem;
-	margin-top: -3%;
-}
-    
-
+		font-size: 2rem;
+		margin-top: -3%;
+	}
 }

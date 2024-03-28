@@ -161,10 +161,14 @@ figcaption {
 
 .bt-section div {
 	background-color: black;
-	opacity: 80%;
+	opacity: 70%;
 	color: white;
 	padding: 2%;
 	width: 60%;
+}
+
+#bt1 {
+	opacity: 0;
 }
 
 .bt-section section {

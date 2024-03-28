@@ -128,7 +128,7 @@ btmap.on("load", function () {
 		source: "cones",
 		paint: {
 			"fill-color": "#f75e5e",
-			"fill-opacity": 0.5,
+			"fill-opacity": 1,
 		},
 		filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
 	});

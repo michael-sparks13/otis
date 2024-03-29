@@ -199,7 +199,7 @@ btmap.on("load", function () {
 					["==", ["get", "SS"], 0],
 					["==", ["get", "properties.labeled"], false],
 				],
-				"Line 0", // Label for first SS=0
+				"0", // Label for first SS=0
 				[
 					"case",
 					["==", ["get", "SS"], 4],
@@ -207,6 +207,9 @@ btmap.on("load", function () {
 					["to-string", ["get", "SS"]],
 				],
 			],
+			"text-size": 12,
+			"text-offset": [0, 1],
+			"text-anchor": "top",
 		},
 		paint: {
 			"text-color": "black", // Change label color as desired
@@ -214,22 +217,16 @@ btmap.on("load", function () {
 	});
 
 	// Marking the first SS=0 as labeled
-	btmap.setPaintProperty("lines", "text-field", [
+	btmap.setPaintProperty("best_track", "properties.labeled", [
 		"case",
 		[
 			"all",
 			["==", ["get", "SS"], 0],
 			["==", ["get", "properties.labeled"], false],
 		],
-		"Line 0", // Label for first SS=0
-		[
-			"case",
-			["==", ["get", "SS"], 4],
-			"Category 4", // Label for SS=4
-			["to-string", ["get", "SS"]],
-		],
+		true,
+		false,
 	]);
-	btmap.setPaintProperty("lines", "properties.labeled", true);
 });
 
 //CREATE LANDSLIDES LAYER
@@ -251,7 +248,6 @@ lsmap.on("load", function () {
 
 //CREATE SEA SURFACE TEMP LAYER
 sstmap.on("load", function () {
-	console.log("sst");
 	sstmap.addSource("image", {
 		type: "image",
 		url: `images/${sstimages[0]}`,
@@ -372,7 +368,6 @@ function createSliderMap() {
 			);
 		})
 		.then((data) => {
-			console.log(data); // An array of results.
 			createSliderElement(data);
 		})
 		.catch((error) => {
@@ -382,7 +377,6 @@ function createSliderMap() {
 
 function changeMapPosition() {
 	let m = document.getElementById("map-container");
-	console.log(m);
 	m.style.position = "static";
 }
 
@@ -391,7 +385,7 @@ function createSliderElement(data) {
 		overlay = document.getElementById("bt2");
 		overlay.innerHTML =
 			'<h2 id="slider-title">Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
-			console.log(overlay)
+			overlay.style.opacity = 0.7
 		updateFcMap(data[0], data[1]);
 	
 }
@@ -426,7 +420,6 @@ function updateFcMap(lines, cones) {
 
 function updateSST(idx) {
 	let img = sstmap.getSource("image");
-	console.log("mySource", img.url);
 
 	img.updateImage({
 		url: `images/${sstimages[idx]}`,
@@ -502,7 +495,6 @@ const sstScroll = (step) => {
 		updateSST(1);
 		return;
 	} else if (step === 3) {
-		console.log('step3')
 		updateSST(2);
 		return;
 	}

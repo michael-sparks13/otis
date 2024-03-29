@@ -164,7 +164,7 @@ figcaption {
 	opacity: 70%;
 	color: white;
 	padding: 2%;
-	width: 60%;
+	width:40%;
 }
 
 #bt1 {
@@ -189,6 +189,7 @@ figcaption {
 
 #bt2 {
 	font-size: 0.7rem;
+	opacity: 0;
 }
 
 #slider {
@@ -268,10 +269,12 @@ figcaption {
 	margin-bottom: 5px;
 }
 
-.spacer {
+#spacer {
 	background-color: white;
 	margin-bottom: 0;
 	padding: 5%;
+	margin-left: 0;
+    margin-right: 0;
 }
 
 #sst-map-container,

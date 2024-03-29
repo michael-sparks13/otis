@@ -53,7 +53,7 @@ const btmap = new maplibregl.Map({
 const sstmap = new maplibregl.Map({
 	container: "sst-map",
 	style:
-		"https://api.maptiler.com/maps/ocean/style.json?key=R5Js2wLegZ6GMYd5iN2E",
+		"https://api.maptiler.com/maps/landscape/style.json?key=R5Js2wLegZ6GMYd5iN2E",
 	center: sstCenter(windowWidth),
 	zoom: sstZoom(windowWidth),
 });
@@ -294,7 +294,7 @@ function sstCenter(windowWidth) {
 	let mapCenter;
 	// test for various browser widths
 	if (windowWidth < 500) {
-		mapCenter = [-99.86562013617491, 9.867242923198695];
+		mapCenter = [-100.13982917349168, 15.322463935698368];
 	} else {
 		mapCenter = [-103.86562013617491, 9.867242923198695];
 	}
@@ -306,7 +306,7 @@ function sstZoom(windowWidth) {
 	let mapZoom;
 	// test for various browser widths
 	if (windowWidth < 500) {
-		mapZoom = 5;
+		mapZoom = 6;
 	} else {
 		mapZoom = 5.5;
 	}

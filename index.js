@@ -183,7 +183,7 @@ btmap.on("load", function () {
 				"#A188FC", //purple
 				"rgb(255,255,255)", // Default color
 			],
-			"line-width": 8, 
+			"line-width": 8,
 		},
 	});
 
@@ -192,15 +192,44 @@ btmap.on("load", function () {
 		type: "symbol",
 		source: "best_track",
 		layout: {
-			"text-field": ["get", "SS"],
-			"text-size": 16,
-			"text-offset": [0, -2],
-			"text-anchor": "top",
+			"text-field": [
+				"case",
+				[
+					"all",
+					["==", ["get", "SS"], 0],
+					["==", ["get", "properties.labeled"], false],
+				],
+				"Line 0", // Label for first SS=0
+				[
+					"case",
+					["==", ["get", "SS"], 4],
+					"Category 4", // Label for SS=4
+					["to-string", ["get", "SS"]],
+				],
+			],
 		},
 		paint: {
 			"text-color": "black", // Change label color as desired
 		},
 	});
+
+	// Marking the first SS=0 as labeled
+	btmap.setPaintProperty("lines", "text-field", [
+		"case",
+		[
+			"all",
+			["==", ["get", "SS"], 0],
+			["==", ["get", "properties.labeled"], false],
+		],
+		"Line 0", // Label for first SS=0
+		[
+			"case",
+			["==", ["get", "SS"], 4],
+			"Category 4", // Label for SS=4
+			["to-string", ["get", "SS"]],
+		],
+	]);
+	btmap.setPaintProperty("lines", "properties.labeled", true);
 });
 
 //CREATE LANDSLIDES LAYER

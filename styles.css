@@ -188,12 +188,11 @@ figcaption {
 }
 
 #bt2 {
-	margin-top: 5%;
+	font-size: 0.7rem;
 }
 
 #slider {
 	width: 80%;
-	margin: 20px auto;
 }
 
 #map-overlay {

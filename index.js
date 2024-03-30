@@ -13,8 +13,6 @@ const sstcoords = [
 	[-103.073486991, 11.626819321],
 ];
 
-const sstimages = ["oct21anom.png", "oct22anom.png", "oct23anom.png"];
-
 // search for available width property and set as windowWidth
 const windowWidth =
 	window.innerWidth ||
@@ -28,8 +26,7 @@ const lsScroller = scrollama();
 const advisScroller = scrollama();
 // Initialize Scrollama for slider / best track map
 const btScroller = scrollama();
-// Initialize Scrollama for sea surface temp map
-const sstScroller = scrollama();
+
 
 //INITIALIZE ADVISORY MAP
 const map = new maplibregl.Map({
@@ -49,15 +46,6 @@ const btmap = new maplibregl.Map({
 	zoom: setInitialMapZoom(windowWidth),
 });
 
-//INITIALIZE SST MAP
-const sstmap = new maplibregl.Map({
-	container: "sst-map",
-	style:
-		"https://api.maptiler.com/maps/landscape/style.json?key=R5Js2wLegZ6GMYd5iN2E",
-	center: sstCenter(windowWidth),
-	zoom: sstZoom(windowWidth),
-});
-sstmap.scrollZoom.disable();
 
 //INITIALIZE LANDSLIDES MAP
 const lsmap = new maplibregl.Map({
@@ -220,23 +208,6 @@ lsmap.on("load", function () {
 	});
 });
 
-//CREATE SEA SURFACE TEMP LAYER
-sstmap.on("load", function () {
-	sstmap.addSource("image", {
-		type: "image",
-		url: `images/${sstimages[0]}`,
-		coordinates: sstcoords,
-	});
-	sstmap.addLayer({
-		id: "sstimage",
-		source: "image",
-		type: "raster",
-		paint: {
-			"raster-opacity": 1,
-			// "raster-fade-duration": 0,
-		},
-	});
-});
 
 //BEGIN FUNCTIONS SECTION
 function setMapCenter(windowWidth) {
@@ -263,29 +234,6 @@ function setInitialMapZoom(windowWidth) {
 	return mapZoom;
 } //end setInitialMapZoom
 
-function sstCenter(windowWidth) {
-	// create variable for map center
-	let mapCenter;
-	// test for various browser widths
-	if (windowWidth < 500) {
-		mapCenter = [-100.13982917349168, 15.322463935698368];
-	} else {
-		mapCenter = [-103.86562013617491, 9.867242923198695];
-	}
-	return mapCenter;
-} //end sstCenter
-
-function sstZoom(windowWidth) {
-	// create variable for map zoom level
-	let mapZoom;
-	// test for various browser widths
-	if (windowWidth < 500) {
-		mapZoom = 6;
-	} else {
-		mapZoom = 5.5;
-	}
-	return mapZoom;
-} //end sstZoom
 
 //advis functions
 advisScroller
@@ -391,16 +339,6 @@ function updateFcMap(lines, cones) {
 }
 
 
-
-function updateSST(idx) {
-	let img = sstmap.getSource("image");
-
-	img.updateImage({
-		url: `images/${sstimages[idx]}`,
-	});
-	sstmap.triggerRepaint();
-}
-
 function landslideZoom() {
 	lsmap.flyTo({
 		center: [-99.91285749868301, 16.907181458697703],
@@ -448,28 +386,6 @@ const btScroll = (step) => {
 	// Logic to update map based on the step
 	if (step === 1) {
 		createSliderMap();
-		return;
-	}
-};
-
-sstScroller
-	.setup({
-		step: ".sst-section section", // Select your steps
-		offset: 0.7,
-		debug: false, // Set to true to see debug lines
-	})
-	.onStepEnter((response) => {
-		// response = { element, index, direction }
-		sstScroll(response.index + 1); // Update the map data
-	});
-
-const sstScroll = (step) => {
-	// Logic to update map based on the step
-	if (step === 2) {
-		updateSST(1);
-		return;
-	} else if (step === 3) {
-		updateSST(2);
 		return;
 	}
 };

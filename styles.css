@@ -219,9 +219,6 @@ figcaption {
 	margin-bottom: 0;
 }
 
-.before-after-section {
-	padding: 5%;
-}
 
 .landslide-section section {
 	display: flex;
@@ -277,7 +274,6 @@ figcaption {
     margin-right: 0;
 }
 
-#sst-map-container,
 #bt-map-container {
 	height: 100vh;
 	width: 100%;
@@ -287,7 +283,12 @@ figcaption {
 	/* Adjust height as needed */
 }
 
-#sst-map {
+#sst-section {
+	background: white;
+}
+
+#sst-gif {
+
 	height: 100%;
 	width: 100%;
 }

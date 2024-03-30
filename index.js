@@ -270,7 +270,7 @@ function setMapCenter(windowWidth) {
 	let mapCenter;
 	// test for various browser widths
 	if (windowWidth < 500) {
-		mapCenter = [-99.86562013617491, 14.867242923198695];
+		mapCenter = [-99.86562013617491, 13.867242923198695];
 	} else {
 		mapCenter = [-103.86562013617491, 14.867242923198695];
 	}
@@ -317,7 +317,7 @@ function sstZoom(windowWidth) {
 advisScroller
 	.setup({
 		step: ".advisory-section section", // Select triggers steps
-		offset: 0.7,
+		offset: 0.8,
 		debug: false,
 	})
 	.onStepEnter((response) => {

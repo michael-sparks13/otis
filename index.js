@@ -192,41 +192,15 @@ btmap.on("load", function () {
 		type: "symbol",
 		source: "best_track",
 		layout: {
-			"text-field": [
-				"case",
-				[
-					"all",
-					["==", ["get", "SS"], 0],
-					["==", ["get", "properties.labeled"], false],
-				],
-				"0", // Label for first SS=0
-				[
-					"case",
-					["==", ["get", "SS"], 4],
-					"Category 4", // Label for SS=4
-					["to-string", ["get", "SS"]],
-				],
-			],
-			"text-size": 12,
-			"text-offset": [0, 1],
+			"text-field": ["get", "LABEL"], // Use the LABEL property for text
+			"text-size": 16,
+			"text-offset": [0,-2], // Adjust as needed
 			"text-anchor": "top",
 		},
 		paint: {
 			"text-color": "black", // Change label color as desired
 		},
 	});
-
-	// Marking the first SS=0 as labeled
-	btmap.setPaintProperty("best_track", "properties.labeled", [
-		"case",
-		[
-			"all",
-			["==", ["get", "SS"], 0],
-			["==", ["get", "properties.labeled"], false],
-		],
-		true,
-		false,
-	]);
 });
 
 //CREATE LANDSLIDES LAYER

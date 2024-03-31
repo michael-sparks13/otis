@@ -1,375 +1,469 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Hurricane Otis</title>
-		<meta
-			property="og:description"
-			content="Digital Mapping Master's Degree
-    Capstone: Exploration of Hurricane Otis"
-			name="viewport"
-			content="width=device-width, initial-scale=1"
-		/>
 
-		<!-- favicon -->
-		<link rel="shortcut icon" type="image/x-icon" href="images/x-icon.jpeg" />
+<head>
+	<title>Hurricane Otis</title>
+	<meta property="og:description" content="Digital Mapping Master's Degree
+    Capstone: Exploration of Hurricane Otis" name="viewport" content="width=device-width, initial-scale=1" />
 
-		<!-- MAPLIBRE SCRIPTS AND STYLES -->
-		<link
-			rel="stylesheet"
-			href="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.css"
-		/>
-		<script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="images/x-icon.jpeg" />
 
-		<!-- GOOGLE FONTS -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap"
-			rel="stylesheet"
-		/>
+	<!-- MAPLIBRE SCRIPTS AND STYLES -->
+	<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.css" />
+	<script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
 
-		<link
-			rel="stylesheet"
-			href="https://unpkg.com/beerslider/dist/BeerSlider.css"
-		/>
+	<!-- GOOGLE FONTS -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap"
+		rel="stylesheet" />
 
-		<!-- CSS -->
-		<link rel="stylesheet" type="text/css" href="styles.css" />
-	</head>
+	<link rel="stylesheet" href="https://unpkg.com/beerslider/dist/BeerSlider.css" />
 
-	<body>
-		<main>
-			<!-- hero section images & article title -->
-			<section id="hero-section">
-				<div id="hero-vid">
-					<video autoplay muted loop>
-						<source src="images/otis_devastation.mp4" type="video/mp4" />
-						Your browser does not support the video tag.
-					</video>
-					<div id="article-title">
-						<h1>A "Nightmare Scenario" in the Pacific</h1>
-						<h2>
-							Hurricane Otis went from relatively mild storm to the strongest
-							hurricane to ever hit southwestern Mexico in under 24 hours
-						</h2>
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+
+<body>
+	<main>
+		<!-- hero section images & article title -->
+		<section id="hero-section">
+			<div id="hero-vid">
+				<video autoplay muted loop>
+					<source src="images/otis_devastation.mp4" type="video/mp4" />
+					Your browser does not support the video tag.
+				</video>
+				<div id="article-title">
+					<h1>A "Nightmare Scenario" in the Pacific</h1>
+					<h2>
+						Hurricane Otis went from relatively mild storm to the strongest
+						hurricane to ever hit southwestern Mexico in under 24 hours
+					</h2>
+				</div>
+				<figcaption>
+					Destruction along the coast | video via
+					<a href="https://www.tiktok.com/@yoonnasss" target="_blank">@yoonnasss</a>
+				</figcaption>
+			</div>
+
+			<div id="hero-img">
+				<img src="images/desktop_hero.avif" alt="devastation" />
+				<div id="article-title">
+					<h1>A "Nightmare Scenario" in the Pacific</h1>
+					<h2>
+						Hurricane Otis went from relatively mild storm to the strongest
+						hurricane to ever hit southwestern Mexico in under 24 hours
+					</h2>
+				</div>
+				<figcaption>Rodrigo Oropeza / AFP / Getty</figcaption>
+			</div>
+		</section>
+		<!-- end hero-section -->
+
+		<!-- BEGIN EXPANDED LEDE -->
+		<!-- intro paragraph before advisories -->
+		<section id="before-graf">
+			<h3 id="byline">written and created by Michael Sparks</h3>
+			<hr />
+			<p class="article-graf">
+				On Saturday, October 14, 2023, meteorologists at the National
+				Hurricane Center in Miami put out an innocuous <a
+					href="https://www.nhc.noaa.gov/archive/xgtwo/gtwo_archive.php?current_issuance=202310142331&basin=epac&fdays=7"
+					target="_blank"> seven-day outlook:</a>
+				several hundred miles south of Mexico, a low-pressure system, which
+				plays a crucial role in storm development, was beginning to form in
+				the Pacific Ocean. A tropical depression, the outlook said, “is
+				expected to form during the latter part of next week while the system
+				meanders well offshore of the coast of Mexico.”
+			</p>
+
+			<p class="article-graf">
+				That tropical depression did form. But what was expected to meander well offshore eventually rammed
+				directly into
+				Acapulco as the strongest storm to ever hit Mexico’s western coast and, ultimately, the most expensive
+				storm to ever hit
+				anywhere in Mexico.
+			</p>
+			<img class="section-img" src="images/acmx_before.jpeg" alt="a modern city with many trees on a sunny day" />
+			<figcaption class="section-img-caption">
+				Acapulco on a sunny day | image via
+				<a href="https://commons.wikimedia.org/wiki/File:Acapulco_zona_hotelera_02.jpg"
+					target="_blank">Microstar</a>
+			</figcaption>
+		</section>
+		<!-- end before-graf -->
+
+		<!-- 5 day forecast map -->
+		<div id="map-container">
+			<div id="map"></div>
+		</div>
+
+		<!-- forecast advisory scrollama section -->
+		<div class="advisory-section">
+			<p class="article-graf">
+				The National Hurricane Center typically puts out public advisories once storms coalesce into tropical
+				depressions.
+				These notices typically contain a five-day forecast within a “cone of uncertainty.”
+			</p>
+			<section data-step="1">
+				<div id="advis1" class="scroll-text-block">
+					<div class="text-container">
+						<p>The NHC put out its first advisory for Tropical Depression Eighteen-E at 10 am Acapulco time
+							on Sunday the 22nd.</p>
 					</div>
-					<figcaption>
-						Destruction along the coast | video via
-						<a href="https://www.tiktok.com/@yoonnasss" target="_blank"
-							>@yoonnasss</a
-						>
+				</div>
+			</section>
+			<section data-step="2">
+				<div id="advis2" class="scroll-text-block">
+					<p>
+						Six hours later, the now tropical storm is given the name Otis.
+					</p>
+				</div>
+			</section>
+			<section data-step="3">
+				<div id="advis5" class="scroll-text-block">
+					<p class="article-graf">
+						It isn’t until 24 hours after the first advisory that Acapulco is
+						at the center of the forecasted path. It was, by then, mid-morning
+						on Monday the 23rd.
+					</p>
+				</div>
+			</section>
+			<section data-step="4">
+				<div id="advis9A" class="scroll-text-block">
+					<p>
+						1 pm Tuesday the 24th: the NHC publishes advisory 9A, officially
+						upgrading the storm to Hurricane Otis.
+					</p>
+				</div>
+			</section>
+		</div>
+		<!-- end forecast advisory scrollama -->
+
+		<!-- paragraph after advisories -->
+		<section id="after-graf">
+			<p class="article-graf">
+				Just twelve hours later, Otis would make landfall as a category 5, with maximum sustained winds above
+				160 mph.
+			</p>
+			<img class="section-img" src="images/acmx_after.avif" alt="scenes of destruction in acapulco" />
+			<figcaption class="section-img-caption">
+				People walk through rubble on Oct 27 | Quetzalli Nicte-Ha / Reuters
+			</figcaption>
+		</section>
+		<!-- end after-graf -->
+
+		<!-- END EXPANDED LEDE -->
+
+		<!-- begin wind section -->
+		<div class="wind-section">
+			<!-- wind text -->
+			<p class="article-graf">
+				A <a href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2021GL096126" target="_blank">recent
+					study</a> by researchers out of Stanford found that, as the climate warms, weather prediction
+				becomes more
+				error-prone. Otis is a case study of the difficulty of forecasting storms in the climate crisis era. It
+				is also a sad
+				tale of the devastation of Acapulco and the long road to recovery ahead.
+			</p>
+			<p class="article-graf">The storm did not strike without warning. Acapulco, and almost all coastal portions
+				of Mexico’s Guerrero state, were
+				under a hurricane watch by 3 pm on Monday. What was completely unexpected was “how quickly and how much
+				Otis would
+				intensify,” said Dr. Jeff Masters, a prominent author on extreme weather and former hurricane scientist
+				with NOAA.
+			</p>
+
+			<p class="article-graf">
+				A direct hit on Acapulco is a historical rarity. Although the city sits in a prime tropical cyclone
+				climate, latitude 17
+				degrees north and near typically warm water, the easterly winds that prevail at this latitude tend to
+				drive storms west,
+				roughly parallel to the coast but far enough to not be a threat to land. Tropical Storm Claudia is the
+				only storm on
+				record as having made landfall within 50 miles of Acapulco. Claudia landed in 1973. “There are
+				no hurricanes on record even close to this intensity for this part of Mexico,” said the National
+				Hurricane Center in a
+				public release less than six hours before Otis landed.
+
+			</p>
+
+			<p class="article-graf">
+				Accordingly, in the days leading up to landfall, prominent forecast models projected Otis to remain
+				offshore, mirroring
+				typical hurricane behavior for the region. But part of what makes Otis historic is its exactly
+				ahistorical behavior.
+			</p>
+
+			<img class="section-img" src="images/model_intensity.jpeg"
+				alt="image of forecasting model predictions showing missed forecasts">
+			<figure class="section-img-catpion">Intensity forecasts from a variety of models | image credit <a
+					href="https://twitter.com/burgwx" target="_blank">Tomer
+					Burg</a></figure>
+
+			<p class="article-graf">
+				Compounding the forecasting challenge was a lack of data particular to southern Mexico and the eastern
+				Pacific.
+			</p>
+
+			<p class="article-graf">When the first, and only, Air Force Hurricane Hunter plane flew into Otis to conduct
+				direction observation, the NHC had
+				only classified Otis as a category one storm, relying primarily on satellite imagery to do so. In
+				reality, the Hurricane
+				Hunter team observed that Otis was already a category three: a major hurricane.</p>
+
+			<p class="article-graf">The Hurricane Hunter mission reached Otis around 1 pm on Tuesday, October 24th. At
+				10 pm that night, the NHC released a
+				notice saying “A nightmare scenario is unfolding for southern Mexico this evening.” Otis, we now know,
+				was in the midst
+				of a process called “extremely rapid intensification” defined by an increase in wind speed of at least
+				58 mph within 24
+				hours. Otis blew past that definition, strengthening by 115 mph in 24 hours, only behind one other
+				eastern Pacific storm
+				for the most rapid intensification on record: 2015’s Hurricane Patricia, which strengthened by 120 mph
+				in a day. Otis
+				would peak at 165 mph and make landfall at 160 mph.</p>
+
+			<!-- wind chart -->
+			<div id="wind-chart">
+				<img id="wind-graph" src="images/hurricane_winds.png" alt="chart of wind speeds" />
+			</div>
+
+
+			<p class="article-graf">Throughout its life, Otis was persistently stronger than the NHC was able to
+				estimate. Dr. Masters told me that had the
+				storm occurred in the Atlantic, that might not have been the case.“ Only one Hurricane Hunter flight
+				made it into Otis.
+				Had Otis been in the Atlantic, at least three flights would have gone in, including one during the time
+				period before RI
+				started. The data from this early flight would have gone into the forecast models, potentially resulting
+				in a much
+				better forecast.” In addition, he said, there were no land-based radars in Mexico that observed Otis; if
+				the storm had
+				been approaching the U.S., data from the dense network of radars would have been available and used to
+				make better model
+				forecasts.”
+			</p>
+
+			<p class="article-graf">The NHC echoed this in its formal storm report on the hurricane “The lack of
+				observational data over the eastern Pacific
+				Ocean can make intensity forecasting challenging in extreme RI cases, especially for small tropical
+				cyclones like
+				Otis…The in-situ datasets collected by the Air Force Reserve Hurricane Hunters were crucial for
+				forecasters to recognize
+				that none of the models had an accurate representation of Otis’ intensity…Unfortunately, the RI of Otis
+				was well
+				underway by the time these data were received."
+			</p>
+
+			<p class="article-graf">Perhaps paradoxically for such a damaging storm, Otis was quite small for a tropical
+				storm. Its hurricane-force winds
+				extended only about 30 miles from its center. Its small size reduced the amount of data points available
+				to forecasters
+				and was one of several obstacles that combined to make forecasting Otis very difficult.
+			</p>
+
+			<p class="article-graf">The storm did not strike without warning. Acapulco, and almost all coastal portions
+				of Mexico’s Guerrero state, were
+				under a hurricane watch by 3 pm on Monday. What was completely unexpected was “how quickly and how much
+				Otis would
+				intensify,” said Dr. Jeff Masters, a prominent author on extreme weather and former hurricane scientist
+				with NOAA.
+			</p>
+
+			<p class="article-graf">
+				As part of its normal post-storm reports, the National Hurricane Center estimates a “best track” course
+				that the storm
+				likely took. It is clear from comparing that track with the forecasts released during the storm how
+				difficult it was to
+				forecast Otis in real-time. The best track’s color bands also show how Otis meandered north for hundreds
+				of miles before
+				escalating at a nearly unprecedented rate.
+			</p>
+		</div>
+		<!-- end wind section -->
+
+		<div id="bt-map-container">
+			<div id="bt-map"></div>
+		</div>
+
+		<div class="bt-section">
+			<section data-step="1">
+				<div id="bt1"></div>
+				<div id="bt2"></div>
+			</section>
+
+			<p class="article-graf" id="spacer">
+				Any given weather event is the result of an almost limitless number of variables but, according to
+				experts, two main
+				factors led to the behavior Otis demonstrated.
+			</p>
+
+			<p class="article-graf" id="spacer">
+				The first was a strong band of winds known as a “jet streak.” In the most layman’s terms possible, a jet
+				streak is an
+				extra fast band of winds flowing through a system that acts to ventilate the hurricane, “similar to when
+				one ventilates
+				a fire,” according to Dr. Masters. That warm air helped to supercharge the storm, much as oxygen does
+				for a fire.
+			</p>
+		</div>
+
+		<!-- begin sst section -->
+		<div id="sst-section">
+			<p class="article-graf">
+				That warm air didn’t act alone. The second critical factor in Otis’ extremely rapid intensification was
+				higher than
+				average sea surface temperatures. The eastern Pacific is already comparatively warm in the
+				mid-latitudes, but October of
+				2023 was exceptional even by those standards. In some areas, the water was more than 3.6° Fahrenheit
+				above average,
+				pushing the overall temperature into the 90s.
+			</p>
+			<img id="sst-gif" src="images/sst3x.gif" alt="sst" />
+			<p class="article-graf">
+				“Hurricanes are heat engines that take heat energy from the oceans and convert it to the kinetic energy
+				of wind. Thus,
+				the more heat energy that is available in the ocean, the greater the maximum potential intensity of the
+				hurricane,” Dr.
+				Masters said.
+			</p>
+		</div>
+
+		<!-- end sst section -->
+
+		<div class="before-after-section">
+			<p class="article-graf">
+				The NHC calculates that nearly 98% of homes and 80% of hotels in Acapulco suffered storm-related damage.
+				UNICEF
+				<a href="https://www.unicef.org/media/147326/file/Mexico-Hurricane-OTIS-SitRep-31-October-2023.pdf"
+					target="_blank">cataloged</a> 120 hospitals and 33 schools among the damaged buildings. All told,
+				the NHC estimates that Otis caused between
+				$12-16 billion worth of damage, making it the costliest Mexican hurricane ever.
+			</p>
+
+			<p class="article-graf">The utter devastation is evident from satellite imagery.</p>
+
+			<p class="article-graf">A neighborhood in the heart of the city:
+			</p>
+			<div id="beer-slider" class="beer-slider" data-beer-label="after">
+				<img src="images/nbh_after.png" alt="acapulco neighborhood before Otis" />
+				<div class="beer-reveal" data-beer-label="before">
+					<img src="images/nbh_before.png" alt="acapulco neighborhood after Otis" />
+				</div>
+			</div>
+			<p class="article-graf">
+				And a marina in Acapulco Bay:
+			</p>
+
+			<div id="beer-slider2" class="beer-slider" data-beer-label="after">
+				<img src="images/marina_after.png" alt="acapulco bay before Otis" />
+				<div class="beer-reveal" data-beer-label="before">
+					<img src="images/marina_before.png" alt="acapulco bay after Otis" />
+				</div>
+			</div>
+
+			<p class="article-graf">
+				Once it made landfall, Otis quickly dissipated. The NHC estimates it was only at hurricane strength for
+				about 12 hours
+				over land. Part of what drove the quick downscaling was the Sierra Madre del Sur mountain range, which
+				abuts the city’s
+				edge. Mountains act as barriers to airflow, disrupting the circulation patterns that sustain a tropical
+				cyclone. Their
+				rugged terrain can also increase friction near the storm’s surface, slowing down winds and further
+				depleting the storm's
+				energy, thus preventing it from moving further inland.
+			</p>
+
+			<p class="article-graf">
+				That comes at a cost, though. Hurricanes bring not just strong wind, but also heavy rain. Acapulco saw
+				nearly 11” of it.
+				And where heavy rains meet mountains, there is the risk of landslides.
+			</p>
+		</div>
+
+		<!-- begin landslides section -->
+		<!-- landslides map -->
+		<div id="ls-map-container">
+			<div id="ls-map"></div>
+		</div>
+
+		<!-- begin landslides scrollama -->
+		<div class="landslide-section">
+			<section data-step="1">
+				<div id="ls1" class="scroll-text-block">
+					<p class="article-graf">
+						Data from the NASA Disaster Program show how the landslides draped the mountainsides and
+						flooding poured through
+						neighborhoods damaging homes, roads, and powerlines, and preventing basic services from reaching
+						the city’s neediest
+						people.
+					</p>
+				</div>
+
+				<div id="ls2" class="scroll-text-block">
+					NPR’s Mexico City correspondent Eyder Peralta reported from on-the-ground in Acapulco that, in the
+					<a src="https://twitter.com/eyderp/status/1717711721459007798?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1717711721459007798%7Ctwgr%5E790b77fb21065466146bde4638ea95f0d6d01186%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fyaleclimateconnections.org%2F2023%2F10%2Facapulco-reeling-from-catastrophic-damage-in-the-wake-of-hurricane-otis%2F"
+						target="_blank">days after</a>, many
+					residents were struggling to access food and water.
+
+				</div>
+			</section>
+			<!-- end landslides scrollama -->
+			<div class="landslide-section-main">
+				<p class="article-graf">
+					While the exact number of landslide deaths remains unknown, NHC reports that they were responsible
+					for “numerous”
+					fatalities. All told, among landslides, flooding, and intense winds, the official death toll from
+					Otis stands at 52,
+					with another 32 missing. That is almost certainly an undercount. Perhaps a sizable one: some news
+					outlets <a
+						src="https://www.elfinanciero.com.mx/estados/2023/11/12/otis-deja-al-menos-350-muertos-en-guerrero-segun-funerarias-gobierno-solo-reporto-48/"
+						target="_blank">report</a> that
+					funeral homes across the city handled nearly 350 fatalities in the days after the storm.
+				</p>
+
+				<!-- mountains dissipate text -->
+				<div class="ls-mountains">
+					<p class="article-graf">
+						The Mexican newspaper <a src="https://www.eleconomista.com.mx/politica/Los-muertos-por-Otis-en-Acapulco-son-muchos-mas-segun-privados-20231118-0022.html" target="_blank"><i>El Economista</i></a> documented several accounts of residents, lacking the money
+						for traditional
+						funerals, simply burying loved ones in unofficial graves, likely further contributing to the
+						undercount.
+					</p>
+					<img class="section-img" src="images/landslide.png"
+						alt="workers help women cross a road washed out by a landslide" />
+					<figcaption class="section-img-caption">
+						warms help women cross a road washed out by a landslide | image via
+						<a src="https://commons.wikimedia.org/w/index.php?curid=2555344" target="_blank">Mitrush</a>
 					</figcaption>
 				</div>
-
-				<div id="hero-img">
-					<img src="images/desktop_hero.avif" alt="devastation" />
-					<div id="article-title">
-						<h1>A "Nightmare Scenario" in the Pacific</h1>
-						<h2>
-							Hurricane Otis went from relatively mild storm to the strongest
-							hurricane to ever hit southwestern Mexico in under 24 hours
-						</h2>
-					</div>
-					<figcaption>Rodrigo Oropeza / AFP / Getty</figcaption>
-				</div>
-			</section>
-			<!-- end hero-section -->
-
-			<!-- BEGIN EXPANDED LEDE -->
-			<!-- intro paragraph before advisories -->
-			<section id="before-graf">
-				<h3 id="byline">written and created by Michael Sparks</h3>
-				<hr />
-				<p class="article-graf">
-					On Saturday, October 14, 2023, meteorologists at the National
-					Hurricane Center in Miami put out an innocuous seven-day outlook:
-					several hundred miles south of Mexico, a low-pressure system, which
-					plays a crucial role in storm development, was beginning to form in
-					the Pacific Ocean. A tropical depression, the outlook said, “is
-					expected to form during the latter part of next week while the system
-					meanders well offshore of the coast of Mexico.”
-				</p>
-
-				<p class="article-graf">
-					That tropical depression did form. But what was expected to meander
-					well offshore eventually rammed directly into Acapulco, as the
-					strongest and, ultimately, most expensive storm to ever hit Mexico’s
-					western coast.
-				</p>
-				<img
-					class="section-img"
-					src="images/acmx_before.jpeg"
-					alt="a modern city with many trees on a sunny day"
-				/>
-				<figcaption class="section-img-caption">
-					Acapulco on a sunny day | image via
-					<a
-						href="https://commons.wikimedia.org/wiki/File:Acapulco_zona_hotelera_02.jpg"
-						target="_blank"
-						>Microstar</a
-					>
-				</figcaption>
-			</section>
-			<!-- end before-graf -->
-
-			<!-- 5 day forecast map -->
-			<div id="map-container">
-				<div id="map"></div>
 			</div>
+			<!-- end landslides section -->
+		</div>
 
-			<!-- forecast advisory scrollama section -->
-			<div class="advisory-section">
-				<section data-step="1">
-					<div id="advis1" class="scroll-text-block">
-						<div class="text-container">
-							<p>
-								The National Hurricane Center typically puts out public
-								advisories once storms coalesce into tropical depressions. These
-								notices typically contain a five-day forecast within a “cone of
-								uncertainty.” The NHC put out its first advisory for Tropical
-								Depression Eighteen-E at 10 am Acapulco time on Sunday the 22nd.
-							</p>
-						</div>
-					</div>
-				</section>
-				<section data-step="2">
-					<div id="advis2" class="scroll-text-block">
-						<p>
-							Six hours later, the now tropical storm is given the name Otis.
-						</p>
-					</div>
-				</section>
-				<section data-step="3">
-					<div id="advis5" class="scroll-text-block">
-						<p class="article-graf">
-							It isn’t until 24 hours after the first advisory that Acapulco is
-							at the center of the forecasted path. It was, by then, mid-morning
-							on Monday the 23rd.
-						</p>
-					</div>
-				</section>
-				<section data-step="4">
-					<div id="advis9A" class="scroll-text-block">
-						<p>
-							1 pm Tuesday the 24th: the NHC publishes advisory 9A, officially
-							upgrading the storm to Hurricane Otis.
-						</p>
-					</div>
-				</section>
-			</div>
-			<!-- end forecast advisory scrollama -->
+		<div class="outro-section">
+			<p class="article-graf">
+				Looking at the final, official death toll, perhaps it is tempting to conclude that Otis wasn’t that bad
+				of a storm.
+				Certainly, it could have been much worse. But for those who lost their homes, businesses, and loved
+				ones, Otis was an
+				incalculable tragedy. One that, unfortunately, is becoming all too common.
+			</p>
+		</div>
+		<!-- END ARTICLE -->
+	</main>
 
-			<!-- paragraph after advisories -->
-			<section id="after-graf">
-				<p class="article-graf">
-					Just tweleve hours later, at 1am Wednesday morning, Otis made landfall.
-				</p>
-				<img
-					class="section-img"
-					src="images/acmx_after.avif"
-					alt="scenes of destruction in acapulco"
-				/>
-				<figcaption class="section-img-caption">
-					People walk through rubble on Oct 27 | Quetzalli Nicte-Ha / Reuters
-				</figcaption>
-			</section>
-			<!-- end after-graf -->
+	<script src="https://unpkg.com/beerslider/dist/BeerSlider.js"></script>
+	<script>
+		new BeerSlider(document.getElementById("beer-slider"));
+		new BeerSlider(document.getElementById("beer-slider2"));
+	</script>
+	<script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
+	<script src="https://unpkg.com/scrollama"></script>
+	<script src="index.js"></script>
+</body>
 
-			<!-- END EXPANDED LEDE -->
-
-			<!-- begin wind section -->
-			<div class="wind-section">
-				<!-- wind text -->
-				<p class="article-graf">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-					aliquip ex ea commodo consequat. Duis aute irure dolor in
-					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-					culpa qui officia deserunt mollit anim id est laborum.
-				</p>
-				<!-- wind chart -->
-				<div id="wind-chart">
-					<img
-						id="wind-graph"
-						src="images/hurricane_winds.png"
-						alt="chart of wind speeds"
-					/>
-				</div>
-
-				<p class="article-graf">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-					aliquip ex ea commodo consequat. Duis aute irure dolor in
-					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-					culpa qui officia deserunt mollit anim id est laborum.
-				</p>
-			</div>
-			<!-- end wind section -->
-
-			<div id="bt-map-container">
-				<div id="bt-map"></div>
-			</div>
-
-			<div class="bt-section">
-				<section data-step="1">
-					<div id="bt1">
-						
-					</div>
-					<div id="bt2"></div>
-				</section>
-
-				<p class="article-graf" id="spacer">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-					eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-					aliquip ex ea commodo consequat. Duis aute irure dolor in
-					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-					culpa qui officia deserunt mollit anim id est laborum.
-				</p>
-			</div>
-
-			<!-- begin sst section -->
-			<div id="sst-section">
-				<img id="sst-gif" src="images/sst1x.gif" alt="sst">
-				<p class="article-graf">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-					dolorem temporibus culpa consequatur perspiciatis nam in nesciunt unde
-					dolores aspernatur inventore laboriosam, animi, eligendi ea, alias
-					facere deleniti amet repellat!
-				</p>
-			</div>
-
-				<!-- end sst section -->
-
-			<div class="before-after-section">
-				<p class="article-graf">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-					dolorem temporibus culpa consequatur perspiciatis nam in nesciunt unde
-					dolores aspernatur inventore laboriosam, animi, eligendi ea, alias
-					facere deleniti amet repellat!
-				</p>
-				<div id="beer-slider" class="beer-slider" data-beer-label="after">
-					<img
-						src="images/nbh_after.png"
-						alt="acapulco neighborhood before Otis"
-					/>
-					<div class="beer-reveal" data-beer-label="before">
-						<img
-							src="images/nbh_before.png"
-							alt="acapulco neighborhood after Otis"
-						/>
-					</div>
-				</div>
-				<p class="article-graf">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-					dolorem temporibus culpa consequatur perspiciatis nam in nesciunt unde
-					dolores aspernatur inventore laboriosam, animi, eligendi ea, alias
-					facere deleniti amet repellat!
-				</p>
-
-				<div id="beer-slider2" class="beer-slider" data-beer-label="after">
-					<img src="images/marina_after.png" alt="acapulco bay before Otis" />
-					<div class="beer-reveal" data-beer-label="before">
-						<img src="images/marina_before.png" alt="acapulco bay after Otis" />
-					</div>
-				</div>
-
-				<p class="article-graf">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-					dolorem temporibus culpa consequatur perspiciatis nam in nesciunt unde
-					dolores aspernatur inventore laboriosam, animi, eligendi ea, alias
-					facere deleniti amet repellat!
-				</p>
-			</div>
-
-			<!-- begin landslides section -->
-			<!-- landslides map -->
-			<div id="ls-map-container">
-				<div id="ls-map"></div>
-			</div>
-
-			<!-- begin landslides scrollama -->
-			<div class="landslide-section">
-				<section data-step="1">
-					<div id="ls1" class="scroll-text-block">
-						<h2>landslides happened</h2>
-						<p class="article-graf">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-							enim.
-						</p>
-					</div>
-				</section>
-				<!-- end landslides scrollama -->
-				<div class="landslide-section-main">
-					<p class="article-graf">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-						dolorem temporibus culpa consequatur perspiciatis nam in nesciunt
-						unde dolores aspernatur inventore laboriosam, animi, eligendi ea,
-						alias facere deleniti amet repellat!
-					</p>
-
-					<!-- mountains dissipate text -->
-					<div class="ls-mountains">
-						<p class="article-graf">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-							dolorem temporibus culpa consequatur perspiciatis nam in nesciunt
-							unde dolores aspernatur inventore laboriosam, animi, eligendi ea,
-							alias facere deleniti amet repellat!
-						</p>
-						<img
-							class="section-img"
-							src="images/landslide.png"
-							alt="workers help women cross a road washed out by a landslide"
-						/>
-						<figcaption class="section-img-caption">
-							The Sierra Madre del Sur Range | image via
-							<a
-								src="https://commons.wikimedia.org/w/index.php?curid=2555344"
-								target="_blank"
-								>Mitrush</a
-							>
-						</figcaption>
-					</div>
-					<p class="article-graf">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-						dolorem temporibus culpa consequatur perspiciatis nam in nesciunt
-						unde dolores aspernatur inventore laboriosam, animi, eligendi ea,
-						alias facere deleniti amet repellat!
-					</p>
-					<p class="article-graf">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-						dolorem temporibus culpa consequatur perspiciatis nam in nesciunt
-						unde dolores aspernatur inventore laboriosam, animi, eligendi ea,
-						alias facere deleniti amet repellat!
-					</p>
-				</div>
-				<!-- end landslides section -->
-			</div>
-
-			<div class="outro-section">
-				<p class="article-graf">
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores,
-					autem deserunt enim minima nobis vitae quibusdam officiis excepturi
-					natus dolores sit eum, corrupti a accusantium perspiciatis adipisci!
-					Beatae, earum maiores?
-				</p>
-			</div>
-			<!-- END ARTICLE -->
-		</main>
-
-		<script src="https://unpkg.com/beerslider/dist/BeerSlider.js"></script>
-		<script>
-			new BeerSlider(document.getElementById("beer-slider"));
-			new BeerSlider(document.getElementById("beer-slider2"));
-		</script>
-		<script src="https://unpkg.com/maplibre-gl@4.0.0/dist/maplibre-gl.js"></script>
-		<script src="https://unpkg.com/scrollama"></script>
-		<script src="index.js"></script>
-	</body>
 </html>

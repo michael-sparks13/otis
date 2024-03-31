@@ -115,8 +115,8 @@ btmap.on("load", function () {
 		type: "fill",
 		source: "cones",
 		paint: {
-			"fill-color": "#f75e5e",
-			"fill-opacity": 1,
+			"fill-color": "#FF0000",
+			"fill-opacity": 0.8
 		},
 		filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
 	});
@@ -182,7 +182,7 @@ btmap.on("load", function () {
 		layout: {
 			"text-field": ["get", "LABEL"], // Use the LABEL property for text
 			"text-size": 16,
-			"text-offset": [0,-2], // Adjust as needed
+			"text-offset": [0.5,-2], // Adjust as needed
 			"text-anchor": "top",
 		},
 		paint: {
@@ -204,6 +204,17 @@ lsmap.on("load", function () {
 		source: "landslides",
 		paint: {
 			"fill-color": "#fff",
+			"fill-outline-color": "#fff",
+		},
+	});
+
+	lsmap.addLayer({
+		id: "landslides-outline",
+		type: "line",
+		source: "landslides",
+		paint: {
+			"line-color": "#fff",
+			"line-width": 1
 		},
 	});
 });
@@ -307,7 +318,7 @@ function createSliderElement(data) {
 		overlay = document.getElementById("bt2");
 		overlay.innerHTML =
 			'<h2 id="slider-title">Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
-			overlay.style.opacity = 0.7
+			overlay.style.opacity = 0.8
 		updateFcMap(data[0], data[1]);
 	
 }

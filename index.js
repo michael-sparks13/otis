@@ -228,7 +228,7 @@ function setMapCenter(windowWidth) {
 	if (windowWidth < 500) {
 		mapCenter = [-99.86562013617491, 13.867242923198695];
 	} else {
-		mapCenter = [-103.86562013617491, 14.867242923198695];
+		mapCenter = [-99.86562013617491, 14.867242923198695];
 	}
 	return mapCenter;
 } //end setMapCenter
@@ -240,7 +240,7 @@ function setInitialMapZoom(windowWidth) {
 	if (windowWidth < 500) {
 		mapZoom = 5;
 	} else {
-		mapZoom = 5.5;
+		mapZoom = 6;
 	}
 	return mapZoom;
 } //end setInitialMapZoom

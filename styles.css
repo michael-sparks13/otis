@@ -131,7 +131,7 @@ figcaption {
 
 #map,
 #bt-map {
-	height: 100%;
+	height: 90%;
 }
 
 .advisory-section {
@@ -358,6 +358,14 @@ CSS for Desktop
     text-align: center;
 	}
 
+	#map {
+		margin: 3%;
+	}
+
+	.section-img {
+		margin-top: -2%;
+	}
+
 	.section-img-caption {
 		margin-left: 5%;
 		font-size: small;
@@ -366,28 +374,22 @@ CSS for Desktop
 	.article-graf {
     margin-left: 20%;
     margin-right: 20%;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
-
-	.advisory-section section {
-		display: flex;
-		flex-direction: row;
-		margin: 1% auto 60% 0%;
-		opacity: 0.8;
-	}
-
-	.advisory-section section div:first-child {
-		padding: 0% 2%;
-	}
 
 	.advisory-section div {
 		background-color: black;
 		opacity: 60%;
 		color: white;
-		padding: 2%;
-		margin-left: 10%;
-		width: 30%;
-	}
+		padding: 1%;
+    margin-left: 0%;
+    width: 25%;
+    font-size: 1.5rem;
+}
+
+.advisory-section .scroll-text-block {
+	margin-left: -45%;
+}
 
 	.bt-section section {
 		display: flex;

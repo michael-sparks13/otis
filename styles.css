@@ -78,7 +78,7 @@ hr {
 .article-graf {
 	margin-left: 8%;
 	margin-right: 8%;
-	font-size: 1rem;
+	font-size: 1.3rem;
 }
 
 figcaption {
@@ -107,7 +107,8 @@ figcaption {
 	opacity: 80%;
 	color: white;
 	padding: 2%;
-	width: 50%;
+	width: 60%;
+	font-size: 1.3rem;
 }
 
 #before-graf,
@@ -117,6 +118,7 @@ figcaption {
 .section-img {
 	width: 90vw;
 	padding: 2%;
+	padding-left: 5%;
 }
 
 #map-container {
@@ -191,7 +193,6 @@ figcaption {
 
 #bt2 {
 	font-size: 0.7rem;
-	opacity: 0;
 }
 
 #slider {
@@ -268,14 +269,6 @@ figcaption {
 	margin-bottom: 5px;
 }
 
-#spacer {
-	background-color: white;
-	margin-bottom: 0;
-	padding: 5%;
-	margin-left: 0;
-    margin-right: 0;
-}
-
 #bt-map-container {
 	height: 100vh;
 	width: 100%;
@@ -283,6 +276,10 @@ figcaption {
 	top: 0;
 	z-index: -1;
 	/* Adjust height as needed */
+}
+
+#marina {
+	margin-left: -8%;
 }
 
 #sst-section {
@@ -294,6 +291,11 @@ figcaption {
 	height: 100%;
 	width: 100%;
 }
+
+#ls1 {
+	opacity: 1;
+}
+
 
 /* 
 =========================

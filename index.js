@@ -203,8 +203,8 @@ lsmap.on("load", function () {
 		type: "fill",
 		source: "landslides",
 		paint: {
-			"fill-color": "#fff",
-			"fill-outline-color": "#fff",
+			"fill-color": "red",
+			"fill-outline-color": "red",
 		},
 	});
 
@@ -213,7 +213,7 @@ lsmap.on("load", function () {
 		type: "line",
 		source: "landslides",
 		paint: {
-			"line-color": "#fff",
+			"line-color": "red",
 			"line-width": 1
 		},
 	});
@@ -308,11 +308,6 @@ function createSliderMap() {
 		});
 }
 
-function changeMapPosition() {
-	let m = document.getElementById("map-container");
-	m.style.position = "static";
-}
-
 function createSliderElement(data) {
 
 		overlay = document.getElementById("bt2");
@@ -382,6 +377,9 @@ const landslideScroll = (step) => {
 	}
 };
 
+// Handle resize
+window.addEventListener("resize", lsScroller.resize);
+
 btScroller
 	.setup({
 		step: ".bt-section section", // Select your steps
@@ -392,6 +390,9 @@ btScroller
 		// response = { element, index, direction }
 		btScroll(response.index + 1); // Update the map data
 	});
+
+	// Handle resize
+window.addEventListener("resize", btScroller.resize);
 
 const btScroll = (step) => {
 	// Logic to update map based on the step

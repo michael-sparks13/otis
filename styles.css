@@ -16,6 +16,7 @@ body,
 html {
 	margin: 0;
 	padding: 0;
+	line-height: 1.5;
 }
 
 main {
@@ -127,7 +128,6 @@ figcaption {
 	height: 100vh;
 	/* Adjust height as needed */
 	z-index: -1;
-	
 }
 
 #map,
@@ -320,10 +320,10 @@ CSS for Desktop
 	}
 
 	#article-title h1 {
-		font-size: 4rem;
+		font-size: 3.5rem;
 	}
 	#article-title h2 {
-		font-size: 2rem;
+		font-size: 1.9rem;
 		margin-top: -5%;
 	}
 
@@ -354,7 +354,8 @@ CSS for Desktop
 		text-align: center;
 	}
 
-	#map, #bt-map {
+	#map,
+	#bt-map {
 		margin: 3%;
 	}
 
@@ -374,14 +375,14 @@ CSS for Desktop
 
 	#bt2 {
 		width: 20%;
-    font-size: 1.2rem;
-    padding: 1%;
-	margin-left: 15%
+		font-size: 1.2rem;
+		padding: 1%;
+		margin-left: 15%;
 	}
 
 	#sst-gif {
-		width: 65%;
-		margin-left: 15%;
+		width: 55%;
+		margin-left: 22%;
 	}
 
 	.section-img-caption {
@@ -390,9 +391,9 @@ CSS for Desktop
 	}
 
 	.article-graf {
-		margin-left: 20%;
-		margin-right: 20%;
-		font-size: 1.8rem;
+		margin-left: 25%;
+		margin-right: 25%;
+		font-size: 1.5rem;
 	}
 
 	.advisory-section div {
@@ -431,7 +432,11 @@ CSS for Desktop
 	}
 
 	.before-after-section {
-		padding: 15%;
+		padding: 0 15% 0 15%;
+	}
+
+	#marina {
+		padding: -15%;
 	}
 }
 

@@ -304,8 +304,31 @@ CSS for Desktop
 =========================
 =========================*/
 @media screen and (min-device-width: 435px) {
+
+	#hero-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+	
+	}
+
+	#article-title {
+    color: white;
+    margin-left: 20%;
+    width: 60%;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	
+	}
+
+	#article-title h1 {
+		font-size: 4rem;
+	}
 	#article-title h2 {
-		margin-top: -2%;
+		font-size: 2rem;
+		margin-top: -5%;
 	}
 
 	#article-title h3 {
@@ -326,6 +349,25 @@ CSS for Desktop
 	#hero-vid {
 		display: none;
 	}
+
+	#byline {
+		font-weight: 100;
+		margin: 2%;
+    font-size: 1.3rem;
+    /* margin: 8%; */
+    text-align: center;
+	}
+
+	.section-img-caption {
+		margin-left: 5%;
+		font-size: small;
+	}
+
+	.article-graf {
+    margin-left: 20%;
+    margin-right: 20%;
+    font-size: 2rem;
+}
 
 	.advisory-section section {
 		display: flex;
@@ -380,7 +422,7 @@ CSS for Monitors
 =========================
 =========================*/
 
-@media screen and (min-device-width: 435px) {
+@media screen and (min-device-width: 1715px) {
 	#article-title h1 {
 		font-size: 4rem;
 	}

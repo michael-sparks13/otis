@@ -76,6 +76,10 @@ hr {
 	border-top: 5px solid lightgrey;
 }
 
+a {
+	color: #21B5DE
+}
+
 .article-graf {
 	margin-left: 8%;
 	margin-right: 8%;

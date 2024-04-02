@@ -43,7 +43,7 @@ const btmap = new maplibregl.Map({
 	style:
 		"https://api.maptiler.com/maps/landscape/style.json?key=R5Js2wLegZ6GMYd5iN2E",
 	center: setMapCenter(windowWidth),
-	zoom: setInitialMapZoom(windowWidth) - 1,
+	zoom: setInitialMapZoom(windowWidth) - 0.5,
 });
 
 
@@ -71,8 +71,8 @@ map.on("load", function () {
 		type: "fill",
 		source: "cones",
 		paint: {
-			"fill-color": "#FF0000",
-			"fill-opacity": 0.8,
+			"fill-color": "#E0323E",
+			"fill-opacity": 0.7,
 		},
 		filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
 	});
@@ -115,8 +115,8 @@ btmap.on("load", function () {
 		type: "fill",
 		source: "cones",
 		paint: {
-			"fill-color": "#FF0000",
-			"fill-opacity": 0.8
+			"fill-color": "#E0323E",
+			"fill-opacity": 0.7,
 		},
 		filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
 	});

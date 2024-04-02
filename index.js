@@ -191,6 +191,7 @@ btmap.on("load", function () {
 	});
 });
 
+const lsColor = "#D73328";
 //CREATE LANDSLIDES LAYER
 lsmap.on("load", function () {
 	lsmap.addSource("landslides", {
@@ -203,8 +204,8 @@ lsmap.on("load", function () {
 		type: "fill",
 		source: "landslides",
 		paint: {
-			"fill-color": "red",
-			"fill-outline-color": "red",
+			"fill-color": lsColor,
+			"fill-outline-color": lsColor,
 		},
 	});
 
@@ -213,8 +214,8 @@ lsmap.on("load", function () {
 		type: "line",
 		source: "landslides",
 		paint: {
-			"line-color": "red",
-			"line-width": 1
+			"line-color": lsColor,
+			"line-width": 5.5,
 		},
 	});
 });
@@ -347,8 +348,8 @@ function updateFcMap(lines, cones) {
 
 function landslideZoom() {
 	lsmap.flyTo({
-		center: [-99.91285749868301, 16.907181458697703],
-		zoom: 12,
+		center: [-99.91285749868301, 16.900181458697703],
+		zoom: 13,
 		speed: 2,
 		curve: 1,
 		pitch: 40,

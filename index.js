@@ -189,6 +189,36 @@ btmap.on("load", function () {
 			"text-color": "black", // Change label color as desired
 		},
 	});
+
+	btmap.addSource("acmx", {
+		type: "geojson",
+		data: "data/acapulco_label.geojson",
+	});
+
+	btmap.addLayer({
+		id: "acmx",
+		type: "circle",
+		source: "acmx",
+		paint: {
+			"circle-color": "black",
+			"circle-radius": 30,
+		},
+	});
+
+	btmap.addLayer({
+		id: "acmx-labels",
+		type: "symbol",
+		source: "acmx",
+		layout: {
+			"text-field": ["get", "name"], // Use the LABEL property for text
+			"text-size": 20,
+			"text-offset": [0, -1], // Adjust as needed
+			"text-anchor": "bottom-left",
+		},
+		paint: {
+			"text-color": "black", // Change label color as desired
+		},
+	});
 });
 
 const lsColor = "#D73328";

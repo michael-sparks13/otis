@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "acapulco_label",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "Acapulco" }, "geometry": { "type": "Point", "coordinates": [ -99.915979, 16.8499909 ] } }
+]
+}

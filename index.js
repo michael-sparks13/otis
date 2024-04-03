@@ -103,6 +103,47 @@ map.on("load", function () {
 
 // Wait until the map is loaded to add the data
 btmap.on("load", function () {
+
+	btmap.addSource("acmx", {
+		type: "geojson",
+		data: "data/acapulco_label.geojson",
+	});
+
+	btmap.addLayer({
+		id: "acmx-base",
+		type: "circle",
+		source: "acmx",
+		paint: {
+			"circle-color": "black",
+			"circle-radius": 10,
+		},
+	});
+
+	btmap.addLayer({
+		id: "acmx-top",
+		type: "circle",
+		source: "acmx",
+		paint: {
+			"circle-color": "white",
+			"circle-radius": 6,
+		},
+	});
+
+	btmap.addLayer({
+		id: "acmx-labels",
+		type: "symbol",
+		source: "acmx",
+		layout: {
+			"text-field": ["get", "name"], // Use the LABEL property for text
+			"text-size": 14,
+			"text-offset": [0.6, -0.6], // Adjust as needed
+			"text-anchor": "bottom-left",
+			"text-font": ["Open Sans Bold"],
+		},
+		paint: {
+			"text-color": "black", // Change label color as desired
+		},
+	});
 	// add the cones data source
 	btmap.addSource("cones", {
 		type: "geojson",
@@ -181,44 +222,16 @@ btmap.on("load", function () {
 		source: "best_track",
 		layout: {
 			"text-field": ["get", "LABEL"], // Use the LABEL property for text
-			"text-size": 18,
-			"text-offset": [0,-1], // Adjust as needed
-			"text-anchor": "bottom-left",
-		},
-		paint: {
-			"text-color": "black", // Change label color as desired
-		},
-	});
-
-	btmap.addSource("acmx", {
-		type: "geojson",
-		data: "data/acapulco_label.geojson",
-	});
-
-	btmap.addLayer({
-		id: "acmx",
-		type: "circle",
-		source: "acmx",
-		paint: {
-			"circle-color": "black",
-			"circle-radius": 30,
-		},
-	});
-
-	btmap.addLayer({
-		id: "acmx-labels",
-		type: "symbol",
-		source: "acmx",
-		layout: {
-			"text-field": ["get", "name"], // Use the LABEL property for text
 			"text-size": 20,
-			"text-offset": [0, -1], // Adjust as needed
+			"text-offset": [-1.5,-0.5], // Adjust as needed
 			"text-anchor": "bottom-left",
 		},
 		paint: {
 			"text-color": "black", // Change label color as desired
 		},
 	});
+
+	
 });
 
 const lsColor = "#D73328";

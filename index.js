@@ -32,7 +32,7 @@ const btScroller = scrollama();
 const map = new maplibregl.Map({
 	container: "map",
 	style:
-		"https://api.maptiler.com/maps/landscape/style.json?key=R5Js2wLegZ6GMYd5iN2E",
+		"https://api.maptiler.com/maps/c85cf4b0-3050-41a2-affa-af73c48426ca/style.json?key=R5Js2wLegZ6GMYd5iN2E",
 	center: setMapCenter(windowWidth),
 	zoom: setInitialMapZoom(windowWidth),
 });
@@ -41,9 +41,9 @@ const map = new maplibregl.Map({
 const btmap = new maplibregl.Map({
 	container: "bt-map",
 	style:
-		"https://api.maptiler.com/maps/landscape/style.json?key=R5Js2wLegZ6GMYd5iN2E",
+		"https://api.maptiler.com/maps/c85cf4b0-3050-41a2-affa-af73c48426ca/style.json?key=R5Js2wLegZ6GMYd5iN2E",
 	center: setMapCenter(windowWidth),
-	zoom: setInitialMapZoom(windowWidth) - 0.5,
+	zoom: setInitialMapZoom(windowWidth) -0.1,
 });
 
 
@@ -71,8 +71,8 @@ map.on("load", function () {
 		type: "fill",
 		source: "cones",
 		paint: {
-			"fill-color": "#E0323E",
-			"fill-opacity": 0.7,
+			"fill-color": "#fff",
+			"fill-opacity": 0.8,
 		},
 		filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
 	});
@@ -94,7 +94,7 @@ map.on("load", function () {
 		},
 		paint: {
 			"line-color": "#888",
-			"line-width": 2,
+			"line-width": 3,
 		},
 		filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
 	});
@@ -115,8 +115,8 @@ btmap.on("load", function () {
 		type: "fill",
 		source: "cones",
 		paint: {
-			"fill-color": "#E0323E",
-			"fill-opacity": 0.7,
+			"fill-color": "#fff",
+			"fill-opacity": 0.8,
 		},
 		filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
 	});
@@ -138,7 +138,7 @@ btmap.on("load", function () {
 		},
 		paint: {
 			"line-color": "#888",
-			"line-width": 4,
+			"line-width": 3,
 		},
 		filter: ["==", "ADVISNUM", "1"], //filter for first forecast only on load
 	});
@@ -181,9 +181,9 @@ btmap.on("load", function () {
 		source: "best_track",
 		layout: {
 			"text-field": ["get", "LABEL"], // Use the LABEL property for text
-			"text-size": 16,
-			"text-offset": [0.5,-2], // Adjust as needed
-			"text-anchor": "top",
+			"text-size": 18,
+			"text-offset": [0,-1], // Adjust as needed
+			"text-anchor": "bottom-left",
 		},
 		paint: {
 			"text-color": "black", // Change label color as desired

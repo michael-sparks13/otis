@@ -57,10 +57,10 @@ I made a few rough hand-drawn sketches, e.g. ![sketch](wireframes/IMG_4290.jpg) 
 
 
 A few examples I used for inspiration:
-[Sydney Opera House at Rest](https://stories.sydneyoperahouse.com/sydney-opera-house-at-rest/)
-[The Lost Tablet](https://www.bbc.co.uk/news/extra/8iaz6xit26/the-lost-tablet-and-the-secret-documents)
-[A Voice from Ukraine](https://story.internal-displacement.org/the-road-was-long-a-voice-from-ukraine/index.html)
-[Belt and Road Initiative](https://nikkei.shorthandstories.com/road-to-nowhere-china-s-belt-and-road-initiative/)
+- [Sydney Opera House at Rest](https://stories.sydneyoperahouse.com/sydney-opera-house-at-rest/)
+- [The Lost Tablet](https://www.bbc.co.uk/news/extra/8iaz6xit26/the-lost-tablet-and-the-secret-documents)
+- [A Voice from Ukraine](https://story.internal-displacement.org/the-road-was-long-a-voice-from-ukraine/index.html)
+- [Belt and Road Initiative](https://nikkei.shorthandstories.com/road-to-nowhere-china-s-belt-and-road-initiative/)
 
 
 

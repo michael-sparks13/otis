@@ -65,7 +65,7 @@ video {
 
 #byline {
 	font-weight: 100;
-	font-size: 1rem;
+	font-size: 0.8rem;
 	margin: 8%;
 	text-align: center;
 }
@@ -83,7 +83,7 @@ a {
 .article-graf {
 	margin-left: 8%;
 	margin-right: 8%;
-	font-size: 1.3rem;
+	font-size: 1.1rem;
 }
 
 figcaption {
@@ -113,7 +113,7 @@ figcaption {
 	color: white;
 	padding: 2%;
 	width: 60%;
-	font-size: 1.3rem;
+	font-size: 1.1rem;
 }
 
 #before-graf,
@@ -296,9 +296,6 @@ figcaption {
 	width: 100%;
 }
 
-#ls1 {
-	opacity: 1;
-}
 
 /* 
 =========================
@@ -353,7 +350,7 @@ CSS for Desktop
 	#byline {
 		font-weight: 100;
 		margin: 2%;
-		font-size: 1.3rem;
+		font-size: 1rem;
 		/* margin: 8%; */
 		text-align: center;
 	}
@@ -379,7 +376,6 @@ CSS for Desktop
 
 	#bt2 {
 		width: 20%;
-		font-size: 1.2rem;
 		padding: 1%;
 		margin-left: 15%;
 	}
@@ -397,7 +393,7 @@ CSS for Desktop
 	.article-graf {
 		margin-left: 25%;
 		margin-right: 25%;
-		font-size: 1.5rem;
+		font-size: 1.1rem;
 	}
 
 	.advisory-section div {
@@ -407,7 +403,7 @@ CSS for Desktop
 		padding: 1%;
 		margin-left: 0%;
 		width: 25%;
-		font-size: 1.5rem;
+		font-size: 1.1rem;
 	}
 
 	.advisory-section .scroll-text-block {

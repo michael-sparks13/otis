@@ -297,8 +297,6 @@ CSS for Desktop
 	#hero-section {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		justify-content: flex-end;
 	}
 
 	#article-title {
@@ -306,8 +304,7 @@ CSS for Desktop
 		margin-left: 20%;
 		width: 60%;
 		text-align: center;
-		align-items: center;
-		justify-content: center;
+		top: 70%;
 	}
 
 	#article-title h1 {
@@ -315,7 +312,7 @@ CSS for Desktop
 	}
 	#article-title h2 {
 		font-size: 1.3rem;
-		margin-top: -5%;
+		margin-top: -3%;
 	}
 
 	#article-title h3 {
@@ -349,6 +346,10 @@ CSS for Desktop
 	#bt-map,
 	#ls-map {
 		margin: 3%;
+	}
+
+	#ls1 {
+		width: 30%;
 	}
 
 	#wind-graph {
@@ -449,11 +450,11 @@ CSS for Monitors
 
 @media screen and (min-device-width: 1715px) {
 	#article-title {
-		top: 60%;
+		top: 70%;
 	}
 
 	#article-title h2 {
-		margin-top: -3%;
+		margin-top: 1%;
 	}
 
 	.article-graf {

@@ -427,7 +427,7 @@ window.addEventListener("resize", lsScroller.resize);
 btScroller
 	.setup({
 		step: ".bt-section section", // Select your steps
-		offset: 0.7,
+		offset: 1,
 		debug: false, // Set to true to see debug lines
 	})
 	.onStepEnter((response) => {

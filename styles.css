@@ -77,7 +77,7 @@ hr {
 }
 
 a {
-	color: #21B5DE
+	color: #21b5de;
 }
 
 .article-graf {
@@ -120,6 +120,11 @@ figcaption {
 #after-graf {
 	background-color: white;
 }
+
+#after-graf .article-graf {
+	margin-top: 4%;
+	margin-bottom: 4%;
+}
 .section-img {
 	width: 90vw;
 	padding: 2%;
@@ -135,7 +140,8 @@ figcaption {
 }
 
 #map,
-#bt-map {
+#bt-map,
+#ls-map {
 	height: 90%;
 }
 
@@ -239,6 +245,8 @@ figcaption {
 	height: auto;
 	width: 90vw;
 	background-color: #fff;
+	padding-top: 4%;
+	padding-bottom: 4%;
 }
 
 #outro {
@@ -252,25 +260,8 @@ figcaption {
 	position: sticky;
 	top: 0;
 	z-index: -1;
+	background: white;
 	/* Adjust height as needed */
-}
-
-#ls-map {
-	height: 100%;
-	width: 100%;
-}
-
-#ls1 {
-	background-color: black;
-	opacity: 80%;
-	color: white;
-	padding: 2%;
-	width: 60%;
-}
-
-#ls1 h2 {
-	font-size: medium;
-	margin-bottom: 5px;
 }
 
 #bt-map-container {
@@ -295,7 +286,6 @@ figcaption {
 	height: 100%;
 	width: 100%;
 }
-
 
 /* 
 =========================
@@ -356,7 +346,8 @@ CSS for Desktop
 	}
 
 	#map,
-	#bt-map {
+	#bt-map,
+	#ls-map {
 		margin: 3%;
 	}
 
@@ -372,6 +363,7 @@ CSS for Desktop
 	#model-img {
 		height: 50%;
 		width: 50%;
+		padding: 5% 0 5% 0;
 	}
 
 	#bt2 {
@@ -390,9 +382,16 @@ CSS for Desktop
 		font-size: small;
 	}
 
+	#model-img-caption {
+		margin-top: -4%;
+		margin-left: -10%;
+		margin-bottom: 3%;
+		font-size: small;
+	}
+
 	.article-graf {
-		margin-left: 25%;
-		margin-right: 25%;
+		margin-left: 34%;
+		margin-right: 34%;
 		font-size: 1.1rem;
 	}
 
@@ -435,8 +434,9 @@ CSS for Desktop
 		padding: 0 15% 0 15%;
 	}
 
-	#marina {
-		padding: -15%;
+	.before-after-section .article-graf {
+		margin-right: 22%;
+		margin-left: 22%;
 	}
 }
 
@@ -448,12 +448,16 @@ CSS for Monitors
 =========================*/
 
 @media screen and (min-device-width: 1715px) {
-	
 	#article-title {
 		top: 60%;
 	}
 
 	#article-title h2 {
 		margin-top: -3%;
+	}
+
+	.article-graf {
+		margin-left: 35%;
+		margin-right: 35%;
 	}
 }

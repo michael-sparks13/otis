@@ -43,7 +43,7 @@ const btmap = new maplibregl.Map({
 	style:
 		"https://api.maptiler.com/maps/c85cf4b0-3050-41a2-affa-af73c48426ca/style.json?key=R5Js2wLegZ6GMYd5iN2E",
 	center: setMapCenter(windowWidth),
-	zoom: setInitialMapZoom(windowWidth) -0.1,
+	zoom: setInitialMapZoom(windowWidth)-0.5,
 });
 
 

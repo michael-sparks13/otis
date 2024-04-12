@@ -140,6 +140,12 @@ video {
 		z-index: -1;
 	}
 
+	#map,
+	#bt-map,
+	#ls-map {
+		height: 100%;
+	}
+
 
 	.advisory-section {
 		position: sticky;

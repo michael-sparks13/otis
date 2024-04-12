@@ -10,14 +10,12 @@ Universial
 	font-family: "Georgia", Arial, sans-serif;
 }
 
-/* CSS FOR MOBILE  */
-
-body,
-html {
-	margin: 0;
-	padding: 0;
-	line-height: 1.5;
-}
+body, 
+	html {
+		line-height: 1.7;
+		margin: 0;
+		padding: 0;
+	}
 
 main {
 	display: flex;
@@ -38,26 +36,35 @@ video {
 	position: relative;
 }
 
+
+/*
+============================================
+Mobile - covers all iPhone versions through iPhone 15 pro max
+============================================
+*/
+
 @media screen and (max-device-width: 435px) {
+
+	
 	#article-title {
 		position: absolute;
-		top: 55%;
+		top: 50%;
 		z-index: 1;
 		color: white;
 		margin: 3%;
+		line-height: 1.2;
+		text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.4em black;
 	}
 
 	#article-title h1 {
 		font-size: 5.5rem;
-		text-shadow: 3px 3px black;
 	}
 
 	#article-title h2 {
-		font-size: 2.5rem;
+		font-size: 3.5rem;
 		font-style: italic;
 		font-weight: normal;
 		margin-top: -7%;
-		text-shadow: 2px 2px black;
 	}
 
 	#hero-img {
@@ -67,7 +74,7 @@ video {
 	#byline {
 		font-weight: 100;
 		font-size: 0.8rem;
-		margin: 8%;
+		margin: 6%;
 		text-align: center;
 	}
 
@@ -84,7 +91,14 @@ video {
 	.article-graf {
 		margin-left: 8%;
 		margin-right: 8%;
-		font-size: 1.1rem;
+		font-size: 1.3rem;
+		margin-bottom: 5%;
+		margin-top: 3%;
+	}
+
+	.section-img {
+		width: 90vw;
+		padding: 5% 2% 5% 5%;
 	}
 
 	figcaption {
@@ -93,9 +107,16 @@ video {
 		padding-left: 1%;
 	}
 
+	#model-img-caption {
+		margin-top: -7%;
+		margin-left: -15%;
+		margin-bottom: 3%;
+		font-size: xx-small;
+	}
+
 	.section-img-caption {
 		margin-left: 2%;
-		margin-top: -2%;
+		margin-top: -6%;
 		margin-bottom: 2%;
 	}
 
@@ -103,17 +124,12 @@ video {
 		margin: auto;
 	}
 
-	.text-container {
-		color: white;
-		opacity: 1 !important;
-	}
-
 	.scroll-text-block {
 		background-color: black;
 		opacity: 80%;
 		color: white;
 		padding: 2%;
-		width: 60%;
+		width: 50%;
 		font-size: 2.1rem;
 	}
 
@@ -126,11 +142,7 @@ video {
 		margin-top: 4%;
 		margin-bottom: 4%;
 	}
-	.section-img {
-		width: 90vw;
-		padding: 2%;
-		padding-left: 5%;
-	}
+	
 
 	#map-container {
 		position: sticky;
@@ -371,6 +383,13 @@ CSS for Desktop
 		padding: 5% 0 5% 0;
 	}
 
+	#model-img-caption {
+		margin-top: -7%;
+		margin-left: -15%;
+		margin-bottom: 3%;
+		font-size: xx-small;
+	}
+
 	#bt2 {
 		width: 20%;
 		padding: 1%;
@@ -384,15 +403,10 @@ CSS for Desktop
 
 	.section-img-caption {
 		margin-left: -55%;
-		font-size: small;
+		font-size: xx-small;
 	}
 
-	#model-img-caption {
-		margin-top: -4%;
-		margin-left: -10%;
-		margin-bottom: 3%;
-		font-size: small;
-	}
+	
 
 	.article-graf {
 		margin-left: 34%;

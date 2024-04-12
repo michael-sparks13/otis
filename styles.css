@@ -114,7 +114,7 @@ video {
 		color: white;
 		padding: 2%;
 		width: 60%;
-		font-size: 1.1rem;
+		font-size: 2.1rem;
 	}
 
 	#before-graf,
@@ -140,11 +140,6 @@ video {
 		z-index: -1;
 	}
 
-	#map,
-	#bt-map,
-	#ls-map {
-		height: 90%;
-	}
 
 	.advisory-section {
 		position: sticky;
@@ -348,6 +343,7 @@ CSS for Desktop
 	#bt-map,
 	#ls-map {
 		margin: 3%;
+		height: 90%;
 	}
 
 	#ls1 {

@@ -318,9 +318,6 @@ const updateMapData = (step) => {
 		return;
 	} else if (step === 4) {
 		filterForecast("9A");
-		return;
-	} else if (step === 5) {
-		//changeMapPosition();
 		createSliderMap();
 		return;
 	}
@@ -358,6 +355,7 @@ function createSliderElement(data) {
 		overlay.innerHTML =
 			'<h2 id="slider-title">Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
 			overlay.style.opacity = 0.8
+			console.log('slider?')
 		updateFcMap(data[0], data[1]);
 	
 }

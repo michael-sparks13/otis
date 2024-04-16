@@ -27,6 +27,7 @@ const advisScroller = scrollama();
 // Initialize Scrollama for slider / best track map
 const btScroller = scrollama();
 
+console.log('trace beginning')
 
 //INITIALIZE ADVISORY MAP
 const map = new maplibregl.Map({
@@ -37,6 +38,8 @@ const map = new maplibregl.Map({
 	zoom: setAdvisZoom(windowWidth),
 });
 
+console.log("trace advis");
+
 //INITIALIZE ADVISORY MAP
 const btmap = new maplibregl.Map({
 	container: "bt-map",
@@ -46,17 +49,17 @@ const btmap = new maplibregl.Map({
 	zoom: setBtZoom(windowWidth),
 });
 
-
+console.log("trace bt");
 //INITIALIZE LANDSLIDES MAP
 const lsmap = new maplibregl.Map({
 	container: "ls-map",
 	style:
 		"https://api.maptiler.com/maps/satellite/style.json?key=R5Js2wLegZ6GMYd5iN2E",
-	center: setMapCenter(windowWidth),
-	zoom: setInitialMapZoom(windowWidth),
+	center: setBtCenter(windowWidth),
+	zoom: setBtZoom(windowWidth),
 });
 lsmap.scrollZoom.disable();
-
+console.log('trace ls')
 // add forecast data to advis map on load
 map.on("load", function () {
 	// add the cones data source
@@ -263,17 +266,11 @@ lsmap.on("load", function () {
 	});
 });
 
+console.log("trace end maps");
+
 function isiPhone() {
 	return /iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 }
-
-if (isiPhone()) {
-	console.log('is an iphone')
-
-} else {
-	console.log('not an iphone')
-}
-
 
 //BEGIN FUNCTIONS SECTION
 function isiPhone() {
@@ -438,7 +435,6 @@ function createSliderElement(data) {
 		overlay.innerHTML =
 			'<h2 id="slider-title">Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
 			overlay.style.opacity = 0.8
-			console.log('slider?')
 		updateFcMap(data[0], data[1]);
 	
 }
@@ -526,4 +522,54 @@ const btScroll = (step) => {
 		return;
 	}
 };
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+	console.log('loaded')
+	const sliders = document.querySelectorAll(".beer-slider");
+
+	sliders.forEach(function (slider) {
+		const container = slider.querySelector(".slider-container");
+		const handle = slider.querySelector(".beer-reveal");
+
+		let isDragging = false;
+
+		// Function to handle touch start event
+		function onTouchStart(event) {
+			isDragging = true;
+			updateSlider(event);
+		}
+
+		// Function to handle touch move event
+		function onTouchMove(event) {
+			if (isDragging) {
+				updateSlider(event);
+			}
+		}
+
+		// Function to handle touch end event
+		function onTouchEnd() {
+			isDragging = false;
+		}
+
+		// Function to update the slider position based on touch position
+		function updateSlider(event) {
+			const rect = container.getBoundingClientRect();
+			let position = (event.touches[0].clientX - rect.left) / rect.width;
+
+			position = Math.max(0, Math.min(1, position));
+
+			handle.style.left = position * 100 + "%";
+			container.style.clipPath = `inset(0% 0% 0% ${position * 100}% )`;
+		}
+
+		// Add touch event listeners
+		handle.addEventListener("touchstart", onTouchStart);
+		document.addEventListener("touchmove", onTouchMove);
+		document.addEventListener("touchend", onTouchEnd);
+		document.addEventListener("touchcancel", onTouchEnd);
+	});
+});
+
 

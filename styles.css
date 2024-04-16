@@ -102,22 +102,27 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 	}
 
 	figcaption {
-		font-size: x-small;
+		font-size: small;
 		background-color: white;
 		padding-left: 1%;
 	}
 
 	#model-img-caption {
-		margin-top: -7%;
-		margin-left: -15%;
+		margin-top: -4%;
+		margin-left: -45%;
 		margin-bottom: 3%;
-		font-size: xx-small;
+		font-size: small;
 	}
 
 	.section-img-caption {
 		margin-left: 2%;
 		margin-top: -6%;
 		margin-bottom: 2%;
+	}
+
+	.landslide-section-main > .section-img-caption {
+		margin-top: -3%;
+		margin-left: -15%;
 	}
 
 	.scroll-text section {
@@ -300,6 +305,31 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		height: 100%;
 		width: 100%;
 	}
+
+
+	input[type="range"]::-webkit-slider-thumb {
+      width: 40px; /* Adjust the width of the slider thumb */
+      height: 40px; /* Adjust the height of the slider thumb */
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 40px;
+      height: 40px;
+    }
+    input[type="range"]::-ms-thumb {
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Increase the size of the slider track */
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 40px; /* Adjust the height of the slider track */
+    }
+    input[type="range"]::-moz-range-track {
+      height: 40px;
+    }
+    input[type="range"]::-ms-track {
+      height: 40px;
+    }
 }
 
 /* 

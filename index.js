@@ -234,6 +234,26 @@ btmap.on("load", function () {
 		},
 	});
 
+	btmap.addSource("catlab", {
+		type: "geojson",
+		data: "data/category_label.geojson",
+	});
+
+	btmap.addLayer({
+		id: "cat-label",
+		type: "symbol",
+		source: "catlab",
+		layout: {
+			"text-field": ["get", "name"], // Use the LABEL property for text
+			"text-size": 20,
+			"text-offset": [-1.5, -0.5], // Adjust as needed
+			"text-anchor": "bottom-left",
+		},
+		paint: {
+			"text-color": "black", // Change label color as desired
+		},
+	});
+
 	
 });
 

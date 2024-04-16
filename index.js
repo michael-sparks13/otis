@@ -33,8 +33,8 @@ const map = new maplibregl.Map({
 	container: "map",
 	style:
 		"https://api.maptiler.com/maps/c85cf4b0-3050-41a2-affa-af73c48426ca/style.json?key=R5Js2wLegZ6GMYd5iN2E",
-	center: setMapCenter(windowWidth),
-	zoom: setInitialMapZoom(windowWidth),
+	center: setAdvisCenter(windowWidth),
+	zoom: setAdvisZoom(windowWidth),
 });
 
 //INITIALIZE ADVISORY MAP
@@ -42,8 +42,8 @@ const btmap = new maplibregl.Map({
 	container: "bt-map",
 	style:
 		"https://api.maptiler.com/maps/c85cf4b0-3050-41a2-affa-af73c48426ca/style.json?key=R5Js2wLegZ6GMYd5iN2E",
-	center: setMapCenter(windowWidth),
-	zoom: setInitialMapZoom(windowWidth)-0.5,
+	center: setBtCenter(windowWidth),
+	zoom: setBtZoom(windowWidth),
 });
 
 
@@ -263,13 +263,95 @@ lsmap.on("load", function () {
 	});
 });
 
+function isiPhone() {
+	return /iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+}
+
+if (isiPhone()) {
+	console.log('is an iphone')
+
+} else {
+	console.log('not an iphone')
+}
+
 
 //BEGIN FUNCTIONS SECTION
+function isiPhone() {
+	return /iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+}
+
+function isAndroid() {
+	return /Android/.test(navigator.userAgent) && !window.MSStream;
+}
+
+
+
+
+function setAdvisZoom(windowWidth) {
+	let mapZoom;
+	if (isiPhone() | isAndroid()) {
+		mapZoom = 6.2;
+	} else if (windowWidth > 1500) {
+		mapZoom = 7;
+	} else if (windowWidth > 500) {
+		mapZoom = 7;
+	} else {
+		mapZoom = 8;
+	}
+	return mapZoom;
+}
+
+function setAdvisCenter(windowWidth) {
+	let mapCenter;
+
+	if (isiPhone() | isAndroid()) {
+		mapCenter = [-98.86562013617491, 11.367242923198695];
+	} else if (windowWidth > 1500) {
+		mapCenter = [-99.86562013617491, 13.867242923198695];
+	} else if (windowWidth > 500) {
+		mapCenter = [-99.86562013617491, 13.867242923198695];
+	} else {
+		mapCenter = [-99.86562013617491, 13.867242923198695];
+	}
+	return mapCenter;
+}
+
+function setBtZoom(windowWidth) {
+	let mapZoom;
+
+	if (isiPhone() | isAndroid()) {
+		mapZoom = 6;
+	} else if (windowWidth > 1500) {
+		mapZoom = 7;
+	} else if (windowWidth > 500) {
+		mapZoom = 7;
+	} else {
+		mapZoom = 8;
+	}
+		return mapZoom
+}
+
+
+function setBtCenter(windowWidth) {
+	let mapCenter;
+
+	if (isiPhone() | isAndroid()) {
+		mapCenter = [-97.86562013617491, 11.867242923198695];
+	} else if (windowWidth > 1500) {
+		mapCenter = [-99.86562013617491, 13.867242923198695];
+	} else if (windowWidth > 500) {
+		mapCenter = [-99.86562013617491, 13.867242923198695];
+	} else {
+		mapCenter = [-99.86562013617491, 13.867242923198695];
+	}
+	return mapCenter;
+}
+
 function setMapCenter(windowWidth) {
 	// create variable for map center
 	let mapCenter;
 	// test for various browser widths
-	if (windowWidth < 500) {
+	if ((windowWidth < 500) && (isiPhone())) {
 		mapCenter = [-99.86562013617491, 13.867242923198695];
 	} else {
 		mapCenter = [-99.86562013617491, 14.067242923198695];
@@ -278,12 +360,13 @@ function setMapCenter(windowWidth) {
 } //end setMapCenter
 
 function setInitialMapZoom(windowWidth) {
+	console.log(navigator.userAgent)
 	// create variable for map zoom level
 	let mapZoom;
 	// test for various browser widths
-	if (windowWidth < 500) {
-		mapZoom = 5;
-	} else {
+	if (windowWidth < 500 && isiPhone()) {
+		mapZoom =8;
+	} else if (isiPhone()) {
 		mapZoom = 6;
 	}
 	return mapZoom;

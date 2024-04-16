@@ -48,7 +48,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 	
 	#article-title {
 		position: absolute;
-		top: 50%;
+		top: 60%;
 		z-index: 1;
 		color: white;
 		margin: 3%;
@@ -64,7 +64,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		font-size: 3.5rem;
 		font-style: italic;
 		font-weight: normal;
-		margin-top: -7%;
+		
 	}
 
 	#hero-img {
@@ -116,13 +116,13 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 
 	.section-img-caption {
 		margin-left: 2%;
-		margin-top: -6%;
+		margin-top: -3%;
 		margin-bottom: 2%;
 	}
 
 	.landslide-section-main > .section-img-caption {
-		margin-top: -3%;
-		margin-left: -15%;
+		margin-top: -4%;
+		margin-left: -35%;
 	}
 
 	.scroll-text section {

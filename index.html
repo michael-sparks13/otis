@@ -20,7 +20,11 @@
 		href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap"
 		rel="stylesheet" />
 
+	<!-- Beerslider CSS -->
 	<link rel="stylesheet" href="https://unpkg.com/beerslider/dist/BeerSlider.css" />
+
+	<!-- Bootstrap CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="styles.css" />
@@ -331,27 +335,68 @@
 				billion worth of damage, making it the costliest Mexican hurricane ever.
 			</p>
 
-			<p class="article-graf">The utter devastation is evident from satellite imagery.</p>
-
-			<p class="article-graf">A neighborhood in the heart of the city:
-			</p>
+			<p class="article-graf">The utter devastation is evident from satellite images of a neighborhood in the heart of the city and a marina in Acapulco Bay.</p>
 		</div>
 
 		<!-- end sst section -->
 
 		<div class="before-after-section">
 
-			<div id="beer-slider" class="beer-slider slider-container" data-beer-label="after">			
+			<!-- MOBILE -->
+			<div id="satellite-carousel" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#satellite-carousel" data-slide-to="0" class="active"></li>
+					<li data-target="#satellite-carousel" data-slide-to="1"></li>
+					<li data-target="#satellite-carousel" data-slide-to="2"></li>
+					<li data-target="#satellite-carousel" data-slide-to="3"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="images/nbh_before.png" class="d-block w-100" alt="Before NBH">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>April 2023</h5>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="images/nbh_after.png" class="d-block w-100" alt="After NBH">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>October 2023</h5>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="images/marina_before.png" class="d-block w-100" alt="Before Marina">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>April 2023</h5>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="images/marina_after.png" class="d-block w-100" alt="After Marina">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>October 2023</h5>
+						</div>
+					</div>
+				</div>
+				<a class="carousel-control-prev" href="#satellite-carousel" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#satellite-carousel" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+
+
+			<!-- DESKTOP -->
+			<div id="beer-slider" class="beer-slider" data-beer-label="after">			
 					<img src="images/nbh_after.png" alt="acapulco neighborhood before Otis" />
 					<div class="beer-reveal" data-beer-label="before">
 						<img src="images/nbh_before.png" alt="acapulco neighborhood after Otis" />
 				</div>
 
 			</div>
-			<p class="article-graf" id="marina">And a marina in Acapulco Bay:
-			</p>
-
-			<div id="beer-slider2" class="beer-slider slider-container" data-beer-label="after">
+			
+			<div id="beer-slider2" class="beer-slider" data-beer-label="after">
 				<img src="images/marina_after.png" alt="acapulco bay before Otis" />
 					<div class="beer-reveal" data-beer-label="before">
 						<img src="images/marina_before.png" alt="acapulco bay after Otis" />
@@ -457,6 +502,11 @@
 
 		<!-- END ARTICLE -->
 	</main>
+
+	<!-- Bootstrap JS and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 	<script src="https://unpkg.com/beerslider/dist/BeerSlider.js"></script>
 	<script>

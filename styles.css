@@ -260,6 +260,33 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		opacity: 0.8;
 	}
 
+	.beer-slider {
+		display: none;
+	}
+
+
+	.carousel-indicators li {
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+  border: 1px solid #fff; /* White border */
+}
+
+/* Style the active indicator */
+.carousel-indicators .active {
+  background-color: #fff; /* White background for active indicator */
+}
+
+/* Style the carousel captions */
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  color: #fff; /* White text color */
+  padding: 5px; /* Add padding to the captions */
+}
+
+/* Style the caption heading */
+.carousel-caption h5 {
+  font-size: 1.5rem; /* Larger font size for caption heading */
+}
+
 	#wind-graph {
 		height: auto;
 		width: 90vw;
@@ -434,6 +461,14 @@ CSS for Desktop
 	.section-img-caption {
 		margin-left: -55%;
 		font-size: xx-small;
+	}
+
+	.beer-slider {
+		display: block;
+	}
+
+	#satellite-carousel {
+		display: none;
 	}
 
 	

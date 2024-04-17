@@ -353,7 +353,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 @media screen and (min-device-width: 436px) {
 	#article-title {
 		position: absolute;
-		top: 75%;
+		top: 80%;
 		left: 20%;
 		z-index: 1;
 		color: white;
@@ -384,13 +384,18 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		width: 100%;
 	}
 
+	#hero-img img {
+		width: 100%;
+	}
+
 
 	#hero-vid {
 		display: none;
 	}
 
-	figcaption {
-		margin-left: 2%;
+	.hero-img-caption {
+		margin-left: 1%;
+		font-size: small;
 	}
 
 	#byline {
@@ -410,6 +415,17 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		color: #21b5de;
 	}
 
+	.section-img {
+		width: 90vw;
+		margin: 2% 5%;
+	}
+
+	.section-img-caption {
+		margin-left: 5%;
+		font-size: small;
+		margin-top: -1.5%;
+	}
+
 	#map,
 	#bt-map,
 	#ls-map {
@@ -426,9 +442,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		margin-left: 25%;
 	}
 
-	.section-img {
-		margin-top: -2%;
-	}
+	
 
 	#model-img {
 		height: 50%;
@@ -454,10 +468,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		margin-left: 22%;
 	}
 
-	.section-img-caption {
-		margin-left: -55%;
-		font-size: xx-small;
-	}
+	
 
 	.beer-slider {
 		display: block;
@@ -468,9 +479,8 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 	}
 
 	.article-graf {
-		margin-left: 34%;
-		margin-right: 34%;
-		font-size: 1.1rem;
+		margin: 3% 34%;
+		font-size: 1.3rem;
 	}
 
 	.advisory-section div {
@@ -480,7 +490,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		padding: 1%;
 		margin-left: 0%;
 		width: 25%;
-		font-size: 1.1rem;
+		font-size: 1.2rem;
 	}
 
 	.advisory-section .scroll-text-block {

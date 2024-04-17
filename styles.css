@@ -194,9 +194,6 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		width: 40%;
 	}
 
-	#bt1 {
-		opacity: 0;
-	}
 
 	.bt-section section {
 		display: flex;
@@ -230,7 +227,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 		border-radius: 3px;
 		padding: 10px;
-		margin-top: 200%;
+		margin-top: 150%;
 		z-index: 1001;
 	}
 
@@ -489,6 +486,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 
 	#ls1 {
 		width: 30%;
+		font-size: 1.2rem;
 	}
 
 	#slider-title {
@@ -591,6 +589,15 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 	.before-after-section .article-graf {
 		margin-right: 22%;
 		margin-left: 22%;
+	}
+
+	.landslide-section section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 0% auto 80% 2%;
+		opacity: 0.9;
+		font-size: 1.2rem;
 	}
 }
 

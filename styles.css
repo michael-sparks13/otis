@@ -440,21 +440,22 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 	#wind-graph {
 		width: 50%;
 		margin-left: 25%;
+		margin-top: 1%;
 	}
-
-	
 
 	#model-img {
 		height: 50%;
 		width: 50%;
-		padding: 5% 0 5% 0;
+		margin-left: 25%;
+		padding-bottom: 5%;
 	}
 
 	#model-img-caption {
 		margin-top: -7%;
-		margin-left: -15%;
+		margin-left: 25%;
 		margin-bottom: 3%;
-		font-size: xx-small;
+		font-size: x-small;
+		
 	}
 
 	#bt2 {
@@ -472,6 +473,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 
 	.beer-slider {
 		display: block;
+		margin-bottom: 3%;
 	}
 
 	#satellite-carousel {
@@ -479,7 +481,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 	}
 
 	.article-graf {
-		margin: 3% 34%;
+		margin: 2% 34%;
 		font-size: 1.3rem;
 	}
 

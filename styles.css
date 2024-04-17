@@ -10,12 +10,12 @@ Universial
 	font-family: "Georgia", Arial, sans-serif;
 }
 
-body, 
-	html {
-		line-height: 1.7;
-		margin: 0;
-		padding: 0;
-	}
+body,
+html {
+	line-height: 1.7;
+	margin: 0;
+	padding: 0;
+}
 
 main {
 	display: flex;
@@ -36,7 +36,6 @@ video {
 	position: relative;
 }
 
-
 /*
 ============================================
 Mobile - covers all iPhone versions through iPhone 15 pro max
@@ -44,8 +43,6 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 */
 
 @media screen and (max-device-width: 435px) {
-
-	
 	#article-title {
 		position: absolute;
 		top: 60%;
@@ -64,7 +61,6 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		font-size: 3.5rem;
 		font-style: italic;
 		font-weight: normal;
-		
 	}
 
 	#hero-img {
@@ -147,13 +143,11 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		margin-top: 4%;
 		margin-bottom: 4%;
 	}
-	
 
 	#map-container {
 		position: sticky;
 		top: 0;
 		height: 100vh;
-		/* Adjust height as needed */
 		z-index: -1;
 	}
 
@@ -162,7 +156,6 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 	#ls-map {
 		height: 100%;
 	}
-
 
 	.advisory-section {
 		position: sticky;
@@ -264,28 +257,24 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		display: none;
 	}
 
-
 	.carousel-indicators li {
-  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
-  border: 1px solid #fff; /* White border */
-}
+		background-color: rgba(255, 255, 255, 0.5);
+		border: 1px solid #fff;
+	}
 
-/* Style the active indicator */
-.carousel-indicators .active {
-  background-color: #fff; /* White background for active indicator */
-}
+	.carousel-indicators .active {
+		background-color: #fff;
+	}
 
-/* Style the carousel captions */
-.carousel-caption {
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-  color: #fff; /* White text color */
-  padding: 5px; /* Add padding to the captions */
-}
+	.carousel-caption {
+		background-color: rgba(0, 0, 0, 0.5);
+		color: #fff;
+		padding: 5px;
+	}
 
-/* Style the caption heading */
-.carousel-caption h5 {
-  font-size: 1.5rem; /* Larger font size for caption heading */
-}
+	.carousel-caption h5 {
+		font-size: 1.5rem;
+	}
 
 	#wind-graph {
 		height: auto;
@@ -307,7 +296,6 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		top: 0;
 		z-index: -1;
 		background: white;
-		/* Adjust height as needed */
 	}
 
 	#bt-map-container {
@@ -317,7 +305,6 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		top: 0;
 		z-index: -1;
 		background-color: white;
-		/* Adjust height as needed */
 	}
 
 	#marina {
@@ -333,58 +320,59 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		width: 100%;
 	}
 
-
 	input[type="range"]::-webkit-slider-thumb {
-      width: 40px; /* Adjust the width of the slider thumb */
-      height: 40px; /* Adjust the height of the slider thumb */
-    }
-    input[type="range"]::-moz-range-thumb {
-      width: 40px;
-      height: 40px;
-    }
-    input[type="range"]::-ms-thumb {
-      width: 40px;
-      height: 40px;
-    }
+		width: 40px;
+		height: 40px;
+	}
+	input[type="range"]::-moz-range-thumb {
+		width: 40px;
+		height: 40px;
+	}
+	input[type="range"]::-ms-thumb {
+		width: 40px;
+		height: 40px;
+	}
 
-    /* Increase the size of the slider track */
-    input[type="range"]::-webkit-slider-runnable-track {
-      height: 40px; /* Adjust the height of the slider track */
-    }
-    input[type="range"]::-moz-range-track {
-      height: 40px;
-    }
-    input[type="range"]::-ms-track {
-      height: 40px;
-    }
+	input[type="range"]::-webkit-slider-runnable-track {
+		height: 40px;
+	}
+	input[type="range"]::-moz-range-track {
+		height: 40px;
+	}
+	input[type="range"]::-ms-track {
+		height: 40px;
+	}
 }
 
 /* 
-=========================
-=========================
-CSS for Desktop 
-=========================
-=========================*/
-@media screen and (min-device-width: 436px) {
-	#hero-section {
-		display: flex;
-		flex-direction: column;
-	}
+==================================================
 
+ Desktop 
+ ==================================================
+*/
+@media screen and (min-device-width: 436px) {
 	#article-title {
+		position: absolute;
+		top: 75%;
+		left: 20%;
+		z-index: 1;
 		color: white;
-		margin-left: 20%;
 		width: 60%;
+		margin-left: auto;
+ 		margin-right: auto;
+		line-height: 1.2;
 		text-align: center;
-		top: 65%;
 	}
 
 	#article-title h1 {
-		font-size: 2.5rem;
+		font-size: 3rem;
 	}
+
 	#article-title h2 {
 		font-size: 1.3rem;
-		margin-top: -3%;
+		font-style: italic;
+		font-weight: lighter;
+    	
 	}
 
 	#article-title h3 {
@@ -392,26 +380,34 @@ CSS for Desktop
 	}
 
 	#hero-img {
-		display: block;
-		height: auto;
+		display: relative;
 		width: 100%;
 	}
 
-	#hero-img img {
-		width: 100%;
-		height: auto;
-	}
 
 	#hero-vid {
 		display: none;
+	}
+
+	figcaption {
+		margin-left: 2%;
 	}
 
 	#byline {
 		font-weight: 100;
 		margin: 2%;
 		font-size: 1rem;
-		/* margin: 8%; */
 		text-align: center;
+	}
+
+	hr {
+		color: lightgrey;
+		width: 30%;
+		border-top: 5px solid lightgrey;
+	}
+
+	a {
+		color: #21b5de;
 	}
 
 	#map,
@@ -470,8 +466,6 @@ CSS for Desktop
 	#satellite-carousel {
 		display: none;
 	}
-
-	
 
 	.article-graf {
 		margin-left: 34%;
@@ -533,7 +527,7 @@ CSS for Monitors
 
 @media screen and (min-device-width: 1715px) {
 	#article-title {
-		top: 70%;
+		top: 90%;
 	}
 
 	#article-title h2 {

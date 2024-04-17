@@ -346,7 +346,6 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 
 /* 
 ==================================================
-
  Desktop 
  ==================================================
 */
@@ -442,6 +441,16 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		margin-bottom: 0;
 	}
 
+	.scroll-text-block {
+		background-color: black;
+		opacity: 80%;
+		color: white;
+		padding: 2%;
+		width: 50%;
+		font-size: 2.1rem;
+	}
+
+	
 	#map-container {
 		position: sticky;
 		top: 0;
@@ -480,6 +489,10 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 
 	#ls1 {
 		width: 30%;
+	}
+
+	#slider-title {
+		font-size: 1.4rem;
 	}
 
 	#wind-graph {
@@ -539,7 +552,15 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 	}
 
 	.advisory-section .scroll-text-block {
-		margin-left: -45%;
+		margin-left: 5%;
+	}
+
+	.advisory-section section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 0% auto 120% 2%;
+		opacity: 0.8;
 	}
 
 	.bt-section section {

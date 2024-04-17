@@ -309,7 +309,7 @@ function setAdvisZoom(windowWidth) {
 	if (isiPhone() | isAndroid()) {
 		mapZoom = 6.2;
 	} else if (windowWidth > 1500) {
-		mapZoom = 7;
+		mapZoom = 5;
 	} else if (windowWidth > 500) {
 		mapZoom = 7;
 	} else {
@@ -339,9 +339,9 @@ function setBtZoom(windowWidth) {
 	if (isiPhone() | isAndroid()) {
 		mapZoom = 6;
 	} else if (windowWidth > 1500) {
-		mapZoom = 7;
+		mapZoom = 5;
 	} else if (windowWidth > 500) {
-		mapZoom = 7;
+		mapZoom = 4;
 	} else {
 		mapZoom = 8;
 	}

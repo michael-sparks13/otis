@@ -550,7 +550,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 	}
 
 	.advisory-section .scroll-text-block {
-		margin-left: 5%;
+		margin-left: -45%;
 	}
 
 	.advisory-section section {
@@ -558,14 +558,14 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		flex-direction: column;
 		align-items: center;
 		margin: 0% auto 120% 2%;
-		opacity: 0.8;
+		opacity: 0.9;
 	}
 
 	.bt-section section {
 		display: flex;
 		flex-direction: column;
 		margin: 1% auto 60% 0%;
-		opacity: 0.8;
+		opacity: 0.9;
 		align-items: flex-start;
 	}
 
@@ -596,7 +596,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		flex-direction: column;
 		align-items: center;
 		margin: 0% auto 80% 2%;
-		opacity: 0.9;
+		opacity: 0.8;
 		font-size: 1.2rem;
 	}
 }

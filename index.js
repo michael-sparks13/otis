@@ -246,7 +246,6 @@ btmap.on("load", function () {
 		layout: {
 			"text-field": ["get", "name"], // Use the LABEL property for text
 			"text-size": 20,
-			"text-offset": [-1.3, -0.5], // Adjust as needed
 			"text-anchor": "bottom-left",
 		},
 		paint: {
@@ -309,7 +308,7 @@ function setAdvisZoom(windowWidth) {
 	if (isiPhone() | isAndroid()) {
 		mapZoom = 6.2;
 	} else if (windowWidth > 1500) {
-		mapZoom = 5;
+		mapZoom = 5.5;
 	} else if (windowWidth > 500) {
 		mapZoom = 7;
 	} else {
@@ -339,7 +338,7 @@ function setBtZoom(windowWidth) {
 	if (isiPhone() | isAndroid()) {
 		mapZoom = 6;
 	} else if (windowWidth > 1500) {
-		mapZoom = 5;
+		mapZoom = 5.5;
 	} else if (windowWidth > 500) {
 		mapZoom = 4;
 	} else {

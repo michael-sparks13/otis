@@ -9,7 +9,7 @@
 		{
 			"type": "Feature",
 			"properties": { "name": "Category" },
-			"geometry": { "type": "Point", "coordinates": [-101.4, 17.81] }
+			"geometry": { "type": "Point", "coordinates": [-102.25, 17.95] }
 		}
 	]
 }

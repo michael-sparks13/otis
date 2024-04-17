@@ -19,7 +19,7 @@ const windowWidth =
 	document.documentElement.clientWidth ||
 	document.body.clientWidth;
 
-	console.log('ww', windowWidth)
+	
 // Initialize Scrollama for landslide map
 const lsScroller = scrollama();
 // Initialize Scrollama for advisory map
@@ -27,7 +27,7 @@ const advisScroller = scrollama();
 // Initialize Scrollama for slider / best track map
 const btScroller = scrollama();
 
-console.log('trace beginning')
+
 
 //INITIALIZE ADVISORY MAP
 const map = new maplibregl.Map({
@@ -38,7 +38,7 @@ const map = new maplibregl.Map({
 	zoom: setAdvisZoom(windowWidth),
 });
 
-console.log("trace advis");
+
 
 //INITIALIZE ADVISORY MAP
 const btmap = new maplibregl.Map({
@@ -49,7 +49,7 @@ const btmap = new maplibregl.Map({
 	zoom: setBtZoom(windowWidth),
 });
 
-console.log("trace bt");
+
 //INITIALIZE LANDSLIDES MAP
 const lsmap = new maplibregl.Map({
 	container: "ls-map",
@@ -59,7 +59,7 @@ const lsmap = new maplibregl.Map({
 	zoom: setBtZoom(windowWidth),
 });
 lsmap.scrollZoom.disable();
-console.log('trace ls')
+
 // add forecast data to advis map on load
 map.on("load", function () {
 	// add the cones data source
@@ -286,7 +286,7 @@ lsmap.on("load", function () {
 	});
 });
 
-console.log("trace end maps");
+
 
 function isiPhone() {
 	return /iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
@@ -377,7 +377,7 @@ function setMapCenter(windowWidth) {
 } //end setMapCenter
 
 function setInitialMapZoom(windowWidth) {
-	console.log(navigator.userAgent)
+	
 	// create variable for map zoom level
 	let mapZoom;
 	// test for various browser widths

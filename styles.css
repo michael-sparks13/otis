@@ -502,13 +502,13 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 	#model-img {
 		height: 50%;
 		width: 50%;
-		margin-left: 25%;
+		margin-left: -5%;
 		padding-bottom: 5%;
 	}
 
 	#model-img-caption {
-		margin-top: -7%;
-		margin-left: 25%;
+		margin-top: -6%;
+		margin-left: -35%;
 		margin-bottom: 3%;
 		font-size: x-small;
 		
@@ -598,6 +598,10 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		margin: 0% auto 80% 2%;
 		opacity: 0.8;
 		font-size: 1.2rem;
+	}
+
+	.landslide-section figcaption {
+		margin-left: -55%;
 	}
 }
 

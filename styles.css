@@ -77,7 +77,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 	hr {
 		color: lightgrey;
 		width: 30%;
-		border-top: 5px solid lightgrey;
+		border-top: 3px solid lightgrey;
 	}
 
 	a {
@@ -93,8 +93,8 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 	}
 
 	.section-img {
-		width: 90vw;
-		padding: 5% 2% 5% 5%;
+		width: 100vw;
+		padding: 5%;
 	}
 
 	figcaption {

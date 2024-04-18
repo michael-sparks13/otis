@@ -85,11 +85,8 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 	}
 
 	.article-graf {
-		margin-left: 8%;
-		margin-right: 8%;
+		margin: 3% 8%;
 		font-size: 2.5rem;
-		margin-bottom: 5%;
-		margin-top: 3%;
 	}
 
 	.section-img {

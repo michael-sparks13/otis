@@ -98,7 +98,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 	}
 
 	figcaption {
-		font-size: small;
+		font-size: medium;
 		background-color: white;
 		padding-left: 1%;
 	}
@@ -107,7 +107,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		margin-top: -4%;
 		margin-left: -45%;
 		margin-bottom: 3%;
-		font-size: small;
+		font-size: medium;
 	}
 
 	.section-img-caption {
@@ -391,7 +391,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 
 	.hero-img-caption {
 		margin-left: 1%;
-		font-size: small;
+		font-size: medium;
 	}
 
 	#byline {
@@ -418,7 +418,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 
 	.section-img-caption {
 		margin-left: 5%;
-		font-size: small;
+		font-size: medium;
 		margin-top: -1.5%;
 	}
 
@@ -510,7 +510,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		margin-top: -6%;
 		margin-left: -35%;
 		margin-bottom: 3%;
-		font-size: x-small;
+		font-size: medium;
 		
 	}
 

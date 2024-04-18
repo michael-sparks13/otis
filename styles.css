@@ -344,6 +344,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
  ==================================================
 */
 @media screen and (min-device-width: 436px) {
+
 	#article-title {
 		position: absolute;
 		top: 80%;
@@ -599,6 +600,10 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 
 	.landslide-section figcaption {
 		margin-left: -55%;
+	}
+
+	.ls-mountains {
+		margin-top: -0.5%
 	}
 }
 

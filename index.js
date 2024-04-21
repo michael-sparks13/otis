@@ -244,12 +244,12 @@ btmap.on("load", function () {
 		type: "symbol",
 		source: "catlab",
 		layout: {
-			"text-field": ["get", "name"], // Use the LABEL property for text
+			"text-field": ["get", "name"], 
 			"text-size": 20,
 			"text-anchor": "bottom-left",
 		},
 		paint: {
-			"text-color": "black", // Change label color as desired
+			"text-color": "black",
 		},
 	});
 

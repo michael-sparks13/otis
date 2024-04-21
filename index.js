@@ -24,9 +24,6 @@ const windowWidth =
 const lsScroller = scrollama();
 // Initialize Scrollama for advisory map
 const advisScroller = scrollama();
-// Initialize Scrollama for slider / best track map
-const btScroller = scrollama();
-
 
 
 //INITIALIZE ADVISORY MAP
@@ -265,6 +262,8 @@ lsmap.on("load", function () {
 	});
 });
 
+//create slider map after layers loaded
+createSliderMap();
 
 
 function isiPhone() {
@@ -279,8 +278,6 @@ function isiPhone() {
 function isAndroid() {
 	return /Android/.test(navigator.userAgent) && !window.MSStream;
 }
-
-
 
 
 function setAdvisZoom(windowWidth) {
@@ -397,7 +394,6 @@ const updateMapData = (step) => {
 		return;
 	} else if (step === 4) {
 		filterForecast("9A");
-		createSliderMap();
 		return;
 	}
 };
@@ -432,7 +428,7 @@ function createSliderElement(data) {
 
 		overlay = document.getElementById("bt2");
 		overlay.innerHTML =
-			'<h2 id="slider-title">Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0"/><p><em>compared to actual path and category<em></p>';
+			'<h2 id="slider-title">Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0"/><p><em>compared to actual path and strength category<em></p>';
 			overlay.style.opacity = 0.8
 		updateFcMap(data[0], data[1]);
 	
@@ -478,6 +474,8 @@ function landslideZoom() {
 	});
 }
 
+
+
 lsScroller
 	.setup({
 		step: ".landslide-section section", // Select your steps
@@ -514,10 +512,3 @@ btScroller
 	// Handle resize
 window.addEventListener("resize", btScroller.resize);
 
-const btScroll = (step) => {
-	// Logic to update map based on the step
-	if (step === 1) {
-		createSliderMap();
-		return;
-	}
-};

@@ -137,14 +137,14 @@ btmap.on("load", function () {
 		type: "symbol",
 		source: "acmx",
 		layout: {
-			"text-field": ["get", "name"], // Use the LABEL property for text
+			"text-field": ["get", "name"], 
 			"text-size": 14,
-			"text-offset": [0.6, -0.6], // Adjust as needed
+			"text-offset": [0.6, -0.6], 
 			"text-anchor": "bottom-left",
 			"text-font": ["Open Sans Bold"],
 		},
 		paint: {
-			"text-color": "black", // Change label color as desired
+			"text-color": "black", 
 		},
 	});
 	// add the cones data source
@@ -234,26 +234,6 @@ btmap.on("load", function () {
 		},
 	});
 
-	btmap.addSource("catlab", {
-		type: "geojson",
-		data: "data/category_label.geojson",
-	});
-
-	btmap.addLayer({
-		id: "cat-label",
-		type: "symbol",
-		source: "catlab",
-		layout: {
-			"text-field": ["get", "name"], // Use the LABEL property for text
-			"text-size": 20,
-			"text-anchor": "bottom-left",
-		},
-		paint: {
-			"text-color": "black", // Change label color as desired
-		},
-	});
-
-	
 });
 
 const lsColor = "#D73328";
@@ -452,7 +432,7 @@ function createSliderElement(data) {
 
 		overlay = document.getElementById("bt2");
 		overlay.innerHTML =
-			'<h2 id="slider-title">Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0" />';
+			'<h2 id="slider-title">Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0"/><p><em>compared to actual path and category<em></p>';
 			overlay.style.opacity = 0.8
 		updateFcMap(data[0], data[1]);
 	

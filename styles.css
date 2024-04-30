@@ -100,13 +100,6 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		padding-left: 1%;
 	}
 
-	#model-img-caption {
-		margin-top: -4%;
-		margin-left: -45%;
-		margin-bottom: 3%;
-		font-size: medium;
-	}
-
 	.section-img-caption {
 		margin-left: 2%;
 		margin-top: -3%;
@@ -495,21 +488,6 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 		width: 50%;
 		margin-left: 25%;
 		margin-top: 1%;
-	}
-
-	#model-img {
-		height: 50%;
-		width: 50%;
-		margin-left: -5%;
-		padding-bottom: 5%;
-	}
-
-	#model-img-caption {
-		margin-top: -6%;
-		margin-left: -25%;
-		margin-bottom: 3%;
-		font-size: medium;
-		
 	}
 
 	#bt2 {

@@ -91,7 +91,7 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 
 	.section-img {
 		width: 100vw;
-		padding: 5%;
+		padding: 5% 0%;
 	}
 
 	figcaption {
@@ -410,8 +410,8 @@ Mobile - covers all iPhone versions through iPhone 15 pro max
 	}
 
 	.section-img {
-		width: 90vw;
-		margin: 2% 5%;
+		width: 100vw;
+		margin: 2% 0%;
 	}
 
 	.section-img-caption {

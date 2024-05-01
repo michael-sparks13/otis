@@ -19,12 +19,10 @@ const windowWidth =
 	document.documentElement.clientWidth ||
 	document.body.clientWidth;
 
-	
 // Initialize Scrollama for landslide map
 const lsScroller = scrollama();
 // Initialize Scrollama for advisory map
 const advisScroller = scrollama();
-
 
 //INITIALIZE ADVISORY MAP
 const map = new maplibregl.Map({
@@ -35,8 +33,6 @@ const map = new maplibregl.Map({
 	zoom: setAdvisZoom(windowWidth),
 });
 
-
-
 //INITIALIZE ADVISORY MAP
 const btmap = new maplibregl.Map({
 	container: "bt-map",
@@ -45,7 +41,6 @@ const btmap = new maplibregl.Map({
 	center: setBtCenter(windowWidth),
 	zoom: setBtZoom(windowWidth),
 });
-
 
 //INITIALIZE LANDSLIDES MAP
 const lsmap = new maplibregl.Map({
@@ -100,10 +95,8 @@ map.on("load", function () {
 	});
 });
 
-
 // Wait until the map is loaded to add the data
 btmap.on("load", function () {
-
 	btmap.addSource("acmx", {
 		type: "geojson",
 		data: "data/acapulco_label.geojson",
@@ -134,14 +127,14 @@ btmap.on("load", function () {
 		type: "symbol",
 		source: "acmx",
 		layout: {
-			"text-field": ["get", "name"], 
+			"text-field": ["get", "name"],
 			"text-size": 14,
-			"text-offset": [0.6, -0.6], 
+			"text-offset": [0.6, -0.6],
 			"text-anchor": "bottom-left",
 			"text-font": ["Open Sans Bold"],
 		},
 		paint: {
-			"text-color": "black", 
+			"text-color": "black",
 		},
 	});
 	// add the cones data source
@@ -221,21 +214,64 @@ btmap.on("load", function () {
 		type: "symbol",
 		source: "best_track",
 		layout: {
-			"text-field": ["get", "LABEL"], // Use the LABEL property for text
+			"text-field": ["get", "LABEL"],
 			"text-size": 20,
-			"text-offset": [-1.5,-0.5], // Adjust as needed
+			"text-offset": [-1.5, -0.5],
 			"text-anchor": "bottom-left",
 		},
 		paint: {
-			"text-color": "black", // Change label color as desired
+			"text-color": "black",
+		},
+	});
+});
+
+const lsColor = "#ed9c32";
+//CREATE LANDSLIDES LAYER
+lsmap.on("zoomend", function () {
+	lsmap.addSource("highway", {
+		type: "geojson",
+		data: "data/gro260.geojson",
+	});
+
+	lsmap.addLayer({
+		id: "lanes-outline-black",
+		type: "line",
+		source: "highway",
+		paint: {
+			"line-color": "black",
+			"line-width": 10,
 		},
 	});
 
-});
+	lsmap.addLayer({
+		id: "lanes-outline-white",
+		type: "line",
+		source: "highway",
+		paint: {
+			"line-color": "white",
+			"line-width": 6,
+		},
+	});
 
-const lsColor = "#D73328";
-//CREATE LANDSLIDES LAYER
-lsmap.on("load", function () {
+	lsmap.addSource("gro260", {
+		type: "geojson",
+		data: "data/road_label.geojson",
+	});
+
+	lsmap.addLayer({
+		id: "gro260",
+		type: "symbol",
+		source: "gro260",
+		layout: {
+			"text-field": ["get", "name"],
+			"text-size": 14,
+			"text-font": ["Open Sans Bold"],
+		},
+		paint: {
+			"text-color": "white",
+		},
+	});
+
 	lsmap.addSource("landslides", {
 		type: "geojson",
 		data: "data/landslides.geojson",
@@ -265,7 +301,6 @@ lsmap.on("load", function () {
 //create slider map after layers loaded
 createSliderMap();
 
-
 function isiPhone() {
 	return /iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 }
@@ -278,7 +313,6 @@ function isiPhone() {
 function isAndroid() {
 	return /Android/.test(navigator.userAgent) && !window.MSStream;
 }
-
 
 function setAdvisZoom(windowWidth) {
 	let mapZoom;
@@ -321,9 +355,8 @@ function setBtZoom(windowWidth) {
 	} else {
 		mapZoom = 8;
 	}
-		return mapZoom
+	return mapZoom;
 }
-
 
 function setBtCenter(windowWidth) {
 	let mapCenter;
@@ -344,7 +377,7 @@ function setMapCenter(windowWidth) {
 	// create variable for map center
 	let mapCenter;
 	// test for various browser widths
-	if ((windowWidth < 500) && (isiPhone())) {
+	if (windowWidth < 500 && isiPhone()) {
 		mapCenter = [-99.86562013617491, 13.867242923198695];
 	} else {
 		mapCenter = [-99.86562013617491, 14.067242923198695];
@@ -353,18 +386,16 @@ function setMapCenter(windowWidth) {
 } //end setMapCenter
 
 function setInitialMapZoom(windowWidth) {
-	
 	// create variable for map zoom level
 	let mapZoom;
 	// test for various browser widths
 	if (windowWidth < 500 && isiPhone()) {
-		mapZoom =8;
+		mapZoom = 8;
 	} else if (isiPhone()) {
 		mapZoom = 6;
 	}
 	return mapZoom;
 } //end setInitialMapZoom
-
 
 //advis functions
 advisScroller
@@ -425,13 +456,11 @@ function createSliderMap() {
 }
 
 function createSliderElement(data) {
-
-		overlay = document.getElementById("bt2");
-		overlay.innerHTML =
-			'<h2 id="slider-title">Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0"/><p><em>compared to actual path and strength category<em></p>';
-			overlay.style.opacity = 0.8
-		updateFcMap(data[0], data[1]);
-	
+	overlay = document.getElementById("bt2");
+	overlay.innerHTML =
+		'<h2 id="slider-title">Forecast on 10:00 AM Sun Oct 22</h2><label id="month"></label><input id="slider" type="range" min="0" max="23" step="1" value="0"/><p><em>compared to actual path and strength category<em></p>';
+	overlay.style.opacity = 0.8;
+	updateFcMap(data[0], data[1]);
 }
 
 //UPDATE FC MAP BASED ON SLIDER INPUT
@@ -460,11 +489,10 @@ function updateFcMap(lines, cones) {
 	});
 }
 
-
 function landslideZoom() {
 	lsmap.flyTo({
 		center: [-99.91285749868301, 16.900181458697703],
-		zoom: 13,
+		zoom: 12,
 		speed: 2,
 		curve: 1,
 		pitch: 40,
@@ -474,13 +502,10 @@ function landslideZoom() {
 	});
 }
 
-
-
 lsScroller
 	.setup({
 		step: ".landslide-section section", // Select your steps
 		offset: 0.7,
-		debug: false, // Set to true to see debug lines
 	})
 	.onStepEnter((response) => {
 		// response = { element, index, direction }
@@ -491,24 +516,7 @@ const landslideScroll = (step) => {
 	// Logic to update map based on the step
 	if (step === 1) {
 		landslideZoom();
+		createLandslideRoads();
 		return;
 	}
 };
-
-// Handle resize
-window.addEventListener("resize", lsScroller.resize);
-
-btScroller
-	.setup({
-		step: ".bt-section section", // Select your steps
-		offset: 1,
-		debug: false, // Set to true to see debug lines
-	})
-	.onStepEnter((response) => {
-		// response = { element, index, direction }
-		btScroll(response.index + 1); // Update the map data
-	});
-
-	// Handle resize
-window.addEventListener("resize", btScroller.resize);
-

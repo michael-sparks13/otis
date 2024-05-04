@@ -265,7 +265,7 @@ lsmap.on("zoomend", function () {
 		layout: {
 			"text-field": ["get", "name"],
 			"text-size": 14,
-			"text-font": ["Open Sans Bold"],
+			"text-font": ["Open Sans Bold"]
 		},
 		paint: {
 			"text-color": "white",
@@ -434,6 +434,7 @@ function filterForecast(advisNum) {
 	map.setFilter("lines", ["==", "ADVISNUM", advisNum]);
 }
 
+
 //slider map functions
 function createSliderMap() {
 	Promise.all([
@@ -508,8 +509,7 @@ lsScroller
 		offset: 0.7,
 	})
 	.onStepEnter((response) => {
-		// response = { element, index, direction }
-		landslideScroll(response.index + 1); // Update the map data
+		landslideScroll(response.index + 1); 
 	});
 
 const landslideScroll = (step) => {
